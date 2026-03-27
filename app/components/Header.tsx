@@ -1,30 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { Brain, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Features", href: "#features" },
-  { label: "App", href: "#app" },
-  { label: "Diagnosis", href: "#diagnosis" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "About", href: "#about" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setOpen(false);
+    const target = document.querySelector(href);
+    target?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-dark/95 backdrop-blur-sm border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center">
-            <Brain className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-white font-heading font-semibold text-lg">
-            mygraine<span className="text-accent-light"> ai</span>
-          </span>
+          <img
+            src="/logos/mygraine-AI-logo-new.png"
+            alt="Mygraine AI"
+            className="h-20 w-auto"
+          />
         </a>
 
         {/* Desktop nav */}
@@ -33,7 +36,8 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors"
             >
               {link.label}
             </a>
@@ -41,18 +45,19 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:block">
           <a
-            href="#pricing"
-            className="px-5 py-2 bg-white text-primary rounded-lg text-sm font-semibold hover:bg-white/90 transition-colors"
+            href="#waitlist"
+            onClick={(e) => handleNavClick(e, "#waitlist")}
+            className="px-5 py-2.5 bg-[#6267c8] text-white rounded-full text-sm font-semibold hover:bg-[#5156b5] transition-colors"
           >
-            Get Early Access
+            Join the Waiting List
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-gray-700"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -62,23 +67,25 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-primary-dark border-t border-white/10 px-6 py-4">
+        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block py-2 text-white/80 hover:text-white text-sm font-medium"
-              onClick={() => setOpen(false)}
+              className="block py-3 text-gray-600 hover:text-gray-900 text-sm font-medium"
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.label}
             </a>
           ))}
           <a
-            href="#pricing"
-            className="mt-3 block text-center px-5 py-2 bg-white text-primary rounded-lg text-sm font-semibold"
-            onClick={() => setOpen(false)}
+            href="#waitlist"
+            className="mt-3 block text-center px-5 py-2.5 bg-[#6267c8] text-white rounded-full text-sm font-semibold hover:bg-[#5156b5] transition-colors"
+            onClick={(e) => {
+              handleNavClick(e, "#waitlist");
+            }}
           >
-            Get Early Access
+            Join the Waiting List
           </a>
         </div>
       )}

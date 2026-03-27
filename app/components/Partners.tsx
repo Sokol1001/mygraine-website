@@ -7,32 +7,25 @@ const partners = [
 ];
 
 export default function Partners() {
-  const doubled = [...partners, ...partners];
-
   return (
-    <section className="py-14 bg-white border-y border-border">
-      <div className="max-w-7xl mx-auto px-6">
-        <p className="text-center text-sm font-semibold text-text-secondary uppercase tracking-wider mb-8">
-          Our Partners
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-6">
+        <p className="text-center text-sm font-medium text-gray-400 uppercase tracking-widest mb-10">
+          Backed By
         </p>
-        <div
-          className="overflow-hidden"
-          style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
-        >
-          <div className="flex items-center gap-14 w-max animate-marquee">
-            {doubled.map((partner, i) => (
-              <div
-                key={`${partner.name}-${i}`}
-                className="flex items-center justify-center shrink-0 px-6"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-16 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="flex items-center justify-center gap-16 flex-wrap">
+          {partners.map((partner) => (
+            <div
+              key={partner.name}
+              className="flex items-center justify-center"
+            >
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MyGraine AI — AI-Powered Migraine Diagnosis & Management",
+  title: "Mygraine AI — Smart Migraine Tracking & Diagnosis",
   description:
-    "Get an ICHD-3 compliant migraine diagnosis through a conversational AI neurologist. Track attacks, monitor triggers, and build resilience — all from your phone.",
+    "Track, understand, and manage your migraines with AI-powered insights. Get accurate ICHD-3 diagnosis and personalized care.",
 };
 
 export default function RootLayout({

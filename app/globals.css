@@ -1,25 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1E40AF;
-  --color-primary-light: #3B82F6;
-  --color-primary-dark: #1E3A8A;
-  --color-accent: #06B6D4;
-  --color-accent-light: #22D3EE;
-  --color-success: #16A34A;
-  --color-warning: #D97706;
-  --color-error: #DC2626;
-  --color-surface: #FFFFFF;
-  --color-muted: #F1F5F9;
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #64748B;
-  --color-border: #E2E8F0;
+  --color-primary: #2a9ee9;
+  --color-primary-light: #5bb8f0;
+  --color-primary-dark: #1e7ec4;
+  --color-cta: #6267c8;
+  --color-cta-hover: #4e52a0;
+  --color-accent: #8b5cf6;
+  --color-surface: #ffffff;
+  --color-muted: #f8f9fa;
+  --color-text-primary: #333333;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
   --font-family-heading: 'Poppins', sans-serif;
   --font-family-body: 'Nunito Sans', sans-serif;
 }
 
 @theme {
-  --animate-marquee: marquee 20s linear infinite;
+  --animate-marquee: marquee 25s linear infinite;
 }
 
 @keyframes marquee {
@@ -31,9 +29,18 @@
   html {
     scroll-behavior: smooth;
   }
+
   body {
     font-family: var(--font-family-body);
     color: var(--color-text-primary);
     background: var(--color-surface);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+  }
+
+  section {
+    position: relative;
   }
 }

@@ -1,45 +1,34 @@
-import { Brain } from "lucide-react";
+import { Twitter, Instagram, Facebook, Youtube } from "lucide-react";
 
 const footerLinks = {
   Product: [
     { label: "Features", href: "#features" },
-    { label: "Mobile App", href: "#app" },
-    { label: "Diagnosis", href: "#diagnosis" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "About", href: "#about" },
+    { label: "Join Waitlist", href: "#waitlist" },
   ],
   Resources: [
-    { label: "FAQ", href: "#faq" },
-    { label: "ICHD-3 Guidelines", href: "#" },
-    { label: "Research", href: "#" },
-    { label: "Blog", href: "#" },
-  ],
-  Company: [
-    { label: "About", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "Help Center", href: "#" },
     { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Terms of Use", href: "#" },
   ],
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-dark text-white">
+    <footer className="bg-[#1a1a2e] text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-white/15 flex items-center justify-center">
-                <Brain className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-heading font-semibold text-lg">
-                mygraine<span className="text-accent-light"> ai</span>
-              </span>
+            <a href="#" className="flex items-center gap-3 mb-4">
+              <img
+                src="/logos/mygraine-AI-logo-new.png"
+                alt="Mygraine AI"
+                className="h-20 w-auto"
+              />
             </a>
-            <p className="text-white/60 leading-relaxed max-w-sm text-sm">
-              AI-powered migraine screening and management. Get an ICHD-3
-              compliant assessment, track your attacks, and build resilience —
-              all from your phone.
+            <p className="text-white/60 leading-relaxed max-w-sm text-sm mb-6">
+              AI-powered migraine tracking, treatment, and predictions.
             </p>
           </div>
 
@@ -66,14 +55,31 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm">
-            &copy; {new Date().getFullYear()} MyGraine AI. All rights reserved.
-          </p>
-          <p className="text-white/30 text-xs max-w-lg text-center md:text-right">
-            MyGraine AI is not a medical device and does not provide medical
-            advice. Always consult a qualified healthcare professional for
-            diagnosis and treatment.
+        <div className="mt-14 pt-6 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-white/40 text-sm">
+              &copy; 2026 Mygraine AI. All rights reserved.
+            </p>
+
+            {/* Social icons */}
+            <div className="flex items-center gap-4">
+              <a href="#" className="text-white/40 hover:text-white transition-colors">
+                <Twitter className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-white/40 hover:text-white transition-colors">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-white/40 hover:text-white transition-colors">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-white/40 hover:text-white transition-colors">
+                <Youtube className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          <p className="text-white/30 text-xs text-center mt-4">
+            Not a substitute for professional medical advice.
           </p>
         </div>
       </div>
