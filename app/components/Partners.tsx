@@ -1,9 +1,10 @@
 "use client";
 
 const partners = [
-  { name: "Melikov Center", logo: "/logos/melikov-center.png" },
-  { name: "Artificial Gate", logo: "/logos/artificial-gate.png" },
-  { name: "Up-Rise Reichman Accelerator", logo: "/logos/uprise-reichman.jpg" },
+  { name: "Melikov Center", logo: "/logos/melikov-center.png", heightClass: "h-14" },
+  { name: "Artificial Gate", logo: "/logos/artificial-gate.png", heightClass: "h-14" },
+  { name: "Up-Rise Reichman Accelerator", logo: "/logos/uprise-reichman.jpg", heightClass: "h-14" },
+  { name: "Teva Pharmaceuticals", logo: "/logos/teva.png", heightClass: "h-10" },
 ];
 
 export default function Partners() {
@@ -22,7 +23,7 @@ export default function Partners() {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className={`${partner.heightClass} w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
               />
             </div>
           ))}
