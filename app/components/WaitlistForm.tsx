@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, User, CheckCircle, Loader2, Lock } from "lucide-react";
+import { CheckCircle, Loader2 } from "lucide-react";
 import Reveal from "./Reveal";
 
 export default function WaitlistForm() {
@@ -40,91 +40,76 @@ export default function WaitlistForm() {
   };
 
   return (
-    <section id="waitlist" className="py-20 md:py-28 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
+    <section id="waitlist" className="py-24 md:py-36 bg-ink text-paper">
+      <div className="max-w-2xl mx-auto px-6 text-center">
         <Reveal>
-          <div className="relative rounded-[2.5rem] bg-[#11122e] overflow-hidden px-6 py-16 md:px-16 md:py-20">
-            {/* Aurora glow inside the panel */}
-            <div
-              className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#6267c8]/40 blur-3xl animate-pulse-glow"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute -bottom-32 -right-20 w-[28rem] h-[28rem] rounded-full bg-[#2a9ee9]/30 blur-3xl animate-pulse-glow [animation-delay:2s]"
-              aria-hidden="true"
-            />
+          <p className="flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-paper/50 mb-6">
+            <span className="text-violet" aria-hidden="true">&#10042;</span>
+            Early access
+          </p>
+          <h2 className="text-4xl md:text-6xl leading-[1.05] tracking-tight mb-5">
+            Be first in line{" "}
+            <em className="font-normal" style={{ color: "#9d9df0" }}>
+              when we launch.
+            </em>
+          </h2>
+          <p className="text-lg text-paper/60 mb-12 max-w-md mx-auto">
+            Join the waiting list and we&apos;ll save you a spot — no spam,
+            just the launch.
+          </p>
+        </Reveal>
 
-            <div className="relative max-w-xl mx-auto text-center">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
-                Get early access
-              </h2>
-              <p className="text-lg text-white/70 mb-10">
-                Join the waiting list and be the first to try Mygraine AI
+        <Reveal delay={120}>
+          {status === "success" ? (
+            <div className="border border-paper/15 rounded-3xl p-10">
+              <CheckCircle className="w-10 h-10 mx-auto mb-4 text-violet" style={{ color: "#9d9df0" }} />
+              <h3 className="text-2xl mb-2">You&apos;re on the list.</h3>
+              <p className="text-paper/60">
+                We&apos;ll write to you the moment Mygraine AI is ready.
               </p>
-
-              {status === "success" ? (
-                <div className="bg-white/10 backdrop-blur border border-white/15 rounded-3xl p-10 text-white">
-                  <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-brand flex items-center justify-center shadow-lg shadow-indigo-500/40">
-                    <CheckCircle className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">You&apos;re on the list!</h3>
-                  <p className="text-white/70">
-                    We&apos;ll notify you as soon as Mygraine AI is ready.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="relative">
-                    <User className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="text"
-                      placeholder="Your name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                      className="w-full pr-5 py-4 rounded-full bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2a9ee9] text-sm"
-                      style={{ paddingLeft: "3.25rem" }}
-                    />
-                  </div>
-                  <div className="relative">
-                    <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="w-full pr-5 py-4 rounded-full bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2a9ee9] text-sm"
-                      style={{ paddingLeft: "3.25rem" }}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={status === "loading"}
-                    className="w-full py-4 bg-gradient-brand text-white font-semibold rounded-full shadow-xl shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:hover:translate-y-0 flex items-center justify-center gap-2"
-                  >
-                    {status === "loading" ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : (
-                      "Join the Waiting List"
-                    )}
-                  </button>
-                  {status === "error" && (
-                    <p className="text-red-300 text-sm">
-                      Something went wrong. Please try again.
-                    </p>
-                  )}
-                  <p className="flex items-center justify-center gap-1.5 text-white/40 text-xs pt-2">
-                    <Lock className="w-3.5 h-3.5" />
-                    We&apos;ll only use your email to tell you when we launch.
-                  </p>
-                </form>
-              )}
             </div>
-          </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-3.5 text-left">
+              <input
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full px-6 py-4 rounded-full bg-paper text-ink placeholder:text-ink/40 focus:outline-none focus:ring-2 focus:ring-violet text-sm"
+              />
+              <input
+                type="email"
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-6 py-4 rounded-full bg-paper text-ink placeholder:text-ink/40 focus:outline-none focus:ring-2 focus:ring-violet text-sm"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full py-4 bg-violet text-white font-medium rounded-full hover:bg-paper hover:text-ink transition-colors disabled:opacity-70 flex items-center justify-center gap-2"
+              >
+                {status === "loading" ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Saving your spot...
+                  </>
+                ) : (
+                  <>Join the waitlist &rarr;</>
+                )}
+              </button>
+              {status === "error" && (
+                <p className="text-red-300 text-sm text-center">
+                  Something went wrong. Please try again.
+                </p>
+              )}
+              <p className="text-paper/35 text-xs text-center pt-2">
+                We&apos;ll only use your email to tell you when we launch.
+              </p>
+            </form>
+          )}
         </Reveal>
       </div>
     </section>

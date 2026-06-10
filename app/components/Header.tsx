@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
+  { label: "Inside the app", href: "#features" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "About", href: "#about" },
+  { label: "Why us", href: "#about" },
 ];
 
 export default function Header() {
@@ -28,30 +28,28 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-[0_1px_30px_rgba(98,103,200,0.12)]"
-          : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur-md border-b transition-colors duration-300 ${
+        scrolled ? "border-line" : "border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <a href="#" className="flex items-center">
           <img
             src="/logos/mygraine-AI-logo-new.png"
             alt="Mygraine AI"
-            className="h-16 w-auto"
+            className="h-14 w-auto"
           />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1 bg-white/60 backdrop-blur-md border border-white/70 rounded-full px-2 py-1.5 shadow-sm">
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="px-4 py-2 text-gray-600 hover:text-gray-900 hover:bg-white rounded-full text-sm font-medium transition-colors"
+              className="text-sm text-ink/70 hover:text-ink underline-offset-4 decoration-violet/60 hover:underline transition-colors"
             >
               {link.label}
             </a>
@@ -63,15 +61,16 @@ export default function Header() {
           <a
             href="#waitlist"
             onClick={(e) => handleNavClick(e, "#waitlist")}
-            className="px-6 py-2.5 bg-gradient-brand text-white rounded-full text-sm font-semibold shadow-lg shadow-indigo-300/40 hover:shadow-indigo-400/50 hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-paper rounded-full text-sm font-medium hover:bg-violet transition-colors"
           >
-            Join the Waiting List
+            Join the waitlist
+            <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-gray-700"
+          className="md:hidden text-ink"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -81,12 +80,12 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-4 shadow-xl">
+        <div className="md:hidden bg-paper border-t border-line px-6 py-4">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block py-3 text-gray-600 hover:text-gray-900 text-sm font-medium"
+              className="block py-3 text-ink/70 hover:text-ink text-sm"
               onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.label}
@@ -94,10 +93,10 @@ export default function Header() {
           ))}
           <a
             href="#waitlist"
-            className="mt-3 block text-center px-5 py-3 bg-gradient-brand text-white rounded-full text-sm font-semibold shadow-lg shadow-indigo-300/40"
+            className="mt-3 block text-center px-5 py-3 bg-ink text-paper rounded-full text-sm font-medium"
             onClick={(e) => handleNavClick(e, "#waitlist")}
           >
-            Join the Waiting List
+            Join the waitlist &rarr;
           </a>
         </div>
       )}

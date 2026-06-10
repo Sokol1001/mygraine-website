@@ -1,11 +1,9 @@
-import { Twitter, Instagram, Facebook, Youtube } from "lucide-react";
-
 const footerLinks = {
   Product: [
-    { label: "Features", href: "#features" },
+    { label: "Inside the app", href: "#features" },
     { label: "How it works", href: "#how-it-works" },
-    { label: "About", href: "#about" },
-    { label: "Join Waitlist", href: "#waitlist" },
+    { label: "Why us", href: "#about" },
+    { label: "Join the waitlist", href: "#waitlist" },
   ],
   Resources: [
     { label: "Help Center", href: "#" },
@@ -16,40 +14,28 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0d0e22] text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-ink text-paper border-t border-paper/10 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 pt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="inline-flex items-center gap-3 mb-4">
+            <a href="#" className="inline-block mb-4">
               <img
                 src="/logos/mygraine-AI-logo-new.png"
                 alt="Mygraine AI"
-                className="h-16 w-auto"
+                className="h-14 w-auto"
               />
             </a>
-            <p className="text-white/50 leading-relaxed max-w-sm text-sm mb-6">
+            <p className="text-paper/50 leading-relaxed max-w-xs text-sm">
               AI-powered migraine tracking, treatment, and predictions.
             </p>
-
-            {/* Social icons */}
-            <div className="flex items-center gap-3">
-              {[Twitter, Instagram, Facebook, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Link columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+              <h4 className="text-xs uppercase tracking-[0.22em] text-paper/40 mb-5 font-sans font-medium"
+                  style={{ fontFamily: "var(--font-family-body)" }}>
                 {category}
               </h4>
               <ul className="space-y-3">
@@ -57,7 +43,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-white/55 hover:text-white text-sm transition-colors"
+                      className="text-paper/60 hover:text-paper text-sm underline-offset-4 hover:underline transition-colors"
                     >
                       {link.label}
                     </a>
@@ -68,16 +54,23 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-white/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-            <p className="text-white/40 text-sm">
-              &copy; 2026 Mygraine AI. All rights reserved.
-            </p>
-            <p className="text-white/30 text-xs">
-              Not a substitute for professional medical advice.
-            </p>
-          </div>
+        <div className="border-t border-paper/10 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-paper/40 text-sm">
+            &copy; 2026 Mygraine AI. All rights reserved.
+          </p>
+          <p className="text-paper/30 text-xs">
+            Not a substitute for professional medical advice.
+          </p>
+        </div>
+
+        {/* Giant wordmark */}
+        <div className="select-none pointer-events-none -mb-6 md:-mb-10" aria-hidden="true">
+          <p
+            className="text-center text-[19vw] leading-[0.85] tracking-tight text-paper/[0.06] whitespace-nowrap"
+            style={{ fontFamily: "var(--font-family-display)" }}
+          >
+            Mygraine
+          </p>
         </div>
       </div>
     </footer>
