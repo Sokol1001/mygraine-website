@@ -3,27 +3,22 @@
 import PhoneFrame from "./PhoneFrame";
 
 export default function Hero() {
-  const scrollTo = (e: React.MouseEvent, href: string) => {
+  const scrollToWaitlist = (e: React.MouseEvent) => {
     e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    document.querySelector("#waitlist")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="bg-paper pt-32 md:pt-40 pb-0 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-10 items-end">
-        {/* Left - editorial copy */}
+        {/* Copy */}
         <div className="pb-16 md:pb-24">
-          <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-ink/50 mb-7">
-            <span className="text-violet" aria-hidden="true">&#10042;</span>
-            For people who plan life around their head
-          </p>
-
-          <h1 className="text-[2.75rem] md:text-6xl lg:text-[4.25rem] leading-[1.04] text-ink tracking-tight">
-            Your migraines follow a{" "}
-            <span className="relative inline-block">
-              pattern
+          <h1 className="text-[2.6rem] md:text-6xl lg:text-[4rem] leading-[1.1] text-ink tracking-tight">
+            נוירולוג מומחה למיגרנה{" "}
+            <span className="relative inline-block text-violet">
+              אצלך בכיס!
               <svg
-                className="absolute left-0 -bottom-1.5 w-full"
+                className="absolute right-0 -bottom-1.5 w-full"
                 viewBox="0 0 200 12"
                 preserveAspectRatio="none"
                 aria-hidden="true"
@@ -37,66 +32,35 @@ export default function Hero() {
                 />
               </svg>
             </span>
-            .{" "}
-            <em className="text-violet font-normal">We taught an AI to read it.</em>
           </h1>
 
-          <p className="mt-7 text-lg text-ink/65 max-w-md leading-relaxed">
-            Mygraine AI tracks your attacks, learns your triggers, and warns
-            you before the next one — with a treatment plan built around your
-            life, not a template.
+          <p className="mt-7 text-lg text-ink/65 max-w-lg leading-relaxed">
+            תוכנית טיפול עצמי למיגרנה שפותחה על ידי נוירולוג מומחה ומתאמת
+            עבורך אישית באמצעות בינה מלאכותית. הכי נוח, הכי חכם, הכי יעיל.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-6">
+          <div className="mt-9">
             <a
               href="#waitlist"
-              onClick={(e) => scrollTo(e, "#waitlist")}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-ink text-paper rounded-full text-base font-medium hover:bg-violet transition-colors"
+              onClick={scrollToWaitlist}
+              className="inline-block px-8 py-4 bg-ink text-paper rounded-full text-base font-medium hover:bg-violet transition-colors"
             >
-              Join the waitlist
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-            <a
-              href="#how-it-works"
-              onClick={(e) => scrollTo(e, "#how-it-works")}
-              className="text-base text-ink/70 hover:text-ink underline underline-offset-4 decoration-violet/60 transition-colors"
-            >
-              See how it works
+              אני רוצה את האפליקציה
             </a>
           </div>
-
-          <p className="mt-10 text-sm text-ink/45">
-            ICHD-3 compliant assessment&ensp;&middot;&ensp;Built with neurologists
-          </p>
         </div>
 
-        {/* Right - phone in an arch */}
-        <div className="relative flex justify-center lg:justify-end">
-          {/* Arch backdrop */}
+        {/* Phone in an arch */}
+        <div className="relative flex justify-center">
           <div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-2 lg:translate-x-0 w-[19rem] md:w-[21rem] h-[88%] bg-lilac rounded-t-full"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[19rem] md:w-[21rem] h-[88%] bg-lilac rounded-t-full"
             aria-hidden="true"
           />
-
-          <div className="relative w-60 md:w-64 mt-10 lg:mr-12 rotate-2">
+          <div className="relative w-60 md:w-64 mt-10 rotate-2">
             <PhoneFrame
               src="/screenshots/clinical-intake.png"
-              alt="Mygraine AI clinical intake screen"
+              alt="מסך האפליקציה Mygraine AI"
             />
-          </div>
-
-          {/* Annotation note */}
-          <div className="absolute bottom-14 left-2 md:left-6 lg:-left-6 -rotate-3 bg-white border border-ink/10 rounded-xl px-4 py-3 max-w-[13rem] shadow-[5px_5px_0_#eceaf8]">
-            <p className="flex items-center gap-1.5 text-sm font-semibold text-ink">
-              <span className="relative flex w-2 h-2" aria-hidden="true">
-                <span className="absolute inline-flex w-full h-full rounded-full bg-violet opacity-60 animate-ping" />
-                <span className="relative inline-flex w-2 h-2 rounded-full bg-violet" />
-              </span>
-              Pattern detected
-            </p>
-            <p className="text-xs text-ink/55 mt-1 leading-snug">
-              Your usual three-day window starts tomorrow.
-            </p>
           </div>
         </div>
       </div>

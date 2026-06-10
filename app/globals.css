@@ -9,8 +9,8 @@
   --color-peach: #f6d9c3;
   --color-line: rgba(33, 30, 38, 0.12);
 
-  --font-family-display: 'Fraunces', Georgia, serif;
-  --font-family-body: 'Inter', sans-serif;
+  --font-family-display: 'Frank Ruhl Libre', Georgia, serif;
+  --font-family-body: 'Heebo', sans-serif;
 
   --animate-marquee: marquee 36s linear infinite;
 }

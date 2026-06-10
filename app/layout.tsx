@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mygraine AI — Smart Migraine Tracking & Diagnosis",
+  title: "Mygraine AI — נוירולוג מומחה למיגרנה אצלך בכיס",
   description:
-    "Track, understand, and manage your migraines with AI-powered insights. Get accurate ICHD-3 diagnosis and personalized care.",
+    "תוכנית טיפול עצמי למיגרנה שפותחה על ידי נוירולוג מומחה ומותאמת עבורך אישית באמצעות בינה מלאכותית.",
 };
 
 export default function RootLayout({
@@ -13,10 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="he" dir="rtl">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700&family=Heebo:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
