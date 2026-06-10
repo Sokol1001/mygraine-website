@@ -1,7 +1,8 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Partners from "./components/Partners";
-import Benefits from "./components/Benefits";
+import FeatureShowcase from "./components/FeatureShowcase";
+import HowItWorks from "./components/HowItWorks";
 import WhyMyGraine from "./components/WhyMyGraine";
 import WaitlistForm from "./components/WaitlistForm";
 import Footer from "./components/Footer";
@@ -12,7 +13,8 @@ export default function Home() {
       <Header />
       <Hero />
       <Partners />
-      <Benefits />
+      <FeatureShowcase />
+      <HowItWorks />
       <WhyMyGraine />
       <WaitlistForm />
       <Footer />

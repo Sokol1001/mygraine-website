@@ -1,28 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2a9ee9;
-  --color-primary-light: #5bb8f0;
-  --color-primary-dark: #1e7ec4;
-  --color-cta: #6267c8;
-  --color-cta-hover: #4e52a0;
-  --color-accent: #8b5cf6;
+  --color-brand: #6267c8;
+  --color-brand-dark: #4e52a0;
+  --color-sky: #2a9ee9;
+  --color-ink: #0f1029;
   --color-surface: #ffffff;
-  --color-muted: #f8f9fa;
-  --color-text-primary: #333333;
-  --color-text-secondary: #6b7280;
-  --color-border: #e5e7eb;
-  --font-family-heading: 'Poppins', sans-serif;
-  --font-family-body: 'Nunito Sans', sans-serif;
-}
+  --color-muted: #f7f7fc;
+  --color-text-primary: #1c1d3a;
+  --color-text-secondary: #5d6079;
+  --color-border: #e7e8f2;
+  --font-family-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
 
-@theme {
-  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out 1.2s infinite;
+  --animate-pulse-glow: pulse-glow 5s ease-in-out infinite;
 }
 
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
 }
 
 @layer base {
@@ -42,5 +51,40 @@
 
   section {
     position: relative;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(100deg, #6267c8 10%, #2a9ee9 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background: linear-gradient(100deg, #6267c8, #2a9ee9);
+  }
+}
+
+/* Scroll-reveal (driven by the Reveal component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
