@@ -9,6 +9,7 @@ import {
   AlertTriangle,
   ArrowUpDown,
   ChevronRight,
+  Download,
   Loader2,
   LogOut,
   Search,
@@ -21,6 +22,11 @@ import {
   type PatientSummary,
 } from "@/lib/doctorTypes";
 import { clinicInsights, triage, triageRank } from "@/lib/clinical";
+import { downloadCSV, toCSV } from "@/lib/csv";
+
+function todayStamp(): string {
+  return new Date().toISOString().slice(0, 10);
+}
 
 function fmtDate(value: string | null): string {
   if (!value) return "—";
@@ -251,6 +257,29 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
     return list;
   }, [rows, query, sort, onlyAttention]);
 
+  const exportCSV = useCallback(() => {
+    const csv = toCSV(
+      [
+        { key: "name", label: "Name" },
+        { key: "email", label: "Email" },
+        { key: "phenotype", label: "Phenotype" },
+        { key: "diagnosis_confidence", label: "Dx confidence" },
+        { key: "preventive_drug_class", label: "Drug class" },
+        { key: "latest_resilience_score", label: "Resilience" },
+        { key: "latest_zone", label: "Zone" },
+        { key: "attacks_30d", label: "Attacks 30d" },
+        { key: "latest_phq2", label: "PHQ-2" },
+        { key: "latest_gad2", label: "GAD-2" },
+        { key: "latest_isi", label: "ISI" },
+        { key: "last_log_date", label: "Last active" },
+        { key: "attention", label: "Attention" },
+        { key: "reasons", label: "Flags" },
+      ],
+      visible.map(({ p, t }) => ({ ...p, attention: t.level, reasons: t.reasons.join("; ") }))
+    );
+    downloadCSV(`clinic-patients-${todayStamp()}.csv`, csv);
+  }, [visible]);
+
   return (
     <main className="min-h-screen bg-paper" dir="ltr">
       <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur-md">
@@ -360,6 +389,13 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
                   <option value="active">Recently active</option>
                 </select>
               </div>
+              <button
+                onClick={exportCSV}
+                className="flex items-center gap-1.5 rounded-full border border-line bg-white px-3.5 py-2 text-sm font-medium text-ink/70 hover:bg-lilac transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Export CSV
+              </button>
             </div>
 
             <p className="text-xs text-ink/50 mb-3">

@@ -300,6 +300,107 @@ export function consultationFlags(detail: PatientDetail): Flag[] {
   return flags;
 }
 
+/* --------------------------- Date-range filtering ------------------------- */
+
+export type RangeKey = "30d" | "90d" | "1y" | "all";
+
+export const RANGE_DAYS: Record<RangeKey, number | null> = {
+  "30d": 30,
+  "90d": 90,
+  "1y": 365,
+  all: null,
+};
+
+export const RANGE_LABEL: Record<RangeKey, string> = {
+  "30d": "30 days",
+  "90d": "90 days",
+  "1y": "1 year",
+  all: "All time",
+};
+
+/** Keep items whose date field falls within the window (null window = all). */
+export function withinRange<T>(
+  items: T[],
+  dateKey: keyof T,
+  range: RangeKey
+): T[] {
+  const days = RANGE_DAYS[range];
+  if (days === null) return items;
+  return items.filter((it) => {
+    const d = daysSince(it[dateKey] as unknown as string | null);
+    return d !== null && d <= days;
+  });
+}
+
+/* ----------------------------- Attack burden ------------------------------ */
+
+export interface AttackBurden {
+  count: number;
+  avgSeverity: number | null;
+  avgDuration: number | null;
+}
+
+export function attackBurden(attacks: AttackRecord[], days: number): AttackBurden {
+  const inWin = attacks.filter((a) => {
+    const d = daysSince(a.date);
+    return d !== null && d <= days;
+  });
+  return {
+    count: inWin.length,
+    avgSeverity: avg(inWin.map((a) => a.attack_severity).filter((n): n is number => n !== null)),
+    avgDuration: avg(
+      inWin.map((a) => a.attack_duration_hours).filter((n): n is number => n !== null)
+    ),
+  };
+}
+
+/** Attack days bucketed by calendar month, oldest-first, for a small bar chart. */
+export function monthlyAttackBuckets(
+  attacks: AttackRecord[],
+  months: number
+): { label: string; count: number }[] {
+  const now = new Date();
+  const buckets: { key: string; label: string; count: number }[] = [];
+  const idx = new Map<string, number>();
+  for (let i = months - 1; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    const key = `${d.getFullYear()}-${d.getMonth()}`;
+    const label = d.toLocaleDateString("en-GB", { month: "short" });
+    idx.set(key, buckets.length);
+    buckets.push({ key, label, count: 0 });
+  }
+  for (const a of attacks) {
+    const t = a.date ? new Date(a.date) : null;
+    if (!t || Number.isNaN(t.getTime())) continue;
+    const key = `${t.getFullYear()}-${t.getMonth()}`;
+    const i = idx.get(key);
+    if (i !== undefined) buckets[i].count++;
+  }
+  return buckets.map(({ label, count }) => ({ label, count }));
+}
+
+/* --------------------------- Prediction accuracy -------------------------- */
+
+export interface PredictionAccuracy {
+  resolved: number;
+  accuracyPct: number | null;
+}
+
+/** Of resolved predictions, share where the call matched the outcome (>=50% prob ⇒ attack expected). */
+export function predictionAccuracy(
+  predictions: { probability: number | null; attack_occurred: boolean | null }[]
+): PredictionAccuracy {
+  const resolved = predictions.filter((p) => p.attack_occurred !== null && p.probability !== null);
+  if (resolved.length === 0) return { resolved: 0, accuracyPct: null };
+  let correct = 0;
+  for (const p of resolved) {
+    const prob = (p.probability as number) <= 1 ? (p.probability as number) * 100 : (p.probability as number);
+    const predicted = prob >= 50;
+    if (predicted === p.attack_occurred) correct++;
+  }
+  return { resolved: resolved.length, accuracyPct: Math.round((correct / resolved.length) * 100) };
+}
+
 export const FLAG_TONE_CLASS: Record<FlagTone, string> = {
   alert: "bg-red-50 text-red-700 border-red-200",
   warn: "bg-amber-50 text-amber-800 border-amber-200",
