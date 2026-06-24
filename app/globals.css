@@ -71,3 +71,26 @@
     animation: none;
   }
 }
+
+/* Doctor-portal patient report: clean, single-document print/PDF output. */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  /* Preserve clinical colors (zone chips, flags) when printing. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Don't split cards across pages. */
+  .break-inside-avoid {
+    break-inside: avoid;
+  }
+}

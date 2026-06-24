@@ -1,14 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { Session } from "@supabase/supabase-js";
 import {
   Activity,
   AlertCircle,
+  AlertTriangle,
+  ArrowUpDown,
   ChevronRight,
   Loader2,
   LogOut,
+  Search,
   Stethoscope,
 } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
@@ -17,6 +20,7 @@ import {
   zoneMeta,
   type PatientSummary,
 } from "@/lib/doctorTypes";
+import { clinicInsights, triage, triageRank } from "@/lib/clinical";
 
 function fmtDate(value: string | null): string {
   if (!value) return "—";
@@ -174,11 +178,16 @@ function LoginForm() {
 
 /* -------------------------------- Clinic list ------------------------------ */
 
+type SortKey = "attention" | "name" | "resilience" | "attacks" | "active";
+
 function ClinicList({ onSignOut }: { onSignOut: () => void }) {
   const [rows, setRows] = useState<PatientSummary[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notAuthorized, setNotAuthorized] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState("");
+  const [sort, setSort] = useState<SortKey>("attention");
+  const [onlyAttention, setOnlyAttention] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -204,6 +213,44 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
     load();
   }, [load]);
 
+  const insights = useMemo(() => (rows ? clinicInsights(rows) : null), [rows]);
+
+  const visible = useMemo(() => {
+    if (!rows) return [];
+    const q = query.trim().toLowerCase();
+    let list = rows.map((p) => ({ p, t: triage(p) }));
+    if (q) {
+      list = list.filter(
+        ({ p }) =>
+          (p.name ?? "").toLowerCase().includes(q) ||
+          (p.email ?? "").toLowerCase().includes(q) ||
+          (p.phenotype ?? "").toLowerCase().includes(q)
+      );
+    }
+    if (onlyAttention) list = list.filter(({ t }) => t.level !== "none");
+    list.sort((a, b) => {
+      switch (sort) {
+        case "name":
+          return (a.p.name ?? a.p.email ?? "").localeCompare(
+            b.p.name ?? b.p.email ?? ""
+          );
+        case "resilience":
+          return (a.p.latest_resilience_score ?? 999) - (b.p.latest_resilience_score ?? 999);
+        case "attacks":
+          return (b.p.attacks_30d ?? -1) - (a.p.attacks_30d ?? -1);
+        case "active":
+          return (b.p.last_log_date ?? "").localeCompare(a.p.last_log_date ?? "");
+        case "attention":
+        default: {
+          const d = triageRank(b.t.level) - triageRank(a.t.level);
+          if (d !== 0) return d;
+          return (b.p.attacks_30d ?? -1) - (a.p.attacks_30d ?? -1);
+        }
+      }
+    });
+    return list;
+  }, [rows, query, sort, onlyAttention]);
+
   return (
     <main className="min-h-screen bg-paper" dir="ltr">
       <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur-md">
@@ -226,7 +273,7 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
 
       <div className="max-w-6xl mx-auto px-6 py-8">
         <div className="mb-6">
-          <h1 className="font-display text-2xl text-ink">Patients</h1>
+          <h1 className="font-display text-2xl text-ink">Clinic overview</h1>
           <p className="text-sm text-ink/60 mt-1">
             {rows ? `${rows.length} patient${rows.length === 1 ? "" : "s"}` : ""}
           </p>
@@ -274,13 +321,169 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
           </div>
         )}
 
-        {rows && rows.length > 0 && <PatientTable rows={rows} />}
+        {rows && rows.length > 0 && insights && (
+          <>
+            <InsightsBand insights={insights} />
+
+            <div className="flex flex-wrap items-center gap-3 mt-8 mb-3">
+              <div className="relative flex-1 min-w-[220px]">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink/40" />
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search name, email, phenotype…"
+                  className="w-full rounded-full border border-line bg-white pl-9 pr-4 py-2 text-sm text-ink outline-none focus:border-violet focus:ring-2 focus:ring-violet/20"
+                />
+              </div>
+              <button
+                onClick={() => setOnlyAttention((v) => !v)}
+                className={`flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors ${
+                  onlyAttention
+                    ? "border-red-300 bg-red-50 text-red-700"
+                    : "border-line bg-white text-ink/70 hover:bg-lilac"
+                }`}
+              >
+                <AlertTriangle className="w-4 h-4" />
+                Needs attention
+              </button>
+              <div className="flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-sm">
+                <ArrowUpDown className="w-3.5 h-3.5 text-ink/40" />
+                <select
+                  value={sort}
+                  onChange={(e) => setSort(e.target.value as SortKey)}
+                  className="bg-transparent text-ink/80 outline-none cursor-pointer"
+                >
+                  <option value="attention">Priority</option>
+                  <option value="name">Name</option>
+                  <option value="resilience">Lowest resilience</option>
+                  <option value="attacks">Most attacks</option>
+                  <option value="active">Recently active</option>
+                </select>
+              </div>
+            </div>
+
+            <p className="text-xs text-ink/50 mb-3">
+              Showing {visible.length} of {rows.length}
+            </p>
+
+            <PatientTable rows={visible} />
+          </>
+        )}
       </div>
     </main>
   );
 }
 
-function PatientTable({ rows }: { rows: PatientSummary[] }) {
+/* ----------------------------- Insights band ------------------------------ */
+
+function InsightsBand({
+  insights,
+}: {
+  insights: ReturnType<typeof clinicInsights>;
+}) {
+  const z = insights.zones;
+  const total = insights.total || 1;
+  const seg = (n: number, cls: string) =>
+    n > 0 ? (
+      <div className={cls} style={{ width: `${(n / total) * 100}%` }} title={`${n}`} />
+    ) : null;
+
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <Stat
+        label="Patients"
+        value={insights.total}
+        sub={`${insights.inactive} inactive`}
+      />
+      <Stat
+        label="Need attention"
+        value={insights.needsAttention}
+        sub={`${insights.highRisk} high priority`}
+        accent={insights.needsAttention > 0 ? "red" : "default"}
+      />
+      <Stat
+        label="Avg resilience"
+        value={insights.avgResilience ?? "—"}
+        sub={`${insights.totalAttacks30d} attack days / 30d`}
+      />
+      <Stat
+        label="Positive screens"
+        value={insights.positiveDepression + insights.positiveAnxiety}
+        sub={`${insights.positiveDepression} dep · ${insights.positiveAnxiety} anx`}
+        accent={
+          insights.positiveDepression + insights.positiveAnxiety > 0
+            ? "amber"
+            : "default"
+        }
+      />
+
+      <div className="sm:col-span-2 lg:col-span-4 rounded-2xl border border-line bg-white p-4 shadow-sm">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs uppercase tracking-wide text-ink/50">
+            Resilience distribution
+          </span>
+        </div>
+        <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-paper">
+          {seg(z.strong, "bg-emerald-500")}
+          {seg(z.moderate, "bg-amber-400")}
+          {seg(z.at_risk, "bg-orange-500")}
+          {seg(z.high_risk, "bg-red-500")}
+          {seg(z.unknown, "bg-line")}
+        </div>
+        <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink/60">
+          <Legend dot="bg-emerald-500" label="Strong" n={z.strong} />
+          <Legend dot="bg-amber-400" label="Moderate" n={z.moderate} />
+          <Legend dot="bg-orange-500" label="At risk" n={z.at_risk} />
+          <Legend dot="bg-red-500" label="High risk" n={z.high_risk} />
+          <Legend dot="bg-ink/20" label="No data" n={z.unknown} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Stat({
+  label,
+  value,
+  sub,
+  accent = "default",
+}: {
+  label: string;
+  value: number | string;
+  sub?: string;
+  accent?: "default" | "red" | "amber";
+}) {
+  const valueCls =
+    accent === "red"
+      ? "text-red-600"
+      : accent === "amber"
+      ? "text-amber-600"
+      : "text-ink";
+  return (
+    <div className="rounded-2xl border border-line bg-white p-4 shadow-sm">
+      <div className="text-xs uppercase tracking-wide text-ink/50">{label}</div>
+      <div className={`mt-1 text-3xl font-semibold ${valueCls}`}>{value}</div>
+      {sub && <div className="mt-0.5 text-xs text-ink/50">{sub}</div>}
+    </div>
+  );
+}
+
+function Legend({ dot, label, n }: { dot: string; label: string; n: number }) {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <span className={`w-1.5 h-1.5 rounded-full ${dot}`} />
+      {label} · {n}
+    </span>
+  );
+}
+
+/* ------------------------------- Patient table ----------------------------- */
+
+function PatientTable({
+  rows,
+}: {
+  rows: { p: PatientSummary; t: ReturnType<typeof triage> }[];
+}) {
   return (
     <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-sm">
       <table className="w-full text-sm">
@@ -298,7 +501,7 @@ function PatientTable({ rows }: { rows: PatientSummary[] }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((p) => {
+          {rows.map(({ p, t }) => {
             const zm = zoneMeta(p.latest_zone);
             return (
               <tr
@@ -306,19 +509,35 @@ function PatientTable({ rows }: { rows: PatientSummary[] }) {
                 className="border-b border-line/60 last:border-0 hover:bg-paper/60 transition-colors"
               >
                 <td className="px-4 py-3">
-                  <Link
-                    href={`/doctor/patient?id=${p.user_id}`}
-                    className="font-medium text-ink hover:text-violet"
-                  >
-                    {p.name || p.email || "Unknown"}
-                  </Link>
-                  {p.name && p.email && (
-                    <div className="text-xs text-ink/50">{p.email}</div>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {t.level !== "none" && (
+                      <span
+                        className={`w-1.5 h-5 rounded-full shrink-0 ${
+                          t.level === "high" ? "bg-red-500" : "bg-amber-400"
+                        }`}
+                        title={t.reasons.join(" · ")}
+                      />
+                    )}
+                    <div>
+                      <Link
+                        href={`/doctor/patient?id=${p.user_id}`}
+                        className="font-medium text-ink hover:text-violet"
+                      >
+                        {p.name || p.email || "Unknown"}
+                      </Link>
+                      {p.name && p.email && (
+                        <div className="text-xs text-ink/50">{p.email}</div>
+                      )}
+                      {t.level !== "none" && (
+                        <div className="text-xs text-ink/45 mt-0.5">
+                          {t.reasons[0]}
+                          {t.reasons.length > 1 ? ` +${t.reasons.length - 1}` : ""}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </td>
-                <td className="px-4 py-3 text-ink/80">
-                  {p.phenotype || "—"}
-                </td>
+                <td className="px-4 py-3 text-ink/80">{p.phenotype || "—"}</td>
                 <td className="px-4 py-3">
                   {p.latest_zone || p.latest_resilience_score !== null ? (
                     <span
@@ -344,18 +563,16 @@ function PatientTable({ rows }: { rows: PatientSummary[] }) {
                     {p.attacks_30d ?? "—"}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-center text-ink/80">
-                  {p.latest_phq2 ?? "—"}
+                <td className="px-4 py-3 text-center">
+                  <ScoreCell value={p.latest_phq2} positive={p.latest_phq2 !== null && p.latest_phq2 >= 3} />
                 </td>
-                <td className="px-4 py-3 text-center text-ink/80">
-                  {p.latest_gad2 ?? "—"}
+                <td className="px-4 py-3 text-center">
+                  <ScoreCell value={p.latest_gad2} positive={p.latest_gad2 !== null && p.latest_gad2 >= 3} />
                 </td>
-                <td className="px-4 py-3 text-center text-ink/80">
-                  {p.latest_isi ?? "—"}
+                <td className="px-4 py-3 text-center">
+                  <ScoreCell value={p.latest_isi} positive={p.latest_isi !== null && p.latest_isi >= 15} />
                 </td>
-                <td className="px-4 py-3 text-ink/70">
-                  {fmtDate(p.last_log_date)}
-                </td>
+                <td className="px-4 py-3 text-ink/70">{fmtDate(p.last_log_date)}</td>
                 <td className="px-4 py-3 text-right">
                   <Link
                     href={`/doctor/patient?id=${p.user_id}`}
@@ -371,5 +588,20 @@ function PatientTable({ rows }: { rows: PatientSummary[] }) {
         </tbody>
       </table>
     </div>
+  );
+}
+
+function ScoreCell({ value, positive }: { value: number | null; positive: boolean }) {
+  if (value === null || value === undefined) return <span className="text-ink/40">—</span>;
+  return (
+    <span
+      className={
+        positive
+          ? "inline-flex min-w-[1.5rem] justify-center rounded-md bg-red-50 px-1.5 py-0.5 text-xs font-semibold text-red-700"
+          : "text-ink/80"
+      }
+    >
+      {value}
+    </span>
   );
 }

@@ -7,7 +7,9 @@ import {
   AlertCircle,
   ArrowLeft,
   Calendar,
+  ClipboardList,
   Loader2,
+  Printer,
   Stethoscope,
 } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
@@ -20,6 +22,12 @@ import {
   type ResilienceTrendPoint,
   type ScreeningRecord,
 } from "@/lib/doctorTypes";
+import {
+  chronological,
+  consultationFlags,
+  FLAG_TONE_CLASS,
+  trendDelta,
+} from "@/lib/clinical";
 
 function fmtDate(value: string | null): string {
   if (!value) return "—";
@@ -89,7 +97,7 @@ export default function PatientDetailClient() {
 
   return (
     <main className="min-h-screen bg-paper" dir="ltr">
-      <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur-md">
+      <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur-md print:hidden">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link
             href="/doctor"
@@ -98,14 +106,25 @@ export default function PatientDetailClient() {
             <ArrowLeft className="w-4 h-4" />
             All patients
           </Link>
-          <div className="flex items-center gap-2">
-            <Stethoscope className="w-5 h-5 text-violet" />
-            <span className="font-display text-lg text-ink">Clinic Portal</span>
+          <div className="flex items-center gap-3">
+            {detail && summary && (
+              <button
+                onClick={() => window.print()}
+                className="flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm font-medium text-ink hover:bg-lilac transition-colors"
+              >
+                <Printer className="w-4 h-4" />
+                Print / PDF
+              </button>
+            )}
+            <div className="flex items-center gap-2">
+              <Stethoscope className="w-5 h-5 text-violet" />
+              <span className="font-display text-lg text-ink">Clinic Portal</span>
+            </div>
           </div>
         </div>
       </header>
 
-      <div className="max-w-5xl mx-auto px-6 py-8 space-y-6">
+      <div className="max-w-5xl mx-auto px-6 py-8 space-y-6 print:py-2 print:px-0">
         {!checkedSession && loading && (
           <div className="flex items-center gap-2 text-ink/60 text-sm py-16 justify-center">
             <Loader2 className="w-5 h-5 animate-spin text-violet" />
@@ -144,17 +163,39 @@ export default function PatientDetailClient() {
 
         {detail && summary && (
           <>
-            <SummaryHeader title={title} summary={summary} />
-            <div className="grid lg:grid-cols-2 gap-6">
+            <PrintHeader title={title} />
+            <SummaryHeader title={title} summary={summary} detail={detail} />
+            <ConsultationPrep detail={detail} />
+            <div className="grid lg:grid-cols-2 gap-6 print:grid-cols-2 print:gap-3">
               <ResilienceTrend points={detail.resilienceTrend ?? []} />
               <RecentAttacks attacks={detail.attacks ?? []} />
               <ScreeningHistory screenings={detail.screenings ?? []} />
               <Predictions predictions={detail.predictions ?? []} />
             </div>
+            <p className="hidden print:block text-xs text-ink/40 mt-4">
+              Generated from MyGraine AI patient data · {fmtDate(new Date().toISOString())} ·
+              Screening aid only — not a substitute for clinical judgment.
+            </p>
           </>
         )}
       </div>
     </main>
+  );
+}
+
+/* ------------------------------- Print header ------------------------------ */
+
+function PrintHeader({ title }: { title: string }) {
+  return (
+    <div className="hidden print:flex items-center justify-between border-b border-line pb-2 mb-2">
+      <div className="flex items-center gap-2">
+        <Stethoscope className="w-4 h-4 text-violet" />
+        <span className="font-display text-base text-ink">
+          MyGraine AI — Patient Report
+        </span>
+      </div>
+      <span className="text-sm text-ink/60">{title}</span>
+    </div>
   );
 }
 
@@ -163,13 +204,22 @@ export default function PatientDetailClient() {
 function SummaryHeader({
   title,
   summary,
+  detail,
 }: {
   title: string;
   summary: PatientDetail["summary"];
+  detail: PatientDetail;
 }) {
   const zm = zoneMeta(summary.latest_zone);
+  const td = trendDelta(detail.resilienceTrend ?? []);
+  const trendStr =
+    td.latest === null
+      ? null
+      : td.direction === "flat"
+      ? "stable"
+      : `${td.delta > 0 ? "+" : ""}${td.delta}`;
   return (
-    <section className="rounded-2xl border border-line bg-white p-6 shadow-sm">
+    <section className="rounded-2xl border border-line bg-white p-6 shadow-sm print:p-3 print:shadow-none">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="font-display text-2xl text-ink">{title}</h1>
@@ -194,12 +244,13 @@ function SummaryHeader({
             </div>
             <div className={`text-xs font-medium ${zm ? zm.text : "text-ink/50"}`}>
               {zm ? zm.label : "Resilience"}
+              {trendStr ? ` · ${trendStr}` : ""}
             </div>
           </div>
         )}
       </div>
 
-      <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-line">
+      <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-line print:mt-3 print:pt-3">
         <Field label="Phenotype" value={summary.phenotype} />
         <Field
           label="Dx confidence"
@@ -234,6 +285,31 @@ function Field({ label, value }: { label: string; value: string | null }) {
   );
 }
 
+/* --------------------------- Consultation prep ----------------------------- */
+
+function ConsultationPrep({ detail }: { detail: PatientDetail }) {
+  const flags = consultationFlags(detail);
+  return (
+    <section className="rounded-2xl border border-violet/20 bg-lilac/40 p-6 shadow-sm print:p-3 print:shadow-none print:bg-white print:border-line">
+      <div className="flex items-center gap-2 mb-4">
+        <ClipboardList className="w-5 h-5 text-violet" />
+        <h2 className="font-display text-lg text-ink">Consultation prep</h2>
+      </div>
+      <ul className="space-y-2">
+        {flags.map((f, i) => (
+          <li
+            key={i}
+            className={`flex items-start gap-2 rounded-xl border px-3.5 py-2.5 text-sm ${FLAG_TONE_CLASS[f.tone]}`}
+          >
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-current shrink-0 opacity-70" />
+            <span>{f.label}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 /* ------------------------------ Card wrapper ------------------------------- */
 
 function Card({
@@ -244,7 +320,7 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-line bg-white p-6 shadow-sm">
+    <section className="rounded-2xl border border-line bg-white p-6 shadow-sm print:p-3 print:shadow-none break-inside-avoid">
       <h2 className="font-display text-lg text-ink mb-4">{title}</h2>
       {children}
     </section>
@@ -258,35 +334,90 @@ function Empty({ text }: { text: string }) {
 /* ----------------------------- Resilience trend ---------------------------- */
 
 function ResilienceTrend({ points }: { points: ResilienceTrendPoint[] }) {
+  const series = chronological(points).filter(
+    (p): p is ResilienceTrendPoint & { score: number } => p.score !== null
+  );
   return (
     <Card title="Resilience trend">
-      {points.length === 0 ? (
+      {series.length === 0 ? (
         <Empty text="No resilience history yet." />
-      ) : (
-        <div className="space-y-2">
-          {points.map((pt, i) => {
-            const zm = zoneMeta(pt.zone);
-            const score = pt.score ?? 0;
-            return (
-              <div key={`${pt.date}-${i}`} className="flex items-center gap-3">
-                <div className="w-20 shrink-0 text-xs text-ink/60">
-                  {fmtDate(pt.date)}
-                </div>
-                <div className="flex-1 h-2.5 rounded-full bg-paper overflow-hidden">
-                  <div
-                    className={`h-full rounded-full ${zm ? zm.bar : "bg-violet"}`}
-                    style={{ width: `${Math.max(0, Math.min(100, score))}%` }}
-                  />
-                </div>
-                <div className="w-10 shrink-0 text-right text-xs font-medium text-ink">
-                  {pt.score !== null ? Math.round(pt.score) : "—"}
-                </div>
-              </div>
-            );
-          })}
+      ) : series.length === 1 ? (
+        <div className="flex items-baseline gap-2">
+          <span className="text-3xl font-semibold text-ink">
+            {Math.round(series[0].score)}
+          </span>
+          <span className="text-sm text-ink/50">
+            single reading · {fmtDate(series[0].date)}
+          </span>
         </div>
+      ) : (
+        <LineChart series={series} />
       )}
     </Card>
+  );
+}
+
+function LineChart({
+  series,
+}: {
+  series: (ResilienceTrendPoint & { score: number })[];
+}) {
+  const W = 460;
+  const H = 140;
+  const pad = { l: 8, r: 8, t: 12, b: 18 };
+  const iw = W - pad.l - pad.r;
+  const ih = H - pad.t - pad.b;
+  const n = series.length;
+  const x = (i: number) => pad.l + (n === 1 ? iw / 2 : (i / (n - 1)) * iw);
+  const y = (v: number) => pad.t + (1 - Math.max(0, Math.min(100, v)) / 100) * ih;
+
+  const linePts = series.map((p, i) => `${x(i)},${y(p.score)}`).join(" ");
+  const areaPts = `${pad.l},${pad.t + ih} ${linePts} ${pad.l + iw},${pad.t + ih}`;
+  const last = series[n - 1];
+  const first = series[0];
+
+  return (
+    <div>
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full h-auto"
+        preserveAspectRatio="none"
+        role="img"
+        aria-label="Resilience score over time"
+      >
+        {[0, 50, 100].map((g) => (
+          <line
+            key={g}
+            x1={pad.l}
+            x2={pad.l + iw}
+            y1={y(g)}
+            y2={y(g)}
+            stroke="rgba(33,30,38,0.08)"
+            strokeWidth={1}
+          />
+        ))}
+        <polygon points={areaPts} fill="rgba(91,91,214,0.10)" />
+        <polyline
+          points={linePts}
+          fill="none"
+          stroke="#5b5bd6"
+          strokeWidth={2}
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+        {series.map((p, i) => (
+          <circle key={i} cx={x(i)} cy={y(p.score)} r={i === n - 1 ? 3.5 : 2} fill="#5b5bd6" />
+        ))}
+      </svg>
+      <div className="flex items-center justify-between text-xs text-ink/50 mt-1">
+        <span>
+          {fmtDate(first.date)} · {Math.round(first.score)}
+        </span>
+        <span className="font-medium text-ink">
+          Latest {Math.round(last.score)} · {fmtDate(last.date)}
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -310,7 +441,7 @@ function RecentAttacks({ attacks }: { attacks: AttackRecord[] }) {
               </tr>
             </thead>
             <tbody>
-              {attacks.map((a, i) => (
+              {attacks.slice(0, 12).map((a, i) => (
                 <tr key={`${a.date}-${i}`} className="border-t border-line/60">
                   <td className="px-2 py-2 text-ink/80">{fmtDate(a.date)}</td>
                   <td className="px-2 py-2 text-center text-ink/80">
@@ -329,6 +460,11 @@ function RecentAttacks({ attacks }: { attacks: AttackRecord[] }) {
               ))}
             </tbody>
           </table>
+          {attacks.length > 12 && (
+            <p className="text-xs text-ink/40 mt-2 px-2">
+              Showing 12 of {attacks.length} logged attacks.
+            </p>
+          )}
         </div>
       )}
     </Card>
@@ -344,7 +480,7 @@ function ScreeningHistory({ screenings }: { screenings: ScreeningRecord[] }) {
         <Empty text="No screenings completed." />
       ) : (
         <div className="space-y-2">
-          {screenings.map((s, i) => (
+          {screenings.slice(0, 12).map((s, i) => (
             <div
               key={`${s.quiz_type}-${s.completed_at}-${i}`}
               className="flex items-center justify-between rounded-xl bg-paper px-3.5 py-2.5"
@@ -396,7 +532,7 @@ function Predictions({ predictions }: { predictions: PredictionRecord[] }) {
               </tr>
             </thead>
             <tbody>
-              {predictions.map((p, i) => (
+              {predictions.slice(0, 12).map((p, i) => (
                 <tr
                   key={`${p.predicted_at}-${i}`}
                   className="border-t border-line/60"
