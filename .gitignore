@@ -1,4 +1,8 @@
 node_modules/
 .next/
 out/
+
+# local env files (secrets — never commit)
+.env
+.env*.local
 CUsersmarkm.claudepluginsmarketplacesclaude-plugins-official
