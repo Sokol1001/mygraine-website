@@ -24,22 +24,12 @@ export default function Hero() {
         <div>
           <h1 className="font-display font-bold text-[3rem] sm:text-6xl lg:text-[4.6rem] leading-[1.02] tracking-tight text-ink">
             {t.hero.titlePrefix}
-            <span className="relative inline-block text-violet">
+            <span className="relative inline-block text-violet pb-[0.14em]">
               {t.hero.titleHighlight}
-              <svg
-                className="absolute inset-x-0 -bottom-2 w-full"
-                viewBox="0 0 200 12"
-                preserveAspectRatio="none"
+              <span
                 aria-hidden="true"
-              >
-                <path
-                  d="M3 8 Q 26 3, 50 7 T 100 7 T 150 7 T 197 5"
-                  fill="none"
-                  stroke="#5b5bd6"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-              </svg>
+                className="absolute inset-x-0 bottom-0 h-[0.07em] rounded-full bg-violet"
+              />
             </span>
           </h1>
 
