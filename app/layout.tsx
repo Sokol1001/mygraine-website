@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Mygraine AI — נוירולוג מומחה למיגרנה אצלך בכיס",
+  title: "Mygraine AI — an expert migraine neurologist in your pocket",
   description:
-    "תוכנית טיפול עצמי למיגרנה שפותחה על ידי נוירולוג מומחה ומותאמת עבורך אישית באמצעות בינה מלאכותית.",
+    "A self-care program for migraine, developed by an expert neurologist and personalized for you with AI.",
 };
 
 export default function RootLayout({
@@ -13,14 +14,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="he" dir="rtl">
+    <html lang="en" dir="ltr">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700&family=Heebo:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

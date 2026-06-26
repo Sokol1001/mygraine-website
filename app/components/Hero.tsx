@@ -1,8 +1,10 @@
 "use client";
 
 import PhoneFrame from "./PhoneFrame";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Hero() {
+  const { t } = useLanguage();
   const scrollToWaitlist = (e: React.MouseEvent) => {
     e.preventDefault();
     document.querySelector("#waitlist")?.scrollIntoView({ behavior: "smooth" });
@@ -14,9 +16,9 @@ export default function Hero() {
         {/* Copy */}
         <div className="pb-16 md:pb-24">
           <h1 className="text-[2.6rem] md:text-6xl lg:text-[4rem] leading-[1.1] text-ink tracking-tight">
-            נוירולוג מומחה למיגרנה{" "}
+            {t.hero.titlePrefix}
             <span className="relative inline-block text-violet">
-              אצלך בכיס!
+              {t.hero.titleHighlight}
               <svg
                 className="absolute right-0 -bottom-1.5 w-full"
                 viewBox="0 0 200 12"
@@ -35,8 +37,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-7 text-lg text-ink/65 max-w-lg leading-relaxed">
-            תוכנית טיפול עצמי למיגרנה שפותחה על ידי נוירולוג מומחה ומתאמת
-            עבורך אישית באמצעות בינה מלאכותית. הכי נוח, הכי חכם, הכי יעיל.
+            {t.hero.subtitle}
           </p>
 
           <div className="mt-9">
@@ -45,7 +46,7 @@ export default function Hero() {
               onClick={scrollToWaitlist}
               className="inline-block px-8 py-4 bg-ink text-paper rounded-full text-base font-medium hover:bg-violet transition-colors"
             >
-              אני רוצה את האפליקציה
+              {t.common.cta}
             </a>
           </div>
         </div>
@@ -59,7 +60,7 @@ export default function Hero() {
           <div className="relative w-60 md:w-64 mt-10 rotate-2">
             <PhoneFrame
               src="/screenshots/clinical-intake.png"
-              alt="מסך האפליקציה Mygraine AI"
+              alt={t.hero.phoneAlt}
             />
           </div>
         </div>
