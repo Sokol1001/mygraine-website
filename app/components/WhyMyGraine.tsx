@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/i18n";
 
@@ -21,9 +22,10 @@ export default function WhyMyGraine() {
               e.preventDefault();
               document.querySelector("#waitlist")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="mt-9 inline-block px-7 py-3.5 bg-ink text-paper rounded-full text-base font-medium hover:bg-violet transition-colors"
+            className="group mt-9 inline-flex items-center gap-2 px-7 py-3.5 bg-ink text-paper rounded-full text-base font-medium hover:bg-violet transition-colors"
           >
             {t.common.cta}
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
           </a>
         </Reveal>
 

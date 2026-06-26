@@ -71,7 +71,7 @@ export default function FeatureShowcase() {
 
           {/* Phone with crossfading screens */}
           <Reveal className="order-1 lg:order-2">
-            <div className="relative bg-lilac rounded-[2.5rem] px-10 pt-12 pb-0 flex justify-center overflow-hidden">
+            <div className="relative bg-lilac rounded-[2.5rem] px-10 pt-12 pb-0 flex justify-center overflow-hidden transition-transform duration-500 hover:scale-[1.015]">
               <div className="relative w-56 md:w-64 -rotate-1 translate-y-6 animate-float">
                 <div className="relative rounded-[2.25rem] border-[8px] border-ink bg-ink shadow-2xl shadow-ink/20 overflow-hidden">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-ink rounded-b-2xl z-10" />
