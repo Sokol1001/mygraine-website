@@ -1,15 +1,25 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-ink text-paper border-t border-paper/10 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 pt-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pb-8">
-          <a href="#">
-            <img
-              src="/logos/mygraine-AI-logo-new.png"
-              alt="Mygraine AI"
-              className="h-12 w-auto"
-            />
-          </a>
+      <div className="max-w-7xl mx-auto px-5 md:px-8 pt-14">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-5 pb-10">
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <a href="#">
+              <img
+                src="/logos/mygraine-AI-logo-new.png"
+                alt="Mygraine AI"
+                className="h-11 w-auto"
+              />
+            </a>
+            <p className="text-paper/50 text-sm max-w-xs text-center md:text-start">
+              {t.footer.tagline}
+            </p>
+          </div>
           <p className="text-paper/40 text-sm" dir="ltr">
             &copy; 2026 Mygraine AI
           </p>
@@ -18,8 +28,7 @@ export default function Footer() {
         {/* Giant wordmark */}
         <div className="select-none pointer-events-none -mb-6 md:-mb-10" aria-hidden="true">
           <p
-            className="text-center text-[19vw] leading-[0.85] tracking-tight text-paper/[0.06] whitespace-nowrap"
-            style={{ fontFamily: "var(--font-family-display)" }}
+            className="text-center text-[19vw] leading-[0.85] tracking-tighter font-bold text-paper/[0.05] whitespace-nowrap font-display"
             dir="ltr"
           >
             Mygraine

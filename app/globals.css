@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #faf7f1;
-  --color-ink: #211e26;
+  /* Hub71-style system: clean white canvas, near-black ink, one vivid accent. */
+  --color-paper: #ffffff;
+  --color-mist: #f4f5f7;       /* soft neutral section background */
+  --color-ink: #0e0e12;        /* near-black for crisp bold type */
+  --color-ink-soft: #3a3a42;
   --color-violet: #5b5bd6;
   --color-violet-deep: #4747b8;
-  --color-lilac: #eceaf8;
-  --color-peach: #f6d9c3;
-  --color-line: rgba(33, 30, 38, 0.12);
+  --color-electric: #6e6aff;   /* brighter accent for highlights */
+  --color-lilac: #ecebfb;
+  --color-line: rgba(14, 14, 18, 0.1);
 
-  --font-family-display: 'Frank Ruhl Libre', Georgia, serif;
-  --font-family-body: 'Heebo', sans-serif;
+  --font-family-display: 'Space Grotesk', 'Heebo', sans-serif;
+  --font-family-body: 'Heebo', 'Space Grotesk', sans-serif;
 
   --animate-marquee: marquee 36s linear infinite;
 }
@@ -18,6 +21,12 @@
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+@keyframes flipword {
+  0%, 22% { opacity: 0; transform: translateY(0.5em); }
+  30%, 92% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-0.5em); }
 }
 
 @layer base {
@@ -33,11 +42,12 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-display);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background: var(--color-violet);
+    background: var(--color-ink);
     color: #ffffff;
   }
 

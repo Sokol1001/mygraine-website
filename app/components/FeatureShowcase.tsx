@@ -1,93 +1,49 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/i18n";
 
-const ROTATE_MS = 4000;
-
 export default function FeatureShowcase() {
   const { t } = useLanguage();
-  const benefits = t.features.benefits;
-  const screenshots = [
-    { src: "/screenshots/ai-avatar.png", alt: t.features.alts.avatar },
-    { src: "/screenshots/clinical-intake.png", alt: t.features.alts.intake },
-    { src: "/screenshots/diagnostic-results.png", alt: t.features.alts.results },
-    { src: "/screenshots/mygraine-protocol.png", alt: t.features.alts.protocol },
-    { src: "/screenshots/resilience-score.png", alt: t.features.alts.resilience },
-    { src: "/screenshots/education-hub.png", alt: t.features.alts.education },
-  ];
-  const [active, setActive] = useState(0);
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    timer.current = setInterval(
-      () => setActive((i) => (i + 1) % screenshots.length),
-      ROTATE_MS
-    );
-    return () => {
-      if (timer.current) clearInterval(timer.current);
-    };
-  }, []);
+  const cards = t.features.cards;
 
   return (
-    <section id="features" className="py-24 md:py-32 bg-paper border-t border-line overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <Reveal className="mb-14 max-w-2xl">
-          <h2 className="text-3xl md:text-5xl leading-[1.15] text-ink tracking-tight">
-            {t.features.headingPrefix}
-            <span className="text-violet" dir="ltr">Mygraine AI</span>
-            {t.features.headingSuffix}
+    <section
+      id="features"
+      className="py-24 md:py-32 bg-mist border-t border-line overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <Reveal className="max-w-3xl mb-14">
+          <p className="text-xs uppercase tracking-[0.2em] text-violet mb-4">
+            {t.features.eyebrow}
+          </p>
+          <h2 className="font-display font-bold text-4xl md:text-6xl leading-[1.02] tracking-tight text-ink">
+            {t.features.heading}
           </h2>
         </Reveal>
 
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-20 items-center">
-          {/* Numbered list */}
-          <div className="order-2 lg:order-1">
-            {benefits.map((benefit, i) => (
-              <Reveal key={i} delay={i * 120}>
-                <div className="border-t border-line py-7 flex gap-6 items-baseline">
-                  <span className="text-sm tabular-nums text-violet shrink-0">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p
-                    className="text-xl md:text-2xl text-ink leading-relaxed"
-                    style={{ fontFamily: "var(--font-family-display)" }}
-                  >
-                    {benefit}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cards.map((card, i) => (
+            <Reveal key={i} delay={(i % 3) * 100}>
+              <article className="group h-full flex flex-col rounded-3xl bg-paper border border-line overflow-hidden hover:shadow-xl hover:shadow-ink/5 hover:-translate-y-1 transition-all duration-300">
+                <div className="relative bg-lilac px-8 pt-8 flex justify-center overflow-hidden">
+                  <img
+                    src={card.img}
+                    alt={card.alt}
+                    className="w-36 md:w-40 h-auto rounded-t-2xl border-[6px] border-ink border-b-0 shadow-lg shadow-ink/10 translate-y-1 group-hover:translate-y-0 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-7 flex-1 flex flex-col">
+                  <h3 className="font-display font-semibold text-xl text-ink mb-2">
+                    {card.title}
+                  </h3>
+                  <p className="text-base text-ink-soft leading-relaxed">
+                    {card.desc}
                   </p>
                 </div>
-              </Reveal>
-            ))}
-            <div className="border-t border-line" />
-          </div>
-
-          {/* Phone on lilac panel with crossfading screens */}
-          <Reveal className="order-1 lg:order-2">
-            <div className="relative bg-lilac rounded-[2.5rem] px-10 pt-12 pb-0 flex justify-center overflow-hidden">
-              <div className="relative w-56 md:w-64 -rotate-1 translate-y-6">
-                <div className="relative rounded-[2.25rem] border-[8px] border-ink bg-ink shadow-2xl shadow-ink/20 overflow-hidden">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-ink rounded-b-2xl z-10" />
-                  <img
-                    src={screenshots[0].src}
-                    alt=""
-                    aria-hidden="true"
-                    className="block w-full h-auto invisible"
-                  />
-                  {screenshots.map((shot, i) => (
-                    <img
-                      key={shot.src}
-                      src={shot.src}
-                      alt={shot.alt}
-                      className={`absolute inset-0 w-full h-auto transition-opacity duration-700 ${
-                        i === active ? "opacity-100" : "opacity-0"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Reveal>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
