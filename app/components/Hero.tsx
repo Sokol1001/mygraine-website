@@ -62,7 +62,7 @@ export default function Hero() {
         {/* Phone visual */}
         <div className="relative flex justify-center lg:justify-end">
           <div
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[20rem] h-[88%] bg-ink rounded-[3rem]"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[19rem] md:w-[21rem] h-[86%] bg-lilac rounded-t-[11rem]"
             aria-hidden="true"
           />
           <div className="relative w-60 md:w-72 mt-6 rotate-2">
