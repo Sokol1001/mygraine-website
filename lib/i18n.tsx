@@ -41,9 +41,8 @@ const en = {
     ],
     alts: {
       avatar: "Mygraine AI avatar screen",
-      intake: "Mygraine AI clinical intake screen",
-      results: "Mygraine AI diagnostic results screen",
-      protocol: "Mygraine AI treatment plan screen",
+      track: "Mygraine AI migraine tracking screen",
+      protocol: "Mygraine AI care plan screen",
       resilience: "Mygraine AI resilience score screen",
       education: "Mygraine AI knowledge hub screen",
     },
@@ -110,8 +109,7 @@ const he: Dict = {
     ],
     alts: {
       avatar: "מסך האוואטר של Mygraine AI",
-      intake: "מסך תשאול קליני של Mygraine AI",
-      results: "מסך תוצאות אבחון של Mygraine AI",
+      track: "מסך מעקב מיגרנות של Mygraine AI",
       protocol: "מסך תוכנית הטיפול של Mygraine AI",
       resilience: "מסך מדד החוסן של Mygraine AI",
       education: "מסך מרכז הידע של Mygraine AI",

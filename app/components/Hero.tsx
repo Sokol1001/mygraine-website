@@ -66,7 +66,7 @@ export default function Hero() {
             aria-hidden="true"
           />
           <div className="relative w-60 md:w-72 mt-6 rotate-2">
-            <PhoneFrame src="/screenshots/clinical-intake.png" alt={t.hero.phoneAlt} />
+            <PhoneFrame src="/screenshots/resilience-score.png" alt={t.hero.phoneAlt} />
           </div>
         </div>
       </div>

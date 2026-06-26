@@ -11,8 +11,7 @@ export default function FeatureShowcase() {
   const benefits = t.features.benefits;
   const shots = [
     { src: "/screenshots/ai-avatar.png", alt: t.features.alts.avatar },
-    { src: "/screenshots/clinical-intake.png", alt: t.features.alts.intake },
-    { src: "/screenshots/diagnostic-results.png", alt: t.features.alts.results },
+    { src: "/screenshots/track.png", alt: t.features.alts.track },
     { src: "/screenshots/mygraine-protocol.png", alt: t.features.alts.protocol },
     { src: "/screenshots/resilience-score.png", alt: t.features.alts.resilience },
     { src: "/screenshots/education-hub.png", alt: t.features.alts.education },
