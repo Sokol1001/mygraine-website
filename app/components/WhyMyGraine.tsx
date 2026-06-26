@@ -1,34 +1,20 @@
 "use client";
 
 import Reveal from "./Reveal";
-
-const reasons = [
-  {
-    title: "הכי קרוב לרופא אמיתי",
-    description:
-      "האבחון נעשה באופן טבעי בשיחה עם אוואטר דמוי רופא, ומבוסס על איבחון קליני של נוירולוג אמיתי.",
-  },
-  {
-    title: "פותח בשיתוף מומחים למיגרנה",
-    description:
-      "התכנים של האפליקציה מבוססים על ידע וניסיון מקצועי של נוירולוגים וחוקרים מומחים בתחום המיגרנה.",
-  },
-  {
-    title: "שיפור מורגש",
-    description:
-      "לאחר שהאפליקציה לומדת אותך, היא יודעת לצפות את התקפי המיגרנה שלך מראש, מנחה אותך בהתאם, ובכך מסייעת לך להימנע מהם או להפחית משמעותית את עוצמת ההתקפים.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export default function WhyMyGraine() {
+  const { t } = useLanguage();
+  const reasons = t.why.reasons;
   return (
     <section id="about" className="py-24 md:py-32 bg-lilac">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[0.85fr_1.15fr] gap-14 lg:gap-24 items-start">
         {/* Sticky heading + CTA */}
         <Reveal className="lg:sticky lg:top-32">
           <h2 className="text-3xl md:text-5xl leading-[1.15] text-ink tracking-tight">
-            למה דווקא{" "}
-            <span className="text-violet" dir="ltr">Mygraine AI</span>?
+            {t.why.headingPrefix}
+            <span className="text-violet" dir="ltr">Mygraine AI</span>
+            {t.why.headingSuffix}
           </h2>
           <a
             href="#waitlist"
@@ -38,7 +24,7 @@ export default function WhyMyGraine() {
             }}
             className="mt-9 inline-block px-7 py-3.5 bg-ink text-paper rounded-full text-base font-medium hover:bg-violet transition-colors"
           >
-            אני רוצה את האפליקציה
+            {t.common.cta}
           </a>
         </Reveal>
 

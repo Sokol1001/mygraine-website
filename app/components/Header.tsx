@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/i18n";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Header() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -33,14 +36,17 @@ export default function Header() {
           />
         </a>
 
-        {/* CTA */}
-        <a
-          href="#waitlist"
-          onClick={scrollToWaitlist}
-          className="px-4 md:px-6 py-2.5 bg-ink text-paper rounded-full text-sm md:text-base font-medium hover:bg-violet transition-colors"
-        >
-          אני רוצה את האפליקציה
-        </a>
+        {/* Actions */}
+        <div className="flex items-center gap-2 md:gap-3">
+          <LanguageToggle />
+          <a
+            href="#waitlist"
+            onClick={scrollToWaitlist}
+            className="px-4 md:px-6 py-2.5 bg-ink text-paper rounded-full text-sm md:text-base font-medium hover:bg-violet transition-colors"
+          >
+            {t.common.cta}
+          </a>
+        </div>
       </div>
     </header>
   );

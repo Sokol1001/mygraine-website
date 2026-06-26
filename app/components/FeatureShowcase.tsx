@@ -2,25 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
-
-const benefits = [
-  "לומדת ומבינה את התקפי המיגרנה שלך",
-  "מתאימה לך תוכנית טיפולית שנתפרה עבורך באופן אישי",
-  "מסייעת למנוע את ההתקף הבא באמצעות הדרכה שוטפת",
-];
-
-const screenshots = [
-  { src: "/screenshots/ai-avatar.png", alt: "מסך האוואטר של Mygraine AI" },
-  { src: "/screenshots/clinical-intake.png", alt: "מסך תשאול קליני של Mygraine AI" },
-  { src: "/screenshots/diagnostic-results.png", alt: "מסך תוצאות אבחון של Mygraine AI" },
-  { src: "/screenshots/mygraine-protocol.png", alt: "מסך תוכנית הטיפול של Mygraine AI" },
-  { src: "/screenshots/resilience-score.png", alt: "מסך מדד החוסן של Mygraine AI" },
-  { src: "/screenshots/education-hub.png", alt: "מסך מרכז הידע של Mygraine AI" },
-];
+import { useLanguage } from "@/lib/i18n";
 
 const ROTATE_MS = 4000;
 
 export default function FeatureShowcase() {
+  const { t } = useLanguage();
+  const benefits = t.features.benefits;
+  const screenshots = [
+    { src: "/screenshots/ai-avatar.png", alt: t.features.alts.avatar },
+    { src: "/screenshots/clinical-intake.png", alt: t.features.alts.intake },
+    { src: "/screenshots/diagnostic-results.png", alt: t.features.alts.results },
+    { src: "/screenshots/mygraine-protocol.png", alt: t.features.alts.protocol },
+    { src: "/screenshots/resilience-score.png", alt: t.features.alts.resilience },
+    { src: "/screenshots/education-hub.png", alt: t.features.alts.education },
+  ];
   const [active, setActive] = useState(0);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -39,8 +35,9 @@ export default function FeatureShowcase() {
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="mb-14 max-w-2xl">
           <h2 className="text-3xl md:text-5xl leading-[1.15] text-ink tracking-tight">
-            מה עושה עבורך אפליקציית{" "}
-            <span className="text-violet" dir="ltr">Mygraine AI</span>?
+            {t.features.headingPrefix}
+            <span className="text-violet" dir="ltr">Mygraine AI</span>
+            {t.features.headingSuffix}
           </h2>
         </Reveal>
 

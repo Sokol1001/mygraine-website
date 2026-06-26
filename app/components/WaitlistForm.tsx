@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { CheckCircle, Loader2 } from "lucide-react";
 import Reveal from "./Reveal";
+import { useLanguage } from "@/lib/i18n";
 
 export default function WaitlistForm() {
+  const { t } = useLanguage();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -44,13 +46,12 @@ export default function WaitlistForm() {
       <div className="max-w-2xl mx-auto px-6 text-center">
         <Reveal>
           <h2 className="text-3xl md:text-5xl leading-[1.15] tracking-tight mb-5">
-            נרשמים ומקבלים{" "}
-            <span style={{ color: "#9d9df0" }}>גישה מוקדמת</span>{" "}
-            להורדת האפליקציה
+            {t.waitlist.headingPrefix}
+            <span style={{ color: "#9d9df0" }}>{t.waitlist.headingHighlight}</span>
+            {t.waitlist.headingSuffix}
           </h2>
           <p className="text-lg text-paper/60 mb-12 max-w-lg mx-auto">
-            השאירו את פרטיכם והיו הראשונים לקבל הודעה ברגע שהאפליקציה זמינה
-            להורדה:
+            {t.waitlist.subtitle}
           </p>
         </Reveal>
 
@@ -58,15 +59,13 @@ export default function WaitlistForm() {
           {status === "success" ? (
             <div className="border border-paper/15 rounded-3xl p-10">
               <CheckCircle className="w-10 h-10 mx-auto mb-4" style={{ color: "#9d9df0" }} />
-              <h3 className="text-2xl mb-2">נרשמתם בהצלחה!</h3>
-              <p className="text-paper/60">
-                נודיע לכם ברגע שאפשר להוריד את האפליקציה.
-              </p>
+              <h3 className="text-2xl mb-2">{t.waitlist.successTitle}</h3>
+              <p className="text-paper/60">{t.waitlist.successBody}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-3.5 text-right">
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-3.5 text-start">
               <label className="block">
-                <span className="block text-sm text-paper/70 mb-1.5 pr-2">שם:</span>
+                <span className="block text-sm text-paper/70 mb-1.5 ps-2">{t.waitlist.nameLabel}</span>
                 <input
                   type="text"
                   value={name}
@@ -76,7 +75,7 @@ export default function WaitlistForm() {
                 />
               </label>
               <label className="block">
-                <span className="block text-sm text-paper/70 mb-1.5 pr-2">דואר אלקטרוני:</span>
+                <span className="block text-sm text-paper/70 mb-1.5 ps-2">{t.waitlist.emailLabel}</span>
                 <input
                   type="email"
                   value={email}
@@ -93,12 +92,12 @@ export default function WaitlistForm() {
                 {status === "loading" ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
-                  "תודיעו לי ברגע שאפשר להוריד את האפליקציה!"
+                  t.waitlist.submit
                 )}
               </button>
               {status === "error" && (
                 <p className="text-red-300 text-sm text-center">
-                  משהו השתבש, נסו שוב.
+                  {t.waitlist.error}
                 </p>
               )}
             </form>
