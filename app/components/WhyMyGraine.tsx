@@ -10,11 +10,10 @@ export default function WhyMyGraine() {
     <section id="about" className="py-24 md:py-32 bg-paper">
       <div className="max-w-7xl mx-auto px-5 md:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-14 lg:gap-24 items-start">
         <Reveal className="lg:sticky lg:top-32">
-          <p className="text-xs uppercase tracking-[0.2em] text-violet mb-4">
-            {t.why.eyebrow}
-          </p>
-          <h2 className="font-display font-bold text-4xl md:text-6xl leading-[1.02] tracking-tight text-ink">
-            {t.why.heading}
+          <h2 className="font-display font-bold text-4xl md:text-6xl leading-[1.04] tracking-tight text-ink">
+            {t.why.headingPrefix}
+            <span className="text-violet" dir="ltr">Mygraine AI</span>
+            {t.why.headingSuffix}
           </h2>
           <a
             href="#waitlist"

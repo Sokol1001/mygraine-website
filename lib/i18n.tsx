@@ -14,74 +14,43 @@ const STORAGE_KEY = "mygraine-lang";
 export const DEFAULT_LANG: Lang = "en";
 
 /* ------------------------------ Dictionaries ------------------------------ */
+// Source of truth = the original Hebrew site copy. English is a faithful
+// translation of it. No invented marketing copy.
 
 const en = {
-  common: { cta: "Get the app", joinWaitlist: "Join the waitlist" },
+  common: { cta: "I want the app" },
   meta: {
     title: "Mygraine AI — an expert migraine neurologist in your pocket",
     description:
       "A self-care program for migraine, developed by an expert neurologist and personalized for you with AI.",
   },
-  nav: { features: "What it does", why: "Why MyGraine", join: "Join" },
   hero: {
-    lead: "An expert migraine neurologist,",
-    rotating: [
-      "in your pocket.",
-      "that learns you.",
-      "on call, 24/7.",
-      "built on real medicine.",
-    ],
+    titlePrefix: "An expert migraine neurologist ",
+    titleHighlight: "in your pocket!",
     subtitle:
       "A self-care program for migraine, developed by an expert neurologist and personalized for you with AI. The most convenient, the smartest, the most effective.",
     phoneAlt: "The Mygraine AI app screen",
   },
-  partners: { eyebrow: "Built and backed with" },
-  stats: {
-    items: [
-      { value: "24/7", label: "An AI neurologist on call, the moment an attack hits" },
-      { value: "ICHD-3", label: "Diagnosis based on the global clinical standard" },
-      { value: "1:1", label: "A daily protocol personalized to you, adapting over time" },
-    ],
-  },
   features: {
-    eyebrow: "What it does",
-    heading: "A whole clinic, reimagined for your pocket.",
-    cards: [
-      {
-        title: "AI doctor interview",
-        desc: "Diagnosis happens naturally — a real conversation with a doctor-like avatar.",
-        img: "/screenshots/ai-avatar.png",
-        alt: "Mygraine AI avatar screen",
-      },
-      {
-        title: "Clinical diagnosis",
-        desc: "Your headache phenotype, classified to the ICHD-3 standard.",
-        img: "/screenshots/diagnostic-results.png",
-        alt: "Mygraine AI diagnostic results screen",
-      },
-      {
-        title: "A personal daily protocol",
-        desc: "A treatment plan tailored to you that adapts every single day.",
-        img: "/screenshots/mygraine-protocol.png",
-        alt: "Mygraine AI treatment plan screen",
-      },
-      {
-        title: "Resilience score",
-        desc: "See your migraine resilience — and exactly what moves it.",
-        img: "/screenshots/resilience-score.png",
-        alt: "Mygraine AI resilience score screen",
-      },
-      {
-        title: "Knowledge hub",
-        desc: "Learn what actually helps, straight from real specialists.",
-        img: "/screenshots/education-hub.png",
-        alt: "Mygraine AI knowledge hub screen",
-      },
+    headingPrefix: "What does the ",
+    headingSuffix: " app do for you?",
+    benefits: [
+      "Learns and understands your migraine attacks",
+      "Builds a treatment plan tailored personally to you",
+      "Helps prevent your next attack through ongoing guidance",
     ],
+    alts: {
+      avatar: "Mygraine AI avatar screen",
+      intake: "Mygraine AI clinical intake screen",
+      results: "Mygraine AI diagnostic results screen",
+      protocol: "Mygraine AI treatment plan screen",
+      resilience: "Mygraine AI resilience score screen",
+      education: "Mygraine AI knowledge hub screen",
+    },
   },
   why: {
-    eyebrow: "Why Mygraine AI",
-    heading: "Care that finally feels personal.",
+    headingPrefix: "Why ",
+    headingSuffix: "?",
     reasons: [
       {
         title: "As close as it gets to a real doctor",
@@ -100,11 +69,7 @@ const en = {
       },
     ],
   },
-  statement: {
-    text: "Your migraines are not random. Mygraine learns their pattern — and helps you stay ahead of the next one.",
-  },
   waitlist: {
-    eyebrow: "Early access",
     headingPrefix: "Sign up and get ",
     headingHighlight: "early access",
     headingSuffix: " to download the app",
@@ -117,78 +82,44 @@ const en = {
     submit: "Notify me the moment the app is available!",
     error: "Something went wrong, please try again.",
   },
-  footer: { tagline: "An expert migraine neurologist in your pocket." },
 };
 
 export type Dict = typeof en;
 
 const he: Dict = {
-  common: { cta: "אני רוצה את האפליקציה", joinWaitlist: "הצטרפו לרשימה" },
+  common: { cta: "אני רוצה את האפליקציה" },
   meta: {
     title: "Mygraine AI — נוירולוג מומחה למיגרנה אצלך בכיס",
     description:
       "תוכנית טיפול עצמי למיגרנה שפותחה על ידי נוירולוג מומחה ומותאמת עבורך אישית באמצעות בינה מלאכותית.",
   },
-  nav: { features: "מה היא עושה", why: "למה MyGraine", join: "הצטרפות" },
   hero: {
-    lead: "נוירולוג מומחה למיגרנה,",
-    rotating: [
-      "אצלך בכיס.",
-      "שלומד אותך.",
-      "זמין 24/7.",
-      "מבוסס רפואה אמיתית.",
-    ],
+    titlePrefix: "נוירולוג מומחה למיגרנה ",
+    titleHighlight: "אצלך בכיס!",
     subtitle:
       "תוכנית טיפול עצמי למיגרנה שפותחה על ידי נוירולוג מומחה ומתאמת עבורך אישית באמצעות בינה מלאכותית. הכי נוח, הכי חכם, הכי יעיל.",
     phoneAlt: "מסך האפליקציה Mygraine AI",
   },
-  partners: { eyebrow: "נבנה ונתמך עם" },
-  stats: {
-    items: [
-      { value: "24/7", label: "נוירולוג AI זמין ברגע שבו מתחיל התקף" },
-      { value: "ICHD-3", label: "אבחון לפי הסטנדרט הקליני העולמי" },
-      { value: "1:1", label: "תוכנית יומית שמותאמת אישית ומשתפרת עם הזמן" },
-    ],
-  },
   features: {
-    eyebrow: "מה היא עושה",
-    heading: "מרפאה שלמה, מותאמת לכיס שלך.",
-    cards: [
-      {
-        title: "תשאול עם רופא AI",
-        desc: "האבחון נעשה באופן טבעי — בשיחה אמיתית עם אוואטר דמוי רופא.",
-        img: "/screenshots/ai-avatar.png",
-        alt: "מסך האוואטר של Mygraine AI",
-      },
-      {
-        title: "אבחון קליני",
-        desc: "סוג המיגרנה שלך, מסווג לפי הסטנדרט ICHD-3.",
-        img: "/screenshots/diagnostic-results.png",
-        alt: "מסך תוצאות אבחון של Mygraine AI",
-      },
-      {
-        title: "תוכנית יומית אישית",
-        desc: "תוכנית טיפול שמותאמת לך ומשתנה בכל יום מחדש.",
-        img: "/screenshots/mygraine-protocol.png",
-        alt: "מסך תוכנית הטיפול של Mygraine AI",
-      },
-      {
-        title: "מדד חוסן",
-        desc: "ראו את חוסן המיגרנה שלכם — ומה בדיוק משפיע עליו.",
-        img: "/screenshots/resilience-score.png",
-        alt: "מסך מדד החוסן של Mygraine AI",
-      },
-      {
-        title: "מרכז ידע",
-        desc: "ללמוד מה באמת עוזר, ישירות ממומחים אמיתיים.",
-        img: "/screenshots/education-hub.png",
-        alt: "מסך מרכז הידע של Mygraine AI",
-      },
+    headingPrefix: "מה עושה עבורך אפליקציית ",
+    headingSuffix: "?",
+    benefits: [
+      "לומדת ומבינה את התקפי המיגרנה שלך",
+      "מתאימה לך תוכנית טיפולית שנתפרה עבורך באופן אישי",
+      "מסייעת למנוע את ההתקף הבא באמצעות הדרכה שוטפת",
     ],
+    alts: {
+      avatar: "מסך האוואטר של Mygraine AI",
+      intake: "מסך תשאול קליני של Mygraine AI",
+      results: "מסך תוצאות אבחון של Mygraine AI",
+      protocol: "מסך תוכנית הטיפול של Mygraine AI",
+      resilience: "מסך מדד החוסן של Mygraine AI",
+      education: "מסך מרכז הידע של Mygraine AI",
+    },
   },
   why: {
-    eyebrow: "למה דווקא Mygraine AI",
-    heading: "טיפול שסוף סוף מרגיש אישי.",
+    headingPrefix: "למה דווקא ",
+    headingSuffix: "?",
     reasons: [
       {
         title: "הכי קרוב לרופא אמיתי",
@@ -207,11 +138,7 @@ const he: Dict = {
       },
     ],
   },
-  statement: {
-    text: "המיגרנות שלך אינן אקראיות. Mygraine לומדת את הדפוס שלהן — ועוזרת לך להקדים את ההתקף הבא.",
-  },
   waitlist: {
-    eyebrow: "גישה מוקדמת",
     headingPrefix: "נרשמים ומקבלים ",
     headingHighlight: "גישה מוקדמת",
     headingSuffix: " להורדת האפליקציה",
@@ -224,7 +151,6 @@ const he: Dict = {
     submit: "תודיעו לי ברגע שאפשר להוריד את האפליקציה!",
     error: "משהו השתבש, נסו שוב.",
   },
-  footer: { tagline: "נוירולוג מומחה למיגרנה אצלך בכיס." },
 };
 
 const DICTS: Record<Lang, Dict> = { en, he };

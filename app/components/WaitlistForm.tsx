@@ -45,10 +45,7 @@ export default function WaitlistForm() {
     <section id="waitlist" className="py-24 md:py-36 bg-mist border-t border-line">
       <div className="max-w-2xl mx-auto px-5 md:px-8 text-center">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.2em] text-violet mb-5">
-            {t.waitlist.eyebrow}
-          </p>
-          <h2 className="font-display font-bold text-4xl md:text-6xl leading-[1.02] tracking-tight text-ink mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-6xl leading-[1.04] tracking-tight text-ink mb-5">
             {t.waitlist.headingPrefix}
             <span className="text-violet">{t.waitlist.headingHighlight}</span>
             {t.waitlist.headingSuffix}

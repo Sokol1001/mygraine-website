@@ -1,25 +1,15 @@
-"use client";
-
-import { useLanguage } from "@/lib/i18n";
-
 export default function Footer() {
-  const { t } = useLanguage();
   return (
     <footer className="bg-ink text-paper border-t border-paper/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 md:px-8 pt-14">
         <div className="flex flex-col md:flex-row items-center justify-between gap-5 pb-10">
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <a href="#">
-              <img
-                src="/logos/mygraine-AI-logo-new.png"
-                alt="Mygraine AI"
-                className="h-11 w-auto"
-              />
-            </a>
-            <p className="text-paper/50 text-sm max-w-xs text-center md:text-start">
-              {t.footer.tagline}
-            </p>
-          </div>
+          <a href="#top">
+            <img
+              src="/logos/mygraine-AI-logo-new.png"
+              alt="Mygraine AI"
+              className="h-11 w-auto"
+            />
+          </a>
           <p className="text-paper/40 text-sm" dir="ltr">
             &copy; 2026 Mygraine AI
           </p>
