@@ -6,3 +6,6 @@ out/
 .env
 .env*.local
 CUsersmarkm.claudepluginsmarketplacesclaude-plugins-official
+
+# stray moved-aside next caches
+.next.broken-*/

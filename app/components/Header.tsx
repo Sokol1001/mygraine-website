@@ -15,34 +15,34 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToWaitlist = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToWaitlist = (e: React.MouseEvent) => {
     e.preventDefault();
     document.querySelector("#waitlist")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur-md border-b transition-colors duration-300 ${
-        scrolled ? "border-line" : "border-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
+        scrolled
+          ? "bg-paper/85 backdrop-blur-md border-b border-line"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 h-18 flex items-center justify-between gap-4">
+        <a href="#top" className="flex items-center shrink-0">
           <img
             src="/logos/mygraine-AI-logo-new.png"
             alt="Mygraine AI"
-            className="h-12 md:h-14 w-auto"
+            className="h-11 md:h-12 w-auto"
           />
         </a>
 
-        {/* Actions */}
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <LanguageToggle />
           <a
             href="#waitlist"
             onClick={scrollToWaitlist}
-            className="px-4 md:px-6 py-2.5 bg-ink text-paper rounded-full text-sm md:text-base font-medium hover:bg-violet transition-colors"
+            className="px-5 py-2.5 bg-ink text-paper rounded-full text-sm font-medium hover:bg-violet transition-colors"
           >
             {t.common.cta}
           </a>

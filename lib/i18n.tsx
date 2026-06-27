@@ -14,9 +14,11 @@ const STORAGE_KEY = "mygraine-lang";
 export const DEFAULT_LANG: Lang = "en";
 
 /* ------------------------------ Dictionaries ------------------------------ */
+// Source of truth = the original Hebrew site copy. English is a faithful
+// translation of it. No invented marketing copy.
 
 const en = {
-  common: { cta: "Get the app" },
+  common: { cta: "I want the app" },
   meta: {
     title: "Mygraine AI — an expert migraine neurologist in your pocket",
     description:
@@ -30,8 +32,8 @@ const en = {
     phoneAlt: "The Mygraine AI app screen",
   },
   features: {
-    headingPrefix: "What can ",
-    headingSuffix: " do for you?",
+    headingPrefix: "What does the ",
+    headingSuffix: " app do for you?",
     benefits: [
       "Learns and understands your migraine attacks",
       "Builds a treatment plan tailored personally to you",
@@ -39,9 +41,8 @@ const en = {
     ],
     alts: {
       avatar: "Mygraine AI avatar screen",
-      intake: "Mygraine AI clinical intake screen",
-      results: "Mygraine AI diagnostic results screen",
-      protocol: "Mygraine AI treatment plan screen",
+      track: "Mygraine AI migraine tracking screen",
+      protocol: "Mygraine AI care plan screen",
       resilience: "Mygraine AI resilience score screen",
       education: "Mygraine AI knowledge hub screen",
     },
@@ -108,8 +109,7 @@ const he: Dict = {
     ],
     alts: {
       avatar: "מסך האוואטר של Mygraine AI",
-      intake: "מסך תשאול קליני של Mygraine AI",
-      results: "מסך תוצאות אבחון של Mygraine AI",
+      track: "מסך מעקב מיגרנות של Mygraine AI",
       protocol: "מסך תוכנית הטיפול של Mygraine AI",
       resilience: "מסך מדד החוסן של Mygraine AI",
       education: "מסך מרכז הידע של Mygraine AI",
