@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import type { Session } from "@supabase/supabase-js";
 import {
@@ -8,10 +8,13 @@ import {
   AlertCircle,
   AlertTriangle,
   ArrowUpDown,
+  ChevronDown,
   ChevronRight,
+  Database,
   Download,
   Loader2,
   LogOut,
+  Package,
   Search,
   Stethoscope,
 } from "lucide-react";
@@ -22,7 +25,10 @@ import {
   type PatientSummary,
 } from "@/lib/doctorTypes";
 import { clinicInsights, triage, triageRank } from "@/lib/clinical";
-import { downloadCSV, toCSV } from "@/lib/csv";
+import { downloadBlob, downloadCSV, toCSV } from "@/lib/csv";
+import { buildZip } from "@/lib/zip";
+import { buildBundle, buildDataset, type DatasetKind } from "@/lib/mlExport";
+import { fetchMlSource, ExportUnavailableError, type MlSource } from "@/lib/mlSource";
 
 function todayStamp(): string {
   return new Date().toISOString().slice(0, 10);
@@ -394,8 +400,9 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
                 className="flex items-center gap-1.5 rounded-full border border-line bg-white px-3.5 py-2 text-sm font-medium text-ink/70 hover:bg-lilac transition-colors"
               >
                 <Download className="w-4 h-4" />
-                Export CSV
+                Export view
               </button>
+              <MlExportMenu patientCount={rows.length} />
             </div>
 
             <p className="text-xs text-ink/50 mb-3">
@@ -407,6 +414,167 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
         )}
       </div>
     </main>
+  );
+}
+
+/* ------------------------------ ML export menu ----------------------------- */
+
+type MlOption = { kind: DatasetKind | "bundle"; label: string; hint: string };
+
+const ML_OPTIONS: MlOption[] = [
+  {
+    kind: "attack_prediction_daily",
+    label: "Attack prediction (daily)",
+    hint: "Per patient·day: lifestyle + HealthKit + prodrome → attack label",
+  },
+  {
+    kind: "prodrome_prediction",
+    label: "Prodrome (premonitory)",
+    hint: "Premonitory symptom check-ins → attack",
+  },
+  {
+    kind: "prediction_outcomes",
+    label: "Prediction outcomes",
+    hint: "In-app predictions + contributors vs actual attacks",
+  },
+  {
+    kind: "treatment_response",
+    label: "Treatment response",
+    hint: "Did the app help? Baseline vs recent, per patient",
+  },
+  {
+    kind: "patient_cohort",
+    label: "Patient cohort",
+    hint: "One static feature row per patient",
+  },
+];
+
+/**
+ * Export tidy, ML-ready datasets across ALL patients. Pages the bulk 014 RPCs
+ * once (cached), then builds the chosen dataset — a single CSV, or the whole
+ * bundle as a ZIP. Keyed on a pseudonymous subject_id; raw user_id only when
+ * opted in.
+ */
+function MlExportMenu({ patientCount }: { patientCount: number }) {
+  const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [includeUserId, setIncludeUserId] = useState(false);
+  const sourceRef = useRef<MlSource | null>(null);
+
+  const ensureSource = useCallback(async (): Promise<MlSource> => {
+    if (sourceRef.current) return sourceRef.current;
+    const src = await fetchMlSource((label, count) =>
+      setStatus(`${count.toLocaleString()} ${label}…`)
+    );
+    sourceRef.current = src;
+    return src;
+  }, []);
+
+  const run = useCallback(
+    async (kind: DatasetKind | "bundle") => {
+      setOpen(false);
+      setBusy(true);
+      setError(null);
+      try {
+        const stamp = new Date().toISOString().slice(0, 10);
+        const src = await ensureSource();
+        const opts = { includeUserId };
+        if (kind === "bundle") {
+          const { name, entries } = buildBundle(src, stamp, opts);
+          downloadBlob(name, buildZip(entries));
+        } else {
+          const ds = buildDataset(kind, src, opts);
+          downloadCSV(ds.filename.replace(".csv", `-${stamp}.csv`), ds.csv);
+        }
+      } catch (e) {
+        setError(
+          e instanceof ExportUnavailableError
+            ? e.message
+            : e instanceof Error
+            ? e.message
+            : "Export failed."
+        );
+      } finally {
+        setBusy(false);
+        setStatus(null);
+      }
+    },
+    [ensureSource, includeUserId]
+  );
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        disabled={busy}
+        className="flex items-center gap-1.5 rounded-full bg-ink text-paper px-3.5 py-2 text-sm font-medium hover:bg-violet transition-colors disabled:opacity-60"
+      >
+        {busy ? (
+          <Loader2 className="w-4 h-4 animate-spin" />
+        ) : (
+          <Database className="w-4 h-4" />
+        )}
+        {busy ? status ?? "Preparing…" : "ML datasets"}
+        {!busy && <ChevronDown className="w-3.5 h-3.5 opacity-70" />}
+      </button>
+
+      {error && !busy && (
+        <div className="absolute right-0 z-20 mt-2 w-72 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-2.5 text-xs text-amber-800 shadow-lg">
+          {error}
+        </div>
+      )}
+
+      {open && !busy && (
+        <>
+          <div
+            className="fixed inset-0 z-10"
+            onClick={() => setOpen(false)}
+            aria-hidden
+          />
+          <div className="absolute right-0 z-20 mt-2 w-72 rounded-2xl border border-line bg-white p-1.5 shadow-lg">
+            <p className="px-3 py-2 text-xs text-ink/50">
+              Model-ready across all {patientCount} patient
+              {patientCount === 1 ? "" : "s"}. Keyed on a de-identified
+              subject_id. Opens in Excel.
+            </p>
+            {ML_OPTIONS.map((o) => (
+              <button
+                key={o.kind}
+                onClick={() => run(o.kind)}
+                className="flex w-full flex-col items-start gap-0.5 rounded-xl px-3 py-2 text-left hover:bg-lilac transition-colors"
+              >
+                <span className="text-sm font-medium text-ink">{o.label}</span>
+                <span className="text-xs text-ink/50">{o.hint}</span>
+              </button>
+            ))}
+            <div className="my-1 border-t border-line" />
+            <button
+              onClick={() => run("bundle")}
+              className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left hover:bg-lilac transition-colors"
+            >
+              <Package className="w-4 h-4 text-violet shrink-0" />
+              <span className="flex flex-col">
+                <span className="text-sm font-medium text-ink">
+                  All datasets (ZIP)
+                </span>
+                <span className="text-xs text-ink/50">Every table + README</span>
+              </span>
+            </button>
+            <label className="mt-1 flex cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-xs text-ink/60 hover:bg-lilac transition-colors">
+              <input
+                type="checkbox"
+                checked={includeUserId}
+                onChange={(e) => setIncludeUserId(e.target.checked)}
+                className="accent-violet"
+              />
+              Include raw user_id (re-identifiable)
+            </label>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 

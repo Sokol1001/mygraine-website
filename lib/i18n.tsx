@@ -57,7 +57,7 @@ const en = {
           "Diagnosis happens naturally, in a conversation with a doctor-like avatar, based on the clinical assessment of a real neurologist.",
       },
       {
-        title: "Developed with migraine experts",
+        title: "Developed with migraine experts and patients",
         description:
           "The app's content is based on the knowledge and professional experience of neurologists and researchers specializing in migraine.",
       },
@@ -125,7 +125,7 @@ const he: Dict = {
           "האבחון נעשה באופן טבעי בשיחה עם אוואטר דמוי רופא, ומבוסס על איבחון קליני של נוירולוג אמיתי.",
       },
       {
-        title: "פותח בשיתוף מומחים למיגרנה",
+        title: "פותח בשיתוף מומחים ומטופלי מיגרנה",
         description:
           "התכנים של האפליקציה מבוססים על ידע וניסיון מקצועי של נוירולוגים וחוקרים מומחים בתחום המיגרנה.",
       },

@@ -118,6 +118,12 @@ export default function PatientDetailClient() {
     if (!detail) return;
     const name = slugify(detail.summary.name || detail.summary.email || "patient");
     const stamp = new Date().toISOString().slice(0, 10);
+    // Sort every section oldest-first so the export is analysis-ready (the RPC
+    // returns newest-first for the on-screen tables).
+    const byField = <T,>(rows: T[], field: keyof T) =>
+      [...rows].sort((a, b) =>
+        String(a[field] ?? "").localeCompare(String(b[field] ?? ""))
+      );
     const lines: string[] = [];
     lines.push("ATTACKS");
     lines.push(
@@ -129,7 +135,7 @@ export default function PatientDetailClient() {
           { key: "attack_disability", label: "Disability" },
           { key: "attack_treatment_response", label: "Treatment response" },
         ],
-        detail.attacks ?? []
+        byField(detail.attacks ?? [], "date")
       )
     );
     lines.push("\nSCREENINGS");
@@ -141,7 +147,7 @@ export default function PatientDetailClient() {
           { key: "severity", label: "Severity" },
           { key: "completed_at", label: "Completed" },
         ],
-        detail.screenings ?? []
+        byField(detail.screenings ?? [], "completed_at")
       )
     );
     lines.push("\nRESILIENCE");
@@ -153,7 +159,7 @@ export default function PatientDetailClient() {
           { key: "zone", label: "Zone" },
           { key: "confidence", label: "Confidence" },
         ],
-        detail.resilienceTrend ?? []
+        byField(detail.resilienceTrend ?? [], "date")
       )
     );
     lines.push("\nPREDICTIONS");
@@ -165,7 +171,7 @@ export default function PatientDetailClient() {
           { key: "confidence", label: "Confidence" },
           { key: "attack_occurred", label: "Attack occurred" },
         ],
-        detail.predictions ?? []
+        byField(detail.predictions ?? [], "predicted_at")
       )
     );
     downloadCSV(`patient-${name}-${stamp}.csv`, lines.join("\n"));

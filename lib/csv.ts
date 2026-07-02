@@ -20,9 +20,8 @@ export function toCSV<T>(
   return `${head}\n${body}`;
 }
 
-/** Trigger a browser download of `content` as `filename`. */
-export function downloadCSV(filename: string, content: string): void {
-  const blob = new Blob([content], { type: "text/csv;charset=utf-8;" });
+/** Trigger a browser download of an already-built Blob as `filename`. */
+export function downloadBlob(filename: string, blob: Blob): void {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -31,6 +30,12 @@ export function downloadCSV(filename: string, content: string): void {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+/** Trigger a browser download of `content` as `filename`. */
+export function downloadCSV(filename: string, content: string): void {
+  // Prepend a UTF-8 BOM so Excel opens Hebrew/accented text correctly.
+  downloadBlob(filename, new Blob(["﻿", content], { type: "text/csv;charset=utf-8;" }));
 }
 
 /** Filesystem-safe slug for a patient name/email used in export filenames. */
