@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "unitCount": 32,
+  "unitCount": 36,
   "sections": [
     {
       "id": "learn",
@@ -4778,6 +4778,116 @@
               "kind": "note",
               "he": "נא לאשר שההמלצות מתאימות קלינית כהנחיה ראשונית ושהספים במקום הנכון.",
               "en": "Please confirm this advice is clinically appropriate as first-line guidance and the thresholds are right."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "treatments",
+      "titleHe": "המלצות טיפול של ה-AI (תרופות)",
+      "titleEn": "AI treatment suggestions (medications)",
+      "units": [
+        {
+          "id": "treatments.aiConsultation",
+          "titleHe": "שיחת ייעוץ — הזכרת תרופות בזמן אמת",
+          "titleEn": "Consultation chat — drugs named live",
+          "blocks": [
+            {
+              "kind": "text",
+              "he": "באפליקציה יש \"שיחת ייעוץ\" עם אווטאר שמתפקד כנוירולוג. הוא יכול לדבר על אפשרויות טיפול, ואף לנקוב בשמות תרופות ספציפיות תוך כדי השיחה — למשל Relert ‏(אלטריפטן), Exidol, וכן טריפטנים, גפאנטים, אנטי-CGRP ובוטוקס. הטקסט נוצר בזמן אמת על ידי ה-AI ואינו תסריט קבוע, ולכן ישתנה משיחה לשיחה.",
+              "en": "The app has a \"consultation\" chat with an avatar acting as a neurologist. It can discuss treatment options and even name specific medications during the conversation — e.g. Relert (eletriptan), Exidol, plus triptans, gepants, anti-CGRP and Botox. This text is generated live by the AI (not a fixed script), so it varies between conversations."
+            },
+            {
+              "kind": "note",
+              "he": "חשוב: כרגע אין מגבלה שמונעת מה-AI לנקוב בשמות תרופות או מינונים בשיחה הזו. לקראת הניסוי נשמח שתחליט מה מותר ומה אסור ל-AI להציע — ואז נגביל אותו בהתאם.",
+              "en": "Important: there is currently NO guardrail stopping the AI from naming specific drugs or doses in this chat. For the trial, please decide what the AI may and may not suggest — we will then constrain it accordingly."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה: אילו תרופות או קבוצות מותר ל-AI להזכיר למטופלים בישראל? האם עליו להימנע ממינונים או משמות מסחריים? (סמן \"צריך תיקון\" וכתוב את ההנחיה)",
+              "en": "Question: which medications/classes may the AI mention to Israeli patients? Should it avoid doses or brand names? (Tap \"needs change\" and write your guidance.)"
+            }
+          ]
+        },
+        {
+          "id": "treatments.approvedList",
+          "titleHe": "רשימת התרופות המאושרת (למילוי)",
+          "titleEn": "Approved medication list (please fill in)",
+          "blocks": [
+            {
+              "kind": "text",
+              "he": "אם תרצה — כתוב כאן את רשימת התרופות שה-AI רשאי להציע: אקוטיות (למשל טריפטנים ספציפיים, משככי כאב) ומונעות. נשתמש בזה כדי להגביל את ה-AI רק למה שאתה מאשר.",
+              "en": "If you like, write here the medications the AI is allowed to suggest: acute (e.g. specific triptans, analgesics) and preventive. We will use it to constrain the AI to only what you approve."
+            },
+            {
+              "kind": "note",
+              "he": "סמן \"צריך תיקון\" וכתוב את הרשימה בתיבה.",
+              "en": "Tap \"needs change\" and write the list in the box."
+            }
+          ]
+        },
+        {
+          "id": "treatments.protocolLabels",
+          "titleHe": "תוויות תרופות במסך הפרוטוקול",
+          "titleEn": "Medication labels on the Protocol screen",
+          "blocks": [
+            {
+              "kind": "text",
+              "he": "כשמטופל מדווח שהוא כבר נוטל טיפול מונע, מסך הפרוטוקול מציג את שם הקבוצה — זה שיקוף של מה שהמטופל דיווח, לא המלצה:",
+              "en": "When a patient reports already taking a preventive, the Protocol screen shows the class label — this echoes what the patient reported, it is not a recommendation:"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "אנטי-CGRP ‏(Aimovig / Ajovy / Emgality)",
+                  "en": "Anti-CGRP (Aimovig / Ajovy / Emgality)"
+                },
+                {
+                  "he": "גפאנט ‏(Atogepant / Rimegepant)",
+                  "en": "Gepant (Atogepant / Rimegepant)"
+                },
+                {
+                  "he": "זריקות בוטוקס",
+                  "en": "Botox injections"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "יש ליטול לפי לוח הזמנים שנקבע",
+              "en": "Take per your prescribing schedule"
+            }
+          ]
+        },
+        {
+          "id": "treatments.intakeExamples",
+          "titleHe": "שמות תרופות שנאמרים בתשאול (כדוגמאות)",
+          "titleEn": "Drug names spoken during intake (as examples)",
+          "blocks": [
+            {
+              "kind": "text",
+              "he": "בתשאול הראשוני האווטאר מקריא שמות תרופות כדוגמאות כדי לעזור למטופל לענות — לא כהמלצה:",
+              "en": "During intake the avatar reads drug names aloud as examples to help the patient answer — not as a recommendation:"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "טיפול מונע — למשל זריקת CGRP‏ (Aimovig, Ajovy, Emgality), גפאנטים (Qulipta, Nurtec), Botox, טיפול מונע אחר, או ללא.",
+                  "en": "Preventive — e.g. a CGRP injection (Aimovig, Ajovy, Emgality), gepants (Qulipta, Nurtec), Botox, another preventive, or none."
+                },
+                {
+                  "he": "תרופה אקוטית / חילוץ — למשל טריפטנים, איבופרופן, או Excedrin.",
+                  "en": "Acute / rescue — e.g. triptans, ibuprofen, or Excedrin."
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "נא לאשר שרשימת הדוגמאות מתאימה למטופלים בישראל (למשל האם להחליף Excedrin בשם מוכר יותר).",
+              "en": "Please confirm the example list suits Israeli patients (e.g. whether to swap Excedrin for a more familiar name)."
             }
           ]
         }

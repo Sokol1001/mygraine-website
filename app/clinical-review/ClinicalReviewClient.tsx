@@ -115,7 +115,7 @@ function LoginGate() {
           </div>
           <div>
             <h1 className="font-display text-2xl leading-tight">סקירת תוכן קליני</h1>
-            <p className="text-sm text-ink-soft">MyGraine · לרופא/ה בלבד</p>
+            <p className="text-sm text-ink-soft">MyGraine · סקירה קלינית</p>
           </div>
         </div>
 
@@ -124,13 +124,13 @@ function LoginGate() {
             <Mail className="w-8 h-8 text-violet mx-auto mb-3" />
             <p className="text-lg font-medium">שלחנו לך קישור כניסה למייל</p>
             <p className="text-base text-ink-soft mt-2">
-              פתח/י את המייל והקש/י על הקישור — הוא יכניס אותך אוטומטית, בלי סיסמה.
+              פתח את המייל ולחץ על הקישור — הוא יכניס אותך אוטומטית, בלי סיסמה.
             </p>
           </div>
         ) : (
           <form onSubmit={send} className="space-y-4">
             <p className="text-base text-ink-soft">
-              הכנס/י את כתובת המייל שלך ונשלח לך קישור כניסה בהקשה אחת — אין צורך בסיסמה.
+              הכנס את כתובת המייל שלך ונשלח לך קישור כניסה בלחיצה אחת — בלי סיסמה, בלי כאב ראש 🙂
             </p>
             <input
               type="email"
@@ -295,9 +295,10 @@ function Review({ session }: { session: Session }) {
         {/* intro */}
         <section className="mt-6 mb-4 rounded-2xl bg-lilac/60 border border-line p-5">
           <p className="text-lg leading-relaxed">
-            שלום ד״ר מליקוב, ותודה. להלן התוכן שהמטופלים יראו (בעברית, עם אנגלית לעיון). על כל פריט,
-            הקש/י <b>מאושר</b> אם הוא תקין, או <b>צריך תיקון</b> וכתוב/כתבי מה לשנות. הכול נשמר אוטומטית —
-            אפשר לעצור ולחזור בכל עת. בסוף חותמים ושולחים.
+            היי, ותודה רבה שאתה עוזר לנו עם זה 🙏 כאן כל התוכן שהמטופלים יראו באפליקציה (בעברית, עם
+            אנגלית לצד לעיון). על כל פריט פשוט הקש <b>מאושר</b> אם הוא בסדר, או <b>צריך תיקון</b> וכתוב מה
+            כדאי לשנות. הכול נשמר לבד — אפשר לעצור ולחזור מתי שנוח לך. בסוף חותמים ושולחים. אין לחץ, ואין
+            תשובות נכונות או שגויות.
           </p>
         </section>
 
