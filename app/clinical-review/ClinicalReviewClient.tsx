@@ -27,7 +27,14 @@ type Unit = { id: string; titleHe: string; titleEn: string; blocks: Block[] };
 type Section = { id: string; titleHe: string; titleEn: string; units: Unit[] };
 const CONTENT = rawContent as unknown as { unitCount: number; sections: Section[] };
 
+// Map each unit id → its Hebrew title, so the email summary is readable.
+const UNIT_TITLE: Record<string, string> = {};
+for (const s of CONTENT.sections) for (const u of s.units) UNIT_TITLE[u.id] = u.titleHe;
+
 const REVIEWER_DEFAULT_NAME = "ד״ר פיוטר מליקוב";
+// Where the completed-review summary email is sent (already activated on
+// formsubmit.co via the site's waitlist form).
+const NOTIFY_EMAIL = "markmelicov@gmail.com";
 
 type Verdict = "approved" | "needs_change";
 type ItemState = { verdict?: Verdict; note?: string };
@@ -545,6 +552,29 @@ function SignOff({
         { onConflict: "reviewer_id" }
       );
       if (err) throw err;
+
+      // Best-effort email summary so the results land in an inbox (never block).
+      const flagged = Object.entries(items)
+        .filter(([, v]) => v.verdict === "needs_change")
+        .map(([id, v]) => `• ${UNIT_TITLE[id] ?? id}: ${v.note?.trim() || "(no note)"}`)
+        .join("\n");
+      const emailBody =
+        `Clinical content review completed.\n\n` +
+        `Reviewer: ${name.trim()}\n` +
+        `Submitted: ${new Date().toLocaleString()}\n` +
+        `Signature captured: ${hasInk.current ? "yes" : "no"}\n` +
+        `Approved: ${approved}  ·  Needs change: ${needsChange}  ·  Total items: ${total}\n\n` +
+        `Items flagged "needs change":\n${flagged || "(none)"}\n\n` +
+        `Full data (incl. the signature image) is in Supabase: clinical_review_items / clinical_review_signoff.`;
+      fetch(`https://formsubmit.co/ajax/${NOTIFY_EMAIL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `MyGraine — clinical review submitted (${name.trim()})`,
+          message: emailBody,
+        }),
+      }).catch(() => {});
+
       onDone();
     } catch (e) {
       setError((e as Error).message ?? "שגיאה בשליחה. נסה/י שוב.");
