@@ -1,0 +1,4931 @@
+{
+  "version": 1,
+  "unitCount": 32,
+  "sections": [
+    {
+      "id": "learn",
+      "titleHe": "חינוך המטופל — תוכנית \"למידה\"",
+      "titleEn": "Patient education — the Learn program",
+      "units": [
+        {
+          "id": "learn.content.understanding.moreThanHeadache",
+          "titleHe": "יותר מכאב ראש",
+          "titleEn": "More Than a Headache",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: להבין את המיגרנה",
+              "en": "Module: Understanding Migraine"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "שלום, וברוך/ה הבא/ה. אני ממש שמח/ה שאת/ה כאן כדי ללמוד על המיגרנה שלך. נתחיל מהרעיון החשוב מכולם.",
+              "en": "Hello, and welcome. I'm really glad you're here to learn about your migraine. Let's start with the most important idea of all."
+            },
+            {
+              "kind": "text",
+              "he": "מיגרנה היא לא רק כאב ראש חזק. זו מחלה נוירולוגית — מוח שרגיש לשינויים יותר מרוב האנשים.",
+              "en": "Migraine is not just a bad headache. It's a neurological condition — a brain that's more sensitive to change than most."
+            },
+            {
+              "kind": "text",
+              "he": "הרגישות הזו היא בעיקרה גנטית. היא לא נגרמת מחולשה, לא ממתח לבדו, ולא ממשהו שעשית לא נכון.",
+              "en": "That sensitivity is largely genetic. It is not caused by weakness, by stress alone, or by anything you did wrong."
+            },
+            {
+              "kind": "text",
+              "he": "ההבנה הזו משנה הכול. אנחנו לא מתקנים פגם באופי — אנחנו מנהלים מערכת עצבים רגישה עם כלים אמיתיים ומוכחים.",
+              "en": "Understanding this changes everything. We're not fixing a character flaw — we're managing a sensitive nervous system with real, proven tools."
+            },
+            {
+              "kind": "text",
+              "he": "וזו כל מטרת התוכנית הזו: להעניק לך את הכלים האלה, שיעור אחר שיעור.",
+              "en": "And that's the whole point of this program: to hand you those tools, one lesson at a time."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "אז תן/י לי לשאול — מה מתאר הכי טוב את המיגרנה?",
+              "en": "So let me ask you — what best describes migraine?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "סימן שאני לא מתמודד/ת טוב",
+                  "en": "A sign I'm not coping well"
+                },
+                {
+                  "he": "פשוט כאב ראש חזק מאוד",
+                  "en": "Just a very strong headache"
+                },
+                {
+                  "he": "מצב גנטי ונוירולוגי",
+                  "en": "A genetic, neurological condition",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "משהו שגרמתי לעצמי",
+                  "en": "Something I brought on myself"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: מהי מיגרנה, בבסיסה?",
+              "en": "Q1. What is migraine, at its core?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "עונש על מתח",
+                  "en": "A punishment for stress"
+                },
+                {
+                  "he": "מצב גנטי ונוירולוגי",
+                  "en": "A genetic, neurological condition",
+                  "mark": "correct"
+                },
+                {
+                  "he": "מתח שרירי בלבד",
+                  "en": "Muscle tension only"
+                },
+                {
+                  "he": "סימן למחלה מוחית חמורה",
+                  "en": "A sign of a serious brain disease"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מיגרנה היא מצב נוירולוגי תורשתי — מוח שמגיב יותר לשינויים. היא אינה נגרמת ממתח לבדו.",
+              "en": "Explanation: Migraine is an inherited neurological condition — a brain that's more reactive to change. It isn't caused by stress alone."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: איזו קביעה נכונה לגבי מיגרנה?",
+              "en": "Q2. Which statement is TRUE about migraine?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "היא משפיעה רק על הראש",
+                  "en": "It only affects the head"
+                },
+                {
+                  "he": "היא אומרת שאת/ה לא מסוגל/ת להתמודד עם החיים",
+                  "en": "It means you can't handle life"
+                },
+                {
+                  "he": "היא עוברת במשפחה",
+                  "en": "It runs in families",
+                  "mark": "correct"
+                },
+                {
+                  "he": "היא תמיד מסמנת שמשהו חמור",
+                  "en": "It always means something is seriously wrong"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מיגרנה היא מאוד גנטית ולרוב עוברת במשפחה. היא משפיעה על כל מערכת העצבים, לא רק על הראש.",
+              "en": "Explanation: Migraine is strongly genetic and commonly runs in families. It affects the whole nervous system, not only the head."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: אם גם בן משפחה סובל ממיגרנה, זה מרמז ש…",
+              "en": "Q3. If a family member also gets migraine, that suggests…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "גרמת לשלו/ה",
+                  "en": "You caused theirs"
+                },
+                {
+                  "he": "סביר שיש קשר גנטי",
+                  "en": "A genetic link is likely",
+                  "mark": "correct"
+                },
+                {
+                  "he": "הם מחקים אותך",
+                  "en": "They are copying you"
+                },
+                {
+                  "he": "זו לא באמת מיגרנה",
+                  "en": "It isn't really migraine"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מכיוון שמיגרנה היא תורשתית, היא מופיעה לעיתים קרובות לאורך דורות באותה משפחה.",
+              "en": "Explanation: Because migraine is inherited, it often appears across generations of the same family."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.understanding.fourPhases",
+          "titleHe": "ארבעת השלבים",
+          "titleEn": "The Four Phases",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: להבין את המיגרנה",
+              "en": "Module: Understanding Migraine"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "התקף מיגרנה אינו רגע בודד. הוא לרוב עובר בעד ארבעה שלבים, וההיכרות איתם מעניקה לך כוח.",
+              "en": "A migraine attack isn't one single moment. It often moves through up to four phases, and knowing them gives you power."
+            },
+            {
+              "kind": "text",
+              "he": "הראשון הוא הפרודרום — סימני אזהרה עדינים שעות או ימים לפני, כמו פיהוק, שינויי מצב רוח, חשקים למאכלים או צוואר תפוס.",
+              "en": "First is the prodrome — subtle warning signs hours or days before, like yawning, mood changes, food cravings, or a stiff neck."
+            },
+            {
+              "kind": "text",
+              "he": "אחר כך אצל חלק מהאנשים מופיעה אאורה — שינויים זמניים בראייה או בתחושה, כמו הבזקי אור או עקצוץ. אחריה מגיע שלב הכאב, ולבסוף הפוסטדרום, ה'האנגאובר' של המיגרנה.",
+              "en": "Then some people get aura — temporary visual or sensory changes like flickering lights or tingling. Next comes the headache, and finally the postdrome, the 'migraine hangover'."
+            },
+            {
+              "kind": "text",
+              "he": "למה זה חשוב? כי זיהוי השלב המוקדם ביותר הוא ההזדמנות שלך לפעול לפני שהכאב משתלט.",
+              "en": "Why does this matter? Because catching the earliest phase is your chance to act before the pain takes hold."
+            },
+            {
+              "kind": "text",
+              "he": "ככל שתעקוב/י אחר התקפים באפליקציה, תתחיל/י לזהות את הסימנים המוקדמים שלך. זו מיומנות אמיתית.",
+              "en": "As you track attacks in this app, you'll start to recognize your own early signs. That awareness is a real skill."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "איזה שלב הוא האזהרה המוקדמת ביותר, לפני הכאב?",
+              "en": "Which phase is the earliest warning, before the pain?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "שלב הכאב",
+                  "en": "The headache phase"
+                },
+                {
+                  "he": "הפרודרום",
+                  "en": "The prodrome",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "הפוסטדרום",
+                  "en": "The postdrome"
+                },
+                {
+                  "he": "אין אזהרה",
+                  "en": "There's no warning"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: מהו הסדר הנכון של שלבי המיגרנה?",
+              "en": "Q1. Which is the correct order of migraine phases?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "כאב, אאורה, פרודרום, פוסטדרום",
+                  "en": "Headache, aura, prodrome, postdrome"
+                },
+                {
+                  "he": "פוסטדרום, כאב, אאורה, פרודרום",
+                  "en": "Postdrome, headache, aura, prodrome"
+                },
+                {
+                  "he": "פרודרום, אאורה, כאב, פוסטדרום",
+                  "en": "Prodrome, aura, headache, postdrome",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אאורה, פרודרום, פוסטדרום, כאב",
+                  "en": "Aura, prodrome, postdrome, headache"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: השלבים בדרך כלל נעים פרודרום ← אאורה (אם קיימת) ← כאב ← פוסטדרום.",
+              "en": "Explanation: The phases usually run prodrome → aura (if present) → headache → postdrome."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: מהו הפרודרום?",
+              "en": "Q2. What is the prodrome?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "סימני אזהרה מוקדמים לפני הכאב",
+                  "en": "Early warning signs before the pain",
+                  "mark": "correct"
+                },
+                {
+                  "he": "החלק הכואב ביותר",
+                  "en": "The most painful part"
+                },
+                {
+                  "he": "הפרעת ראייה",
+                  "en": "A visual disturbance"
+                },
+                {
+                  "he": "ההתאוששות שאחרי",
+                  "en": "The recovery afterward"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הפרודרום מביא סימנים מוקדמים עדינים — פיהוק, חשקים, שינויי מצב רוח, צוואר תפוס — שמזהירים שהתקף עשוי להגיע.",
+              "en": "Explanation: The prodrome brings subtle early signs — yawning, cravings, mood shifts, neck stiffness — that warn an attack may be coming."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: ה'האנגאובר' של המיגרנה שאחרי הכאב נקרא…",
+              "en": "Q3. The 'migraine hangover' after the pain is called…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "פרודרום",
+                  "en": "Prodrome"
+                },
+                {
+                  "he": "אאורה",
+                  "en": "Aura"
+                },
+                {
+                  "he": "שלב הכאב",
+                  "en": "Headache phase"
+                },
+                {
+                  "he": "פוסטדרום",
+                  "en": "Postdrome",
+                  "mark": "correct"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הפוסטדרום הוא שלב ההתאוששות המותש והמעורפל, שיכול להימשך יממה אחרי שהכאב חולף.",
+              "en": "Explanation: The postdrome is the drained, foggy recovery phase that can last a day after the pain fades."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.understanding.vsOthers",
+          "titleHe": "מיגרנה מול כאבי ראש אחרים",
+          "titleEn": "Migraine vs Other Headaches",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: להבין את המיגרנה",
+              "en": "Module: Understanding Migraine"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "לא כל כאב ראש הוא מיגרנה, והבחנה ביניהם עוזרת לך לטפל בדבר הנכון.",
+              "en": "Not every headache is a migraine, and telling them apart helps you treat the right thing."
+            },
+            {
+              "kind": "text",
+              "he": "מיגרנה היא לרוב חד-צדדית, פועמת, בינונית עד חזקה, ומחמירה בתנועה. היא בדרך כלל מלווה בבחילה, או ברגישות לאור ולרעש.",
+              "en": "Migraine is often one-sided, throbbing, moderate to severe, and worse with movement. It usually comes with nausea, or sensitivity to light and sound."
+            },
+            {
+              "kind": "text",
+              "he": "כאב ראש מסוג מתח הוא שונה — בדרך כלל בשני הצדדים, 'חבק' עמום ולוחץ, קל עד בינוני, ללא הבחילה או רגישות האור.",
+              "en": "A tension-type headache is different — usually both sides, a dull tight 'band', mild to moderate, without the nausea or light sensitivity."
+            },
+            {
+              "kind": "text",
+              "he": "יש גם סוגים נוספים, אבל מיגרנה וכאבי ראש מסוג מתח הם הנפוצים ביותר. התסמינים שאת/ה מתעד/ת עוזרים להבחין ביניהם.",
+              "en": "There are other types too, but migraine and tension headaches are the most common. Your logged symptoms help tell them apart."
+            },
+            {
+              "kind": "text",
+              "he": "התאמת הטיפול הנכון לכאב הראש הנכון היא הדרך להקלה אמיתית — לכן ההבחנה הזו חשובה.",
+              "en": "Matching the right treatment to the right headache is how you get real relief — that's why this distinction matters."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "כאב ראש פועם, חד-צדדי, עם בחילה ורגישות לאור נשמע הכי דומה ל…",
+              "en": "A throbbing, one-sided headache with nausea and light sensitivity sounds most like…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מיגרנה",
+                  "en": "Migraine",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "כאב ראש מתח",
+                  "en": "A tension headache"
+                },
+                {
+                  "he": "התייבשות בלבד",
+                  "en": "Dehydration only"
+                },
+                {
+                  "he": "שום דבר לדאוג ממנו",
+                  "en": "Nothing to worry about"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: איזה מהם מאפיין טיפוסי של מיגרנה?",
+              "en": "Q1. Which is a typical MIGRAINE feature?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "חבק עמום סביב כל הראש",
+                  "en": "A dull band around the whole head"
+                },
+                {
+                  "he": "כאב פועם עם בחילה ורגישות לאור",
+                  "en": "Throbbing pain with nausea and light sensitivity",
+                  "mark": "correct"
+                },
+                {
+                  "he": "תמיד קל",
+                  "en": "Always mild"
+                },
+                {
+                  "he": "אף פעם לא מושפע מתנועה",
+                  "en": "Never affected by movement"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מיגרנה היא לרוב פועמת וחד-צדדית, מלווה בבחילה או רגישות לאור/רעש, ונוטה להחמיר בתנועה.",
+              "en": "Explanation: Migraine is often throbbing and one-sided, paired with nausea or light/sound sensitivity, and tends to worsen with movement."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: כאב ראש מסוג מתח בדרך כלל מרגיש כמו…",
+              "en": "Q2. A tension-type headache usually feels like…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "פעימה חד-צדדית עם הקאות",
+                  "en": "One-sided throbbing with vomiting"
+                },
+                {
+                  "he": "אורות מהבהבים ואז כאב",
+                  "en": "Flashing lights then pain"
+                },
+                {
+                  "he": "חבק עמום ולוחץ בשני הצדדים",
+                  "en": "A dull, tight band on both sides",
+                  "mark": "correct"
+                },
+                {
+                  "he": "'כאב הראש הגרוע בחיים' פתאומי",
+                  "en": "The sudden 'worst headache of life'"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: כאב ראש מתח הוא בדרך כלל לחץ עמום, קל עד בינוני, דמוי חבק בשני הצדדים, ללא הבחילה והרגישויות של מיגרנה.",
+              "en": "Explanation: Tension-type headache is typically a mild-to-moderate, dull, band-like pressure on both sides, without migraine's nausea and sensitivities."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: למה חשוב להבחין בין סוגי כאבי ראש?",
+              "en": "Q3. Why does telling headache types apart matter?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "כדי לטפל בבעיה הנכונה בדרך הנכונה",
+                  "en": "So you treat the right problem the right way",
+                  "mark": "correct"
+                },
+                {
+                  "he": "כדי שאפשר יהיה להתעלם מהם",
+                  "en": "So you can ignore them"
+                },
+                {
+                  "he": "זה לא משנה",
+                  "en": "It doesn't matter"
+                },
+                {
+                  "he": "כדי להימנע מרופא",
+                  "en": "To avoid seeing a doctor"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: כאבי ראש שונים מגיבים לטיפולים שונים — התאמת הטיפול לסוג נותנת את ההקלה הטובה ביותר.",
+              "en": "Explanation: Different headaches respond to different treatments — matching the treatment to the type gives you the best relief."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.understanding.yourType",
+          "titleHe": "סוג המיגרנה שלך",
+          "titleEn": "Your Migraine Type",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: להבין את המיגרנה",
+              "en": "Module: Understanding Migraine"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "מיגרנה אינה מידה אחת לכולם. היכרות עם הדפוס האישי שלך עוזרת לנו להתאים את התוכנית.",
+              "en": "Migraine isn't one-size-fits-all. Knowing your own pattern helps us tailor your plan."
+            },
+            {
+              "kind": "text",
+              "he": "חלוקה מרכזית אחת היא אפיזודית מול כרונית. מיגרנה כרונית פירושה כאב ראש בחמישה עשר ימים או יותר בחודש; אפיזודית היא פחות.",
+              "en": "One key split is episodic versus chronic. Chronic migraine means headache on fifteen or more days a month; episodic is fewer."
+            },
+            {
+              "kind": "text",
+              "he": "חלוקה נוספת היא מיגרנה עם אאורה מול בלי אאורה. לרוב האנשים יש מיגרנה בלי אאורה — ושתיהן נפוצות וניתנות לניהול.",
+              "en": "Another is migraine with aura versus without aura. Most people have migraine without aura — and both are common and manageable."
+            },
+            {
+              "kind": "text",
+              "he": "אף סוג לא אומר שמשהו לא בסדר איתך. הם פשוט מכוונים כמה תזדקק/י לטיפול מונע לעומת טיפול אקוטי.",
+              "en": "Neither type means something is wrong with you. They simply guide how often you might need prevention versus rescue treatment."
+            },
+            {
+              "kind": "text",
+              "he": "ככל שתעקוב/י יותר, כך יתבהר הסוג שלך — ונוכל לעזור בצורה מדויקת יותר.",
+              "en": "The more you track, the clearer your type becomes — and the more precisely we can help."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "בערך כמה ימי כאב ראש יש לך בחודש?",
+              "en": "Roughly how often do you get headache days in a month?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "אני עוד לא בטוח/ה",
+                  "en": "I'm not sure yet"
+                },
+                {
+                  "he": "רק כמה",
+                  "en": "Only a few"
+                },
+                {
+                  "he": "חמישה עשר או יותר",
+                  "en": "Fifteen or more",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "זה משתנה מאוד",
+                  "en": "It changes a lot"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: מיגרנה כרונית מוגדרת ככאב ראש בכמה ימים בחודש?",
+              "en": "Q1. Chronic migraine is defined as headache on how many days per month?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "15 או יותר",
+                  "en": "15 or more",
+                  "mark": "correct"
+                },
+                {
+                  "he": "בדיוק 3",
+                  "en": "Exactly 3"
+                },
+                {
+                  "he": "1 או פחות",
+                  "en": "1 or fewer"
+                },
+                {
+                  "he": "רק בסופי שבוע",
+                  "en": "Only weekends"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מיגרנה כרונית פירושה 15 ימי כאב ראש או יותר בחודש; פחות מכך נחשב אפיזודי.",
+              "en": "Explanation: Chronic migraine means 15 or more headache days per month; fewer is considered episodic."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: מיגרנה 'עם אאורה' פירושה…",
+              "en": "Q2. Migraine 'with aura' means…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "היא מסוכנת יותר",
+                  "en": "It's more dangerous"
+                },
+                {
+                  "he": "יש תסמיני אזהרה תחושתיים כמו שינויי ראייה",
+                  "en": "There are sensory warning symptoms like visual changes",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אף פעם אין בה כאב",
+                  "en": "It never has pain"
+                },
+                {
+                  "he": "היא קורית רק בלילה",
+                  "en": "It only happens at night"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: אאורה היא תסמין נוירולוגי זמני — לרוב חזותי — שיכול להקדים או ללוות את הכאב. היא אינה הופכת את המיגרנה למסוכנת.",
+              "en": "Explanation: Aura is a temporary neurological symptom — often visual — that can precede or accompany the headache. It doesn't make migraine dangerous."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: למה שימושי להכיר את סוג המיגרנה שלך?",
+              "en": "Q3. Why is knowing your migraine type useful?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "זה לא",
+                  "en": "It isn't"
+                },
+                {
+                  "he": "כדי שתוכל/י לדאוג יותר",
+                  "en": "So you can worry more"
+                },
+                {
+                  "he": "זה עוזר להתאים את תוכנית הטיפול",
+                  "en": "It helps tailor your treatment plan",
+                  "mark": "correct"
+                },
+                {
+                  "he": "כדי לדלג על הרופא/ה",
+                  "en": "So you can skip your doctor"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הסוג שלך מכוון את הבחירות — למשל, באיזו תדירות תזדקק/י לטיפול מונע. הוא מתאים את הטיפול אישית עבורך.",
+              "en": "Explanation: Your type guides choices — for example, how often you might need preventive treatment. It personalizes your care."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.triggers.whatAreTriggers",
+          "titleHe": "מה טריגרים באמת",
+          "titleEn": "What Triggers Really Are",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: הכר/י את הטריגרים שלך",
+              "en": "Module: Know Your Triggers"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "בוא/י נדבר על טריגרים — ונבהיר קודם אי-הבנה גדולה.",
+              "en": "Let's talk about triggers — and clear up a big misunderstanding first."
+            },
+            {
+              "kind": "text",
+              "he": "טריגר לעיתים רחוקות גורם למיגרנה בפני עצמו. חשוב/חשבי על סף: הרבה גורמים קטנים מצטברים עד שהמוח שלך נוטה מעבר לקצה.",
+              "en": "A trigger rarely causes a migraine on its own. Think of a threshold: many small factors stack up until your brain tips over."
+            },
+            {
+              "kind": "text",
+              "he": "לכן אותה קפה או אותו לילה מאוחר פוגעים בך בימים מסוימים ולא באחרים. ביום רגוע ורענן יש לך יותר מרווח לפני הסף.",
+              "en": "That's why the same coffee or late night hurts you some days and not others. On a rested, calm day you have more room before the threshold."
+            },
+            {
+              "kind": "text",
+              "he": "אלה חדשות משחררות. אינך צריך/ה לחיות בפחד מכל טריגר בודד — פשוט שומר/ת על עומס כולל נמוך יותר.",
+              "en": "This is freeing news. You don't have to live in fear of every single trigger — you just keep your total load lower."
+            },
+            {
+              "kind": "text",
+              "he": "אז במקום לרדוף אחרי אשם אחד, נעבוד על התמונה כולה. זו תוכנית שאפשר באמת לחיות איתה.",
+              "en": "So instead of chasing one villain, we'll work on the whole picture. That's a plan you can actually live with."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "למה אותו טריגר עשוי להשפיע עלייך רק לפעמים?",
+              "en": "Why might the same trigger affect you only sometimes?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "טריגרים הם דמיוניים",
+                  "en": "Triggers are imaginary"
+                },
+                {
+                  "he": "כי טריגרים מצטברים לעבר סף",
+                  "en": "Because triggers stack toward a threshold",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "כי זה מזל אקראי",
+                  "en": "Because it's random luck"
+                },
+                {
+                  "he": "כי את/ה מדמיין/ת את זה",
+                  "en": "Because you're imagining it"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: איך טריגרים בדרך כלל פועלים?",
+              "en": "Q1. How do triggers usually work?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "טריגר אחד תמיד גורם להתקף אחד",
+                  "en": "One trigger always causes one attack"
+                },
+                {
+                  "he": "טריגרים אף פעם לא משנים",
+                  "en": "Triggers never matter"
+                },
+                {
+                  "he": "הם מצטברים יחד לעבר סף",
+                  "en": "They stack together toward a threshold",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רק אוכל הוא טריגר",
+                  "en": "Only food is a trigger"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מיגרנה פועלת לפי מודל סף — כמה גורמים מצטברים עד שהמוח נוטה להתקף. לעיתים רחוקות זו סיבה בודדת.",
+              "en": "Explanation: Migraine follows a threshold model — several factors add up until the brain tips into an attack. Rarely is it a single cause."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: למה טריגר יכול להשפיע עלייך בימים מסוימים ולא באחרים?",
+              "en": "Q2. Why can a trigger affect you on some days but not others?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "העומס הכולל שלך משתנה מיום ליום",
+                  "en": "Your overall load changes day to day",
+                  "mark": "correct"
+                },
+                {
+                  "he": "טריגרים מזויפים",
+                  "en": "Triggers are fake"
+                },
+                {
+                  "he": "מזג האוויר הוא הסיבה היחידה",
+                  "en": "The weather is the only cause"
+                },
+                {
+                  "he": "זה לגמרי אקראי",
+                  "en": "It's completely random"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: כמה קרוב את/ה לסף משתנה יומיומית — עם שינה, מתח, הורמונים ועוד — כך שאותו טריגר לא תמיד מטה אותך.",
+              "en": "Explanation: How close you are to your threshold changes daily — with sleep, stress, hormones and more — so the same trigger doesn't always tip you over."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: מסקנה טובה מרעיון הסף היא…",
+              "en": "Q3. A good takeaway from the threshold idea is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "להימנע מהכול לתמיד",
+                  "en": "Avoid everything forever"
+                },
+                {
+                  "he": "להפחית את העומס הכולל, לא לרדוף אחרי אשם אחד",
+                  "en": "Reduce your total load, don't chase one culprit",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אפשר להתעלם מטריגרים",
+                  "en": "Triggers can be ignored"
+                },
+                {
+                  "he": "רק תרופות משנות",
+                  "en": "Only medication matters"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: אינך צריך/ה לחסל כל טריגר — הפחתת העומס הכולל נותנת למוח שלך יותר מרחב נשימה.",
+              "en": "Explanation: You don't have to eliminate every trigger — lowering your overall load gives your brain more breathing room."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.triggers.commonTriggers",
+          "titleHe": "הטריגרים הנפוצים",
+          "titleEn": "The Common Triggers",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: הכר/י את הטריגרים שלך",
+              "en": "Module: Know Your Triggers"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "עכשיו בוא/י נכיר את החשודים המיידיים — הטריגרים שמופיעים הכי הרבה.",
+              "en": "Now let's meet the usual suspects — the triggers that show up most often."
+            },
+            {
+              "kind": "text",
+              "he": "הגדולים הם שינה לא סדירה, מתח (וה'שחרור' שאחרי מתח), דילוג על ארוחות, התייבשות ושינויים הורמונליים.",
+              "en": "The big ones are irregular sleep, stress (and the 'let-down' after stress), skipped meals, dehydration, and hormonal changes."
+            },
+            {
+              "kind": "text",
+              "he": "אחרים כוללים אלכוהול, אור בהיר או מהבהב, ריחות חזקים, שינויי מזג אוויר וזמן מסך ארוך. לכל אחד רשימה מעט שונה.",
+              "en": "Others include alcohol, bright or flickering light, strong smells, weather shifts, and long screen time. Everyone's list is a little different."
+            },
+            {
+              "kind": "text",
+              "he": "שים/י לב כמה מאלה הם דברים שאת/ה יכול/ה להשפיע עליהם — השינה שלך, הארוחות שלך, ההידרציה שלך. אלה הידיות שלך.",
+              "en": "Notice how many of these are things you can influence — your sleep, your meals, your hydration. Those are your levers."
+            },
+            {
+              "kind": "text",
+              "he": "לא תשלוט/י בכולם, וזה בסדר. אפילו צמצום של כמה מהם יוצר מרווח אמיתי מתחת לסף שלך.",
+              "en": "You won't control all of them, and that's fine. Even shrinking a few makes real room below your threshold."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "איזה מאלה הוא אחד הטריגרים הנפוצים ביותר למיגרנה?",
+              "en": "Which of these is one of the MOST common migraine triggers?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "ללבוש כחול",
+                  "en": "Wearing blue"
+                },
+                {
+                  "he": "לקרוא ספרים",
+                  "en": "Reading books"
+                },
+                {
+                  "he": "לצפות בעננים",
+                  "en": "Watching clouds"
+                },
+                {
+                  "he": "שינה לא סדירה",
+                  "en": "Irregular sleep",
+                  "mark": "preferred"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: איזה מהם טריגר נפוץ מאוד למיגרנה?",
+              "en": "Q1. Which is a very common migraine trigger?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "ישיבה זקופה",
+                  "en": "Sitting upright"
+                },
+                {
+                  "he": "דילוג על ארוחות",
+                  "en": "Skipping meals",
+                  "mark": "correct"
+                },
+                {
+                  "he": "שתיית מים",
+                  "en": "Drinking water"
+                },
+                {
+                  "he": "מתיחות עדינות",
+                  "en": "Gentle stretching"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: דילוג על ארוחות מוריד את רמת הסוכר בדם ומוסיף לעומס — ארוחות סדירות מגֵנות.",
+              "en": "Explanation: Skipped meals drop blood sugar and add to your load — regular meals are protective."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: מיגרנות 'שחרור' לרוב תוקפות כאשר…",
+              "en": "Q2. 'Let-down' migraines often strike when…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "המתח עולה",
+                  "en": "Stress is rising"
+                },
+                {
+                  "he": "את/ה באמצע משבר",
+                  "en": "You're mid-crisis"
+                },
+                {
+                  "he": "את/ה מדלג/ת על מים",
+                  "en": "You skip water"
+                },
+                {
+                  "he": "המתח יורד פתאום, כמו סוף שבוע",
+                  "en": "Stress suddenly drops, like a weekend",
+                  "mark": "correct"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: רבים חווים התקף כשהמתח יורד — 'מיגרנת סוף השבוע' הקלאסית שאחרי שבוע עמוס.",
+              "en": "Explanation: Many people get an attack as stress falls — the classic 'weekend migraine' after a busy week."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: איזו קביעה על טריגרים נכונה?",
+              "en": "Q3. Which statement about triggers is TRUE?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לכולם יש בדיוק אותם טריגרים",
+                  "en": "Everyone has the exact same triggers"
+                },
+                {
+                  "he": "טריגרים אף פעם לא כוללים הורמונים",
+                  "en": "Triggers never include hormones"
+                },
+                {
+                  "he": "רשימות הטריגרים של אנשים שונות",
+                  "en": "People's trigger lists differ",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אור אף פעם אינו טריגר",
+                  "en": "Light is never a trigger"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: טריגרים משתנים מאדם לאדם — לכן מעקב אחר הטריגרים שלך כה חשוב.",
+              "en": "Explanation: Triggers vary from person to person — which is why tracking your own is so valuable."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.triggers.findPatterns",
+          "titleHe": "לגלות את הדפוסים שלך",
+          "titleEn": "Finding Your Patterns",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: הכר/י את הטריגרים שלך",
+              "en": "Module: Know Your Triggers"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "הדרך הטובה ביותר להכיר את הטריגרים שלך היא להפוך לבלש של הגוף שלך עצמך.",
+              "en": "The best way to know your triggers is to become a detective of your own body."
+            },
+            {
+              "kind": "text",
+              "he": "לשם כך נועד המעקב באפליקציה. כל התקף שאת/ה מתעד/ת — עם שינה, מתח, אוכל ועוד — בונה תמונה לאורך זמן.",
+              "en": "That's what the tracking in this app is for. Each attack you log — with sleep, stress, food and more — builds a picture over time."
+            },
+            {
+              "kind": "text",
+              "he": "חפש/י דפוסים לאורך שבועות, לא ימים בודדים. שניים או שלושה התקפים אחרי שינה גרועה הם אות ששווה לפעול לפיו.",
+              "en": "Look for patterns across weeks, not single days. Two or three attacks after poor sleep is a signal worth acting on."
+            },
+            {
+              "kind": "text",
+              "he": "היזהר/י מרמזים שגויים. יום גרוע אחד אינו מוכיח דבר, והפרודרום יכול לגרום לחשק להיראות כסיבה. דפוסים חותכים את הרעש הזה.",
+              "en": "Beware false leads. One bad day proves nothing, and the prodrome can make a craving look like a cause. Patterns cut through that noise."
+            },
+            {
+              "kind": "text",
+              "he": "ברגע שאת/ה רואה את הדפוסים שלך, אפשר לשנות את התוצאה. זה הכוח השקט של מעקב עקבי.",
+              "en": "Once you can see your patterns, you can change the outcome. That's the quiet power of consistent tracking."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מהי הדרך הטובה ביותר לגלות את הטריגרים האישיים שלך?",
+              "en": "What's the best way to discover your personal triggers?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לעקוב אחר ההתקפים והגורמים היומיים לאורך זמן",
+                  "en": "Track your attacks and daily factors over time",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "לנחש פעם אחת ולעצור",
+                  "en": "Guess once and stop"
+                },
+                {
+                  "he": "להימנע מכל האוכל לתמיד",
+                  "en": "Avoid all foods forever"
+                },
+                {
+                  "he": "להתעלם מהם",
+                  "en": "Ignore them"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: איך האפליקציה הזו עוזרת לך למצוא טריגרים?",
+              "en": "Q1. How does this app help you find triggers?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "בתיעוד התקפים וגורמים יומיים לאורך זמן",
+                  "en": "By logging attacks and daily factors over time",
+                  "mark": "correct"
+                },
+                {
+                  "he": "באבחון זרים",
+                  "en": "By diagnosing strangers"
+                },
+                {
+                  "he": "במחיקת הנתונים שלך",
+                  "en": "By deleting your data"
+                },
+                {
+                  "he": "היא לא",
+                  "en": "It doesn't"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: תיעוד יומי ותיעוד התקפים עקבי מאפשר לאפליקציה לחשוף דפוסים — טביעת האצבע של הטריגרים שלך.",
+              "en": "Explanation: Consistent daily and attack logging lets the app surface patterns — your personal trigger fingerprint."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: כשמחפשים דפוסי טריגרים, צריך…",
+              "en": "Q2. When looking for trigger patterns, you should…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לשפוט מיום בודד",
+                  "en": "Judge from a single day"
+                },
+                {
+                  "he": "אף פעם לא לרשום דבר",
+                  "en": "Never write anything down"
+                },
+                {
+                  "he": "להסתכל על שבועות של נתונים",
+                  "en": "Look across weeks of data",
+                  "mark": "correct"
+                },
+                {
+                  "he": "לסמוך רק על יום גרוע אחד",
+                  "en": "Only trust one bad day"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: דפוסים מתגלים לאורך שבועות. טריגר שחוזר שוב ושוב אמין הרבה יותר מאירוע חד-פעמי.",
+              "en": "Explanation: Patterns emerge over weeks. A trigger showing up repeatedly is far more reliable than a one-off."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: שני התקפים אחרי שינה גרועה מרמזים ש…",
+              "en": "Q3. Two attacks after poor sleep suggests…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "שינה לא רלוונטית",
+                  "en": "Sleep is irrelevant"
+                },
+                {
+                  "he": "שינה גרועה עשויה להיות טריגר עבורך",
+                  "en": "Poor sleep may be a trigger for you",
+                  "mark": "correct"
+                },
+                {
+                  "he": "כדאי לישון פחות",
+                  "en": "You should sleep less"
+                },
+                {
+                  "he": "שום דבר",
+                  "en": "Nothing at all"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: קשר חוזר בין שינה גרועה להתקפים הוא אות אישי חזק להגן על השינה שלך.",
+              "en": "Explanation: A repeated link between poor sleep and attacks is a strong personal signal to protect your sleep."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.triggers.foodMyths",
+          "titleHe": "אוכל ומיתוסים על טריגרים",
+          "titleEn": "Food & Trigger Myths",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: הכר/י את הטריגרים שלך",
+              "en": "Module: Know Your Triggers"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "אוכל מואשם הרבה — לפעמים בצדק, לפעמים לא. בוא/י נפריד בין עובדה למיתוס.",
+              "en": "Food gets blamed a lot — sometimes fairly, sometimes not. Let's separate fact from myth."
+            },
+            {
+              "kind": "text",
+              "he": "אצל רוב האנשים, מאכלים הם טריגרים חלשים יותר משינה או מתח. חשקים בפרודרום יכולים אף לגרום לך לחשוב שמאכל גרם להתקף שהוא רק הקדים.",
+              "en": "For most people, foods are weaker triggers than sleep or stress. Cravings in the prodrome can even make you think a food caused an attack it only preceded."
+            },
+            {
+              "kind": "text",
+              "he": "קפאין הוא חרב פיפיות: כמויות קטנות וקבועות יכולות לעזור, אבל תנודות גדולות או גמילה יכולות לעורר התקפים. אלכוהול, במיוחד יין אדום, הוא טריגר אמין יותר עבור רבים.",
+              "en": "Caffeine is a double-edged sword: small steady amounts can help, but big swings or withdrawal can trigger attacks. Alcohol, especially red wine, is a more reliable trigger for many."
+            },
+            {
+              "kind": "text",
+              "he": "אז לפני שאת/ה מוותר/ת על קבוצות מזון שלמות, בדוק/בדקי בזהירות. דיאטות מחמירות מדי מוסיפות מתח ולרוב עוזרות פחות מכפי שמצפים.",
+              "en": "So before you cut out whole food groups, test carefully. Overly strict diets add stress and rarely help as much as people expect."
+            },
+            {
+              "kind": "text",
+              "he": "תן/י למעקב שלך, ולא לאינטרנט, להחליט מה באמת משפיע עלייך. כך נמנעים מהגבלות מיותרות.",
+              "en": "Let your own tracking, not the internet, decide what truly affects you. That's how you avoid needless restriction."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "יש לך חשק לשוקולד, ואז מגיעה מיגרנה. מה כנראה קורה?",
+              "en": "You crave chocolate, then get a migraine. What's likely happening?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "שוקולד תמיד הסיבה",
+                  "en": "Chocolate is always the cause"
+                },
+                {
+                  "he": "כדאי לא לאכול שוב לעולם",
+                  "en": "You should never eat again"
+                },
+                {
+                  "he": "החשק עשוי להיות סימן מוקדם למיגרנה, לא הסיבה",
+                  "en": "The craving may be an early migraine sign, not the cause",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "אוכל אף פעם לא משנה",
+                  "en": "Food never matters"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: אצל רוב האנשים, מאכלים בהשוואה לשינה ומתח הם…",
+              "en": "Q1. For most people, foods compared to sleep and stress are…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "טריגרים חזקים בהרבה",
+                  "en": "Much stronger triggers"
+                },
+                {
+                  "he": "בדרך כלל טריגרים חלשים יותר",
+                  "en": "Usually weaker triggers",
+                  "mark": "correct"
+                },
+                {
+                  "he": "הטריגר היחיד",
+                  "en": "The only trigger"
+                },
+                {
+                  "he": "אף פעם לא מעורבים",
+                  "en": "Never involved"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: תזונה משנה אצל חלק, אבל שינה, מתח, הידרציה והורמונים הם בדרך כלל המניעים הגדולים יותר.",
+              "en": "Explanation: Diet matters for some, but sleep, stress, hydration and hormones are typically bigger drivers."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: קפאין ומיגרנה — מה נכון?",
+              "en": "Q2. Caffeine and migraine — which is TRUE?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "כמויות קטנות וקבועות יכולות לעזור, אבל תנודות וגמילה יכולות לעורר",
+                  "en": "Steady small amounts can help, but swings and withdrawal can trigger",
+                  "mark": "correct"
+                },
+                {
+                  "he": "קפאין מרפא מיגרנה",
+                  "en": "Caffeine cures migraine"
+                },
+                {
+                  "he": "לקפאין אין שום השפעה",
+                  "en": "Caffeine has no effect at all"
+                },
+                {
+                  "he": "חובה להפסיק קפאין לחלוטין",
+                  "en": "You must quit caffeine entirely"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: עקביות היא המפתח — צריכה מתונה ויציבה יכולה לעזור, בעוד שינויים גדולים או גמילה יכולים לעורר התקפים.",
+              "en": "Explanation: Consistency is key — a stable modest intake can help, while big changes or withdrawal can provoke attacks."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: חשק לשוקולד לפני התקף הוא לרוב…",
+              "en": "Q3. A chocolate craving before an attack is often…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הוכחה ששוקולד גרם לו",
+                  "en": "Proof chocolate caused it"
+                },
+                {
+                  "he": "סיבה לצום",
+                  "en": "A reason to fast"
+                },
+                {
+                  "he": "תסמין פרודרום, לא הסיבה",
+                  "en": "A prodrome symptom, not the cause",
+                  "mark": "correct"
+                },
+                {
+                  "he": "חסר משמעות",
+                  "en": "Meaningless"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: חשקים יכולים להיות חלק מהפרודרום — כך שהמאכל שאת/ה מושיט/ה אליו יד עשוי להיות סימן שההתקף כבר התחיל.",
+              "en": "Explanation: Cravings can be part of the prodrome — so the food you reach for may be a sign the attack was already starting."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.toolkit.actEarly",
+          "titleHe": "לפעול מוקדם",
+          "titleEn": "Act Early",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: ארגז הכלים להתקף",
+              "en": "Module: The Attack Toolkit"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "עכשיו ארגז הכלים המעשי. כלל מספר אחת: לטפל מוקדם.",
+              "en": "Now the practical toolkit. Rule number one: treat early."
+            },
+            {
+              "kind": "text",
+              "he": "טיפולי מיגרנה עובדים הכי טוב בשעה הראשונה, בעוד הכאב עדיין קל. חכה/חכי יותר מדי ואותה תרופה תעבוד פחות טוב.",
+              "en": "Migraine treatments work best in the first hour, while the pain is still mild. Wait too long and the same medicine works less well."
+            },
+            {
+              "kind": "text",
+              "he": "אז ברגע שאת/ה בטוח/ה שהתקף מתחיל, זה החלון שלך. פעולה מוקדמת יכולה לקצר את כל ההתקף.",
+              "en": "So the moment you're confident an attack is starting, that's your window. Early action can shorten the whole attack."
+            },
+            {
+              "kind": "text",
+              "he": "כאן השלבים מקודם משתלמים — זיהוי הפרודרום או הצביטה הראשונה הוא הרמז שלך לפעול.",
+              "en": "This is where the phases from earlier pay off — spotting your prodrome or first twinge is your cue to act."
+            },
+            {
+              "kind": "text",
+              "he": "החזק/י את התוכנית שלך מוכנה לפני שאת/ה זקוק/ה לה, כך שלעולם לא תיאלץ/י לחפש כשהתקף מתחיל.",
+              "en": "Have your plan ready before you need it, so you're never scrambling when an attack begins."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מתי הזמן הטוב ביותר ליטול טיפול אקוטי למיגרנה?",
+              "en": "When is the best time to take acute migraine treatment?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מוקדם ככל שאת/ה בטוח/ה שזו מיגרנה, בעוד הכאב קל",
+                  "en": "As early as you're sure it's a migraine, while pain is mild",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "רק אחרי שהוא חמור",
+                  "en": "Only after it's severe"
+                },
+                {
+                  "he": "למחרת בבוקר",
+                  "en": "The next morning"
+                },
+                {
+                  "he": "אף פעם",
+                  "en": "Never"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: תרופה אקוטית למיגרנה בדרך כלל עובדת הכי טוב כשנוטלים אותה…",
+              "en": "Q1. Acute migraine medicine generally works best when taken…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מוקדם, בעוד הכאב עדיין קל",
+                  "en": "Early, while pain is still mild",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רק בשיא החומרה",
+                  "en": "Only at peak severity"
+                },
+                {
+                  "he": "יום לאחר מכן",
+                  "en": "A day later"
+                },
+                {
+                  "he": "לפני השינה בכל מקרה",
+                  "en": "At bedtime regardless"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: טיפול בשעה הראשונה, בעוד הכאב קל, נותן את הסיכוי הטוב ביותר לעצור את ההתקף.",
+              "en": "Explanation: Treating in the first hour, while pain is mild, gives the best chance of stopping the attack."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: למה המתנה ארוכה מדי עשויה להפחית את ההקלה?",
+              "en": "Q2. Why can waiting too long reduce relief?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "התרופה פגה תוך דקות",
+                  "en": "Medicine expires in minutes"
+                },
+                {
+                  "he": "מערכת העצבים הופכת רגישה, מה שמקשה לעצור התקפים",
+                  "en": "The nervous system becomes sensitized, making attacks harder to stop",
+                  "mark": "correct"
+                },
+                {
+                  "he": "היא לא",
+                  "en": "It doesn't"
+                },
+                {
+                  "he": "מתרגלים לכאב",
+                  "en": "You get used to pain"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: ככל שההתקף מתקדם מערכת העצבים הופכת רגישה, והטיפולים נעשים פחות יעילים — לכן התזמון חשוב.",
+              "en": "Explanation: As an attack progresses the nervous system becomes sensitized, and treatments become less effective — so timing matters."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: יתרון מרכזי של טיפול מוקדם הוא…",
+              "en": "Q3. A key benefit of treating early is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הוא מבטיח היעדר תופעות לוואי",
+                  "en": "It guarantees no side effects"
+                },
+                {
+                  "he": "הוא מחליף את הרופא/ה שלך",
+                  "en": "It replaces your doctor"
+                },
+                {
+                  "he": "הוא יכול לקצר את ההתקף",
+                  "en": "It can shorten the attack",
+                  "mark": "correct"
+                },
+                {
+                  "he": "הוא מאפשר לדלג על מניעה",
+                  "en": "It lets you skip prevention"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: טיפול מוקדם יכול לקטוע התקף ולהפחית עד כמה הוא מגביל.",
+              "en": "Explanation: Early treatment can cut an attack short and reduce how disabling it becomes."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.toolkit.acuteMeds",
+          "titleHe": "תרופות אקוטיות",
+          "titleEn": "Acute Medications",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: ארגז הכלים להתקף",
+              "en": "Module: The Attack Toolkit"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "בוא/י נסתכל על משפחות התרופות האקוטיות, או 'תרופות החילוץ' — במונחים כלליים. הרופא/ה שלך בוחר/ת מה מתאים לך.",
+              "en": "Let's look at the main classes of acute, or 'rescue', medicines — in general terms. Your doctor chooses what's right for you."
+            },
+            {
+              "kind": "text",
+              "he": "משככי כאב פשוטים כמו איבופרופן או אספירין עוזרים בהתקפים קלים יותר. טריפטנים הם ייעודיים למיגרנה ומרגיעים את מסלולי הכאב הפעילים מדי.",
+              "en": "Simple analgesics like ibuprofen or aspirin help milder attacks. Triptans are migraine-specific and calm the overactive pain pathways."
+            },
+            {
+              "kind": "text",
+              "he": "אפשרויות חדשות יותר שנקראות גפאנטים גם הן מכוונות ישירות למיגרנה, ותרופות נגד בחילה יכולות להקל על הבחילה ולעזור לתרופות אחרות להיספג.",
+              "en": "Newer options called gepants also target migraine directly, and anti-nausea medicines can ease sickness and help other medicines absorb."
+            },
+            {
+              "kind": "text",
+              "he": "אני נותן/ת לך את המפה, לא מרשם. איזו תרופה, איזה מינון, ובאיזו תדירות — אלה החלטות שמתקבלות עם הרופא/ה שלך.",
+              "en": "I'm giving you the map, not a prescription. Which medicine, which dose, and how often are decisions to make with your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "היכרות עם השטח מאפשרת לך לנהל שיחה חכמה ובטוחה יותר בפגישה הבאה שלך.",
+              "en": "Knowing the landscape means you can have a smarter, more confident conversation at your next appointment."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מי צריך להחליט איזו תרופה אקוטית מתאימה לך?",
+              "en": "Who should decide which acute medicine is right for you?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "חבר/ה",
+                  "en": "A friend"
+                },
+                {
+                  "he": "האינטרנט לבדו",
+                  "en": "The internet alone"
+                },
+                {
+                  "he": "את/ה והרופא/ה שלך יחד",
+                  "en": "You and your doctor together",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "אף אחד — פשוט לנחש",
+                  "en": "Nobody — just guess"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: טריפטנים הם…",
+              "en": "Q1. Triptans are…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "סוג של ויטמין",
+                  "en": "A type of vitamin"
+                },
+                {
+                  "he": "רק למניעה",
+                  "en": "Only for prevention"
+                },
+                {
+                  "he": "תרופות אקוטיות ייעודיות למיגרנה",
+                  "en": "Migraine-specific acute medicines",
+                  "mark": "correct"
+                },
+                {
+                  "he": "טכניקת הרפיה",
+                  "en": "A relaxation technique"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: טריפטנים הם תרופות חילוץ ייעודיות למיגרנה שמרגיעות את מסלולי הכאב במהלך התקף. הרופא/ה שלך מחליט/ה אם הן מתאימות לך.",
+              "en": "Explanation: Triptans are migraine-specific rescue medicines that calm the pain pathways during an attack. Your doctor decides if they suit you."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: למה עשויים להשתמש בתרופה נגד בחילה בהתקף?",
+              "en": "Q2. Why might an anti-nausea medicine be used in an attack?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "כדי להחליף שיכוך כאב",
+                  "en": "To replace pain relief"
+                },
+                {
+                  "he": "כדי להקל על הבחילה ולעזור לתרופות אחרות להיספג",
+                  "en": "To ease sickness and help other medicines absorb",
+                  "mark": "correct"
+                },
+                {
+                  "he": "כדי לגרום לישנוניות בכוונה",
+                  "en": "To cause drowsiness on purpose"
+                },
+                {
+                  "he": "אף פעם לא משתמשים בה",
+                  "en": "It's never used"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: בחילה היא חלק מהמיגרנה; טיפול בה משפר את הנוחות ויכול לעזור לתרופות דרך הפה לעבוד.",
+              "en": "Explanation: Nausea is part of migraine; treating it improves comfort and can help oral medicines work."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: ההנחיה של השיעור הזה לגבי בחירת תרופות היא…",
+              "en": "Q3. This lesson's guidance on choosing medicines is to…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "תמיד להחליט עם הרופא/ה שלך",
+                  "en": "Always decide with your doctor",
+                  "mark": "correct"
+                },
+                {
+                  "he": "להעתיק מה שחבר/ה נוטל/ת",
+                  "en": "Copy whatever a friend takes"
+                },
+                {
+                  "he": "לקחת את האפשרות החזקה ביותר",
+                  "en": "Take the strongest option"
+                },
+                {
+                  "he": "להימנע מכל התרופות",
+                  "en": "Avoid all medicines"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: טיפול אקוטי צריך תמיד להיות מותאם אישית עם הרופא/ה שלך — התוכנית הזו בונה הבנה, לא מרשם.",
+              "en": "Explanation: Acute treatment should always be individualized with your doctor — this program builds understanding, not a prescription."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.toolkit.overuse",
+          "titleHe": "כאב ראש משימוש יתר בתרופות",
+          "titleEn": "Medication-Overuse Headache",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: ארגז הכלים להתקף",
+              "en": "Module: The Attack Toolkit"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "הנה אזהרה מכרעת שיכולה בשקט להחמיר את המיגרנה: שימוש יתר בתרופות.",
+              "en": "Here's a crucial warning that can quietly make migraine worse: medication overuse."
+            },
+            {
+              "kind": "text",
+              "he": "נטילת משככי כאב אקוטיים לעיתים תכופות מדי — בערך בעשרה ימים או יותר בחודש במשך חודשים — יכולה להוביל לכאבי ראש תכופים יותר, לא פחות.",
+              "en": "Taking acute painkillers too often — very roughly, on ten or more days a month for months — can lead to more frequent headaches, not fewer."
+            },
+            {
+              "kind": "text",
+              "he": "זו מלכודת: ההקלה של היום יכולה להזין את הדפוס של מחר. הדרך החוצה היא מניעה ושימוש אקוטי זהיר ומוגבל, בהכוונת הרופא/ה שלך.",
+              "en": "It's a trap: the relief today can feed the pattern tomorrow. The way out is prevention and careful, limited acute use, guided by your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "זו אינה סיבה לסבול בשקט או לדלג על טיפול בהתקף אמיתי. זו סיבה לספור את ימי החילוץ שלך ולשתף אותם עם הרופא/ה שלך.",
+              "en": "This isn't a reason to suffer in silence or skip treating a real attack. It's a reason to count your rescue days and share them with your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "אם את/ה שם/ה לב שאת/ה מושיט/ה יד למשככי כאב ברוב הימים, זה לא כישלון — זה בדיוק האות שאנחנו רוצים לתפוס מוקדם.",
+              "en": "If you notice you're reaching for painkillers most days, that's not failure — it's exactly the signal we want to catch early."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "נטילת משככי כאב לחילוץ ברוב ימי החודש יכולה…",
+              "en": "Taking rescue painkillers on most days of the month can…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לרפא מיגרנה מהר יותר",
+                  "en": "Cure migraine faster"
+                },
+                {
+                  "he": "להוביל לכאבי ראש תכופים יותר לאורך זמן",
+                  "en": "Lead to more frequent headaches over time",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "להיות בלי שום חיסרון",
+                  "en": "Have no downside"
+                },
+                {
+                  "he": "להחליף מניעה",
+                  "en": "Replace prevention"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: כאב ראש משימוש יתר מתרחש כאשר…",
+              "en": "Q1. Medication-overuse headache happens when…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "נוטלים תרופות מונעות מדי יום כמרשם",
+                  "en": "You take preventives daily as prescribed"
+                },
+                {
+                  "he": "משתמשים במשככי כאב אקוטיים ביותר מדי ימים בחודש",
+                  "en": "Acute painkillers are used too many days per month",
+                  "mark": "correct"
+                },
+                {
+                  "he": "שותים מים",
+                  "en": "You drink water"
+                },
+                {
+                  "he": "ישנים טוב",
+                  "en": "You sleep well"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: שימוש תכוף בתרופות אקוטיות/חילוץ — לרוב 10 ימים או יותר בחודש — יכול להגביר את תדירות כאבי הראש לאורך זמן.",
+              "en": "Explanation: Frequent use of acute/rescue medicines — often 10+ days a month — can increase headache frequency over time."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: הדרך העיקרית להימנע ממלכודת השימוש היתר היא…",
+              "en": "Q2. The main way to avoid the overuse trap is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "ליטול יותר משככי כאב",
+                  "en": "Take more painkillers"
+                },
+                {
+                  "he": "להתעלם מזה",
+                  "en": "Ignore it"
+                },
+                {
+                  "he": "להגביל שימוש אקוטי ולהשתמש במניעה, עם הרופא/ה שלך",
+                  "en": "Limit acute use and use prevention, with your doctor",
+                  "mark": "correct"
+                },
+                {
+                  "he": "להפסיק לשתות מים",
+                  "en": "Stop drinking water"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: שמירה על שימוש אקוטי בגבולות בטוחים והוספת מניעה כשההתקפים תכופים היא הדרך להימנע מכך ולהפוך את המגמה.",
+              "en": "Explanation: Keeping acute use within safe limits and adding prevention when attacks are frequent is how you avoid and reverse it."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: אם את/ה מושיט/ה יד לתרופת חילוץ ברוב הימים, כדאי…",
+              "en": "Q3. If you're reaching for rescue medicine most days, you should…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לדבר עם הרופא/ה שלך על תוכנית מניעה",
+                  "en": "Talk to your doctor about a prevention plan",
+                  "mark": "correct"
+                },
+                {
+                  "he": "להכפיל את המינון",
+                  "en": "Double the dose"
+                },
+                {
+                  "he": "לא לומר דבר",
+                  "en": "Say nothing"
+                },
+                {
+                  "he": "להחליף מותגים באקראי",
+                  "en": "Switch brands randomly"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: שימוש תכוף בחילוץ הוא אות לבחון מחדש את התוכנית עם הרופא/ה שלך — בדרך כלל בהוספת מניעה.",
+              "en": "Explanation: Frequent rescue use is a signal to review your plan with your doctor — usually by adding prevention."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.toolkit.nonDrug",
+          "titleHe": "חילוץ ללא תרופות",
+          "titleEn": "Non-Drug Rescue",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: ארגז הכלים להתקף",
+              "en": "Module: The Attack Toolkit"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "תרופות אינן הכלים היחידים שלך. אסטרטגיות ללא תרופות יכולות באמת לעזור בהתקף, לצד המינונים או ביניהם.",
+              "en": "Medicines aren't your only tools. Non-drug strategies can genuinely help an attack, alongside or between doses."
+            },
+            {
+              "kind": "text",
+              "he": "הקלאסיקות: להתכנס לחדר חשוך, שקט וקריר ולנוח. רבים מוצאים מטלית קרה על הראש או הצוואר מרגיעה.",
+              "en": "The classics: retreat to a dark, quiet, cool room and rest. Many people find a cold pack on the head or neck soothing."
+            },
+            {
+              "kind": "text",
+              "he": "הישאר/י מיובב/ת, נסה/י נשימה איטית להרגעת המערכת, ותישן/י אם אפשר — שינה לרוב מסיימת התקף.",
+              "en": "Hydrate, try slow breathing to calm your system, and sleep if you can — sleep often ends an attack."
+            },
+            {
+              "kind": "text",
+              "he": "אלה משתלבות עם התרופה שלך; הן לא מחליפות אותה כשהיא באמת נחוצה. חשוב/חשבי 'גם וגם', לא 'או-או'.",
+              "en": "These stack with your medicine; they don't replace it when it's truly needed. Think 'both/and', not 'either/or'."
+            },
+            {
+              "kind": "text",
+              "he": "בנה/בני ערכת נוחות משלך — מסכת עיניים, מטלית קרה, פלייליסט שקט — כך שתהיה מוכנה ברגע שתזדקק/י לה.",
+              "en": "Build your own comfort kit — an eye mask, a cold pack, a quiet playlist — so it's ready the moment you need it."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "איזה מהם צעד ללא תרופה שמועיל במהלך התקף?",
+              "en": "Which is a helpful non-drug step during an attack?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מסכים בהירים ומוזיקה רועשת",
+                  "en": "Bright screens and loud music"
+                },
+                {
+                  "he": "ארוחה כבדה גדולה",
+                  "en": "A big heavy meal"
+                },
+                {
+                  "he": "פעילות גופנית אינטנסיבית",
+                  "en": "Intense exercise"
+                },
+                {
+                  "he": "חדר חשוך, שקט וקריר עם מנוחה",
+                  "en": "A dark, quiet, cool room with rest",
+                  "mark": "preferred"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: סביבת חילוץ טובה ללא תרופות היא…",
+              "en": "Q1. A good non-drug rescue environment is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "בהירה ורועשת",
+                  "en": "Bright and noisy"
+                },
+                {
+                  "he": "חמה וצפופה",
+                  "en": "Hot and crowded"
+                },
+                {
+                  "he": "על הליכון",
+                  "en": "On a treadmill"
+                },
+                {
+                  "he": "חשוכה, שקטה וקרירה",
+                  "en": "Dark, quiet and cool",
+                  "mark": "correct"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הפחתת אור, רעש וחום מורידה את העומס התחושתי ויכולה להקל על ההתקף.",
+              "en": "Explanation: Reducing light, sound and heat lowers sensory load and can ease the attack."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: מה לעיתים קרובות עוזר לסיים התקף באופן טבעי?",
+              "en": "Q2. Which often helps end an attack naturally?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "שינה",
+                  "en": "Sleep",
+                  "mark": "correct"
+                },
+                {
+                  "he": "לדלג על מים",
+                  "en": "Skipping water"
+                },
+                {
+                  "he": "מוזיקה רועשת",
+                  "en": "Loud music"
+                },
+                {
+                  "he": "אימון כבד",
+                  "en": "A heavy workout"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: שינה היא אחת הדרכים האמינות ביותר של הגוף לכבות מיגרנה.",
+              "en": "Explanation: Sleep is one of the body's most reliable ways to switch off a migraine."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: יש לראות באסטרטגיות ללא תרופות…",
+              "en": "Q3. Non-drug strategies should be seen as…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "תחליף מלא לכל תרופה",
+                  "en": "A full replacement for all medicine"
+                },
+                {
+                  "he": "כלים שפועלים לצד התרופה שלך",
+                  "en": "Tools that work alongside your medicine",
+                  "mark": "correct"
+                },
+                {
+                  "he": "חסרי תועלת",
+                  "en": "Useless"
+                },
+                {
+                  "he": "רק להתקפים חמורים",
+                  "en": "Only for severe attacks"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הן משלימות את תוכנית הטיפול שלך — חזקות יחד עם התרופה המתאימה, לא במקומה.",
+              "en": "Explanation: They complement your treatment plan — powerful together with, not instead of, appropriate medicine."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.seeds.routine",
+          "titleHe": "כוחה של השגרה",
+          "titleEn": "The Power of Routine",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: מניעה ואורח חיים",
+              "en": "Module: Prevention & Lifestyle"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "ברוך/ה הבא/ה למניעה. הדבר המגן ביותר על מוח מיגרנה הוא מילה שאולי לא תצפה/י לה: שגרה.",
+              "en": "Welcome to prevention. The single most protective thing for a migraine brain is a word you might not expect: routine."
+            },
+            {
+              "kind": "text",
+              "he": "המוח שלך משתוקק לסדירות. שינה, ארוחות ופעילות קבועות שומרות על הסף שלך גבוה ויציב.",
+              "en": "Your brain craves regularity. Steady sleep, meals, and activity keep your threshold high and stable."
+            },
+            {
+              "kind": "text",
+              "he": "אנחנו קוראים לעמודי התווך SEEDS — שינה, פעילות גופנית, אכילה, יומן ומתח. הרגלים קטנים ועקביים מנצחים מאמצים גדולים ומזדמנים.",
+              "en": "We call the pillars SEEDS — Sleep, Exercise, Eat, Diary, and Stress. Small, consistent habits beat big, occasional efforts."
+            },
+            {
+              "kind": "text",
+              "he": "אינך צריך/ה לשנות הכול בבת אחת. בחר/י זרע אחד, הפוך/הפכי אותו ליציב, ואז שתול/י את הבא.",
+              "en": "You don't need to change everything at once. Pick one seed, make it steady, then plant the next."
+            },
+            {
+              "kind": "text",
+              "he": "בשיעורים הבאים ניקח אותם אחד-אחד, כך שבסוף תהיה לך שגרה שקטה שמגנה עלייך.",
+              "en": "Over the next lessons we'll take these one by one, so by the end you'll have a routine that quietly protects you."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מה מוח מיגרנה מעדיף?",
+              "en": "What does a migraine brain prefer?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הפתעות גדולות",
+                  "en": "Big surprises"
+                },
+                {
+                  "he": "שגרות קבועות ויציבות",
+                  "en": "Steady, regular routines",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "לדלג על שינה בסופי שבוע",
+                  "en": "Skipping sleep on weekends"
+                },
+                {
+                  "he": "זמני ארוחה אקראיים",
+                  "en": "Random meal times"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: ראשי התיבות SEEDS למניעת מיגרנה מייצגים…",
+              "en": "Q1. The SEEDS of migraine prevention stand for…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "סוכר, אנרגיה, פעילות, דיאטה, שינה",
+                  "en": "Sugar, Energy, Exercise, Diet, Sleep"
+                },
+                {
+                  "he": "שינה, פעילות גופנית, אכילה, יומן, מתח",
+                  "en": "Sleep, Exercise, Eat, Diary, Stress",
+                  "mark": "correct"
+                },
+                {
+                  "he": "מתח, אכילה, פעילות, תרופות, שינה",
+                  "en": "Stress, Eat, Exercise, Drugs, Sleep"
+                },
+                {
+                  "he": "שינה, אכילה, פעילות, רופא, סטרואידים",
+                  "en": "Sleep, Eat, Exercise, Doctor, Steroids"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: SEEDS = שינה, פעילות גופנית, אכילה, יומן, מתח — עמודי התווך של אורח החיים מבוססי הראיות.",
+              "en": "Explanation: SEEDS = Sleep, Exercise, Eat, Diary, Stress — the evidence-based lifestyle pillars."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: עבור מוח מיגרנה, הדפוס המגן ביותר הוא…",
+              "en": "Q2. For a migraine brain, the most protective pattern is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "סדירות ועקביות",
+                  "en": "Regularity and consistency",
+                  "mark": "correct"
+                },
+                {
+                  "he": "חידוש מתמיד",
+                  "en": "Constant novelty"
+                },
+                {
+                  "he": "לילות ללא שינה תכופים",
+                  "en": "Frequent all-nighters"
+                },
+                {
+                  "he": "אי-סדירות בכול",
+                  "en": "Irregular everything"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: עקביות שומרת על הסף שלך גבוה — אי-סדירות היא זו שנוטה לעורר התקפים.",
+              "en": "Explanation: Consistency keeps your threshold high — irregularity is what tends to provoke attacks."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: איזו גישה עובדת טוב יותר למניעה?",
+              "en": "Q3. Which approach works better for prevention?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מאמצים נדירים והֵרואיים",
+                  "en": "Rare, heroic efforts"
+                },
+                {
+                  "he": "כלום בכלל",
+                  "en": "Nothing at all"
+                },
+                {
+                  "he": "הרגלים יומיים קטנים ועקביים",
+                  "en": "Small, consistent daily habits",
+                  "mark": "correct"
+                },
+                {
+                  "he": "לפעול רק במהלך התקפים",
+                  "en": "Only acting during attacks"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הרגלים קטנים ומתמשכים מזיזים את קו הבסיס שלך הרבה יותר מדחיפות גדולות ומזדמנות.",
+              "en": "Explanation: Sustained small habits shift your baseline far more than occasional big pushes."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.seeds.sleepEat",
+          "titleHe": "שינה ואכילה",
+          "titleEn": "Sleep & Eat",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: מניעה ואורח חיים",
+              "en": "Module: Prevention & Lifestyle"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "בוא/י ניישם שני SEEDS: שינה ואוכל.",
+              "en": "Let's put two SEEDS into practice: sleep and food."
+            },
+            {
+              "kind": "text",
+              "he": "כוון/כווני לזמני שינה והתעוררות עקביים — אפילו בסופי שבוע. גם מעט מדי וגם יותר מדי שינה יכולים לעורר התקפים.",
+              "en": "Aim for consistent sleep and wake times — even on weekends. Both too little and too much sleep can trigger attacks."
+            },
+            {
+              "kind": "text",
+              "he": "לגבי אוכל, אל תדלג/י על ארוחות; אכל/י בזמנים קבועים והישאר/י מיובב/ת לאורך היום. סוכר יציב בדם פירושו סף יציב יותר.",
+              "en": "For food, don't skip meals; eat at regular times and stay hydrated through the day. Steady blood sugar means a steadier threshold."
+            },
+            {
+              "kind": "text",
+              "he": "עוגנים פשוטים עוזרים: שעת התעוררות קבועה, בקבוק מים שאת/ה ממלא/ת מחדש, ארוחות שלא נדחות מאוחר מדי. קטן, משעמם, עוצמתי.",
+              "en": "Simple anchors help: a fixed wake time, a water bottle you refill, meals that don't drift too late. Small, boring, powerful."
+            },
+            {
+              "kind": "text",
+              "he": "לא תהיה מושלם/ת, ואינך צריך/ה. כוון/כווני ל'רוב הזמן סדיר', והמוח שלך יודה לך.",
+              "en": "You won't be perfect, and you don't need to be. Aim for 'mostly regular', and your brain will thank you."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מהו הרגל השינה הבריא ביותר למיגרנה?",
+              "en": "What's the healthiest sleep habit for migraine?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לישון מתי שבא, בזמנים שונים לחלוטין",
+                  "en": "Sleep whenever, wildly different times"
+                },
+                {
+                  "he": "לעשות לילות לבנים לעיתים תכופות",
+                  "en": "Pull all-nighters often"
+                },
+                {
+                  "he": "לשמור על זמני שינה והתעוררות עקביים",
+                  "en": "Keep consistent sleep and wake times",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "לישון כמה שפחות",
+                  "en": "Sleep as little as possible"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: איזה דפוס שינה מגן הכי טוב מפני מיגרנה?",
+              "en": "Q1. Which sleep pattern best protects against migraine?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "זמני שינה והתעוררות עקביים",
+                  "en": "Consistent bed and wake times",
+                  "mark": "correct"
+                },
+                {
+                  "he": "זמנים שונים מאוד בכל יום",
+                  "en": "Very different times each day"
+                },
+                {
+                  "he": "לדלג על שינה בשבועות עמוסים",
+                  "en": "Skipping sleep on busy weeks"
+                },
+                {
+                  "he": "שינה ארוכה בסוף שבוע כדי 'להשלים'",
+                  "en": "Long weekend lie-ins to 'catch up'"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: תזמון שינה קבוע מייצב את הסף שלך; שינה מועטה או מרובה מדי ותנודות גדולות בסוף שבוע יכולים לעורר התקפים.",
+              "en": "Explanation: Regular sleep timing stabilizes your threshold; under- or over-sleeping and big weekend shifts can trigger attacks."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: הרגל אכילה מועיל הוא…",
+              "en": "Q2. A helpful eating habit is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לדלג על ארוחת בוקר מדי יום",
+                  "en": "Skipping breakfast daily"
+                },
+                {
+                  "he": "צומות ארוכים",
+                  "en": "Long fasts"
+                },
+                {
+                  "he": "ארוחות סדירות והידרציה טובה",
+                  "en": "Regular meals and good hydration",
+                  "mark": "correct"
+                },
+                {
+                  "he": "לאכול רק בלילה",
+                  "en": "Only eating at night"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: ארוחות סדירות והידרציה שומרות על סוכר הדם והנוזלים יציבים, ותומכות בסף יציב.",
+              "en": "Explanation: Regular meals and hydration keep blood sugar and fluids steady, supporting a stable threshold."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: דילוג על ארוחות יכול לעורר מיגרנה כי…",
+              "en": "Q3. Skipping meals can trigger migraine because…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "אין לו השפעה",
+                  "en": "It has no effect"
+                },
+                {
+                  "he": "ירידת סוכר בדם מוסיפה לעומס שלך",
+                  "en": "Dropping blood sugar adds to your load",
+                  "mark": "correct"
+                },
+                {
+                  "he": "הוא משפר הידרציה",
+                  "en": "It improves hydration"
+                },
+                {
+                  "he": "הוא מעלה את הסף שלך",
+                  "en": "It raises your threshold"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: צניחת סוכר בדם היא גורם מתח פנימי שמוסיף לעומס המיגרנה הכולל שלך.",
+              "en": "Explanation: A blood-sugar dip is an internal stressor that adds to your total migraine load."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.seeds.exercise",
+          "titleHe": "פעילות גופנית ותנועה",
+          "titleEn": "Exercise & Movement",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: מניעה ואורח חיים",
+              "en": "Module: Prevention & Lifestyle"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "תנועה היא תרופה למיגרנה — עם כניסה עדינה.",
+              "en": "Movement is medicine for migraine — with a gentle on-ramp."
+            },
+            {
+              "kind": "text",
+              "he": "פעילות אירובית סדירה, כמו הליכה מהירה, רכיבה על אופניים או שחייה, יכולה להפחית את תדירות ההתקפים.",
+              "en": "Regular aerobic exercise, like brisk walking, cycling or swimming, can reduce how often attacks come."
+            },
+            {
+              "kind": "text",
+              "he": "התחל/י בעדינות ובנה/בני בהדרגה. מאמץ אינטנסיבי פתאומי, או התייבשות, יכולים לעורר התקף — אז חמם/י, קצוב/י את עצמך, ושתה/י מים.",
+              "en": "Start gently and build up. Sudden intense exertion, or being dehydrated, can trigger an attack — so warm up, pace yourself, and drink water."
+            },
+            {
+              "kind": "text",
+              "he": "עקביות חשובה יותר מעוצמה. שלוש הליכות קלות בשבוע מנצחות אימון מתיש אחד שאת/ה חושש/ת ממנו.",
+              "en": "Consistency matters more than intensity. Three easy walks a week beats one exhausting session you dread."
+            },
+            {
+              "kind": "text",
+              "he": "מצא/י משהו שאת/ה נהנה/נהנית ממנו, וזה מפסיק להיות מטלה והופך לחלק מההגנה שלך.",
+              "en": "Find something you enjoy, and it stops being a chore and becomes part of your protection."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מהי הדרך החכמה להתחיל להתאמן עם מיגרנה?",
+              "en": "What's the smart way to start exercising with migraine?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "להתחיל בעדינות ולבנות בהדרגה",
+                  "en": "Start gently and build up gradually",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "לרוץ בכל הכוח ביום הראשון",
+                  "en": "Sprint all-out on day one"
+                },
+                {
+                  "he": "אף פעם לא להתאמן",
+                  "en": "Never exercise"
+                },
+                {
+                  "he": "להתאמן רק במהלך התקף",
+                  "en": "Only exercise during an attack"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: פעילות אירובית סדירה יכולה…",
+              "en": "Q1. Regular aerobic exercise can…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "רק להחמיר מיגרנה",
+                  "en": "Only make migraine worse"
+                },
+                {
+                  "he": "לא לעשות דבר",
+                  "en": "Do nothing"
+                },
+                {
+                  "he": "להפחית את תדירות ההתקפים",
+                  "en": "Reduce attack frequency",
+                  "mark": "correct"
+                },
+                {
+                  "he": "להחליף כל טיפול",
+                  "en": "Replace all treatment"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: פעילות אירובית עקבית הוכחה כמפחיתה את תדירות המיגרנה — כלי מונע אמיתי.",
+              "en": "Explanation: Consistent aerobic activity is shown to reduce migraine frequency — a genuine preventive tool."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: כיצד כדאי להתחיל שגרת אימונים?",
+              "en": "Q2. How should you begin an exercise routine?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "בעוצמה מרבית מיד",
+                  "en": "Maximum intensity immediately"
+                },
+                {
+                  "he": "בהדרגה, עם חימום והידרציה",
+                  "en": "Gradually, with warm-ups and hydration",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רק כשכואב",
+                  "en": "Only when in pain"
+                },
+                {
+                  "he": "אף פעם",
+                  "en": "Never"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: כניסה הדרגתית, חימום ושמירה על הידרציה מונעים ממאמץ או התייבשות לעורר התקף.",
+              "en": "Explanation: Easing in, warming up, and staying hydrated prevents exertion or dehydration from triggering an attack."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: מה יכול לעורר התקף במהלך פעילות גופנית?",
+              "en": "Q3. Which can trigger an attack during exercise?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מאמץ אינטנסיבי פתאומי כשמיובשים",
+                  "en": "Sudden intense exertion while dehydrated",
+                  "mark": "correct"
+                },
+                {
+                  "he": "חימום עדין",
+                  "en": "A gentle warm-up"
+                },
+                {
+                  "he": "הליכה סדירה ויציבה",
+                  "en": "Steady, regular walking"
+                },
+                {
+                  "he": "שתיית מים",
+                  "en": "Drinking water"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מאמץ פתאומי ואינטנסיבי — במיוחד כשמיובשים — יכול לעורר מיגרנה, אז בנה/בני בהדרגה.",
+              "en": "Explanation: Abrupt, intense effort — especially when dehydrated — can provoke migraine, so build up gradually."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.seeds.stressMind",
+          "titleHe": "מתח וגוף-נפש",
+          "titleEn": "Stress & Mind-Body",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: מניעה ואורח חיים",
+              "en": "Module: Prevention & Lifestyle"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "מתח הוא אחד הטריגרים הנפוצים ביותר — ואחד שאפשר לאמן. בוא/י נסיים את SEEDS עם הנפש.",
+              "en": "Stress is one of the most common triggers — and one you can train. Let's finish SEEDS with the mind."
+            },
+            {
+              "kind": "text",
+              "he": "אינך יכול/ה להסיר את כל המתח, אבל אפשר לבנות קו בסיס רגוע יותר. הרפיה, נשימה איטית וקשב מפחיתים את העומס שלך.",
+              "en": "You can't remove all stress, but you can build a calmer baseline. Relaxation, slow breathing, and mindfulness lower your load."
+            },
+            {
+              "kind": "text",
+              "he": "היזהר/י מדפוס ה'שחרור' — התקפים כשהמתח יורד. שמירה על מתח יציב יותר, במקום התרסקות אחרי שיאים, עוזרת.",
+              "en": "Watch out for the 'let-down' pattern — attacks as stress drops. Keeping stress steadier, rather than crashing after peaks, helps."
+            },
+            {
+              "kind": "text",
+              "he": "אפילו כמה דקות של תרגול יומי מאמנות מחדש את מערכת העצבים שלך לאורך זמן. זו מיומנות, ומיומנויות גדֵלות.",
+              "en": "Even a few minutes of daily practice retrains your nervous system over time. It's a skill, and skills grow."
+            },
+            {
+              "kind": "text",
+              "he": "קיצוב הימים שלך — הפסקות אמיתיות, גבולות ריאליים — מגן עלייך לא פחות מכל טכניקה בודדת.",
+              "en": "Pacing your days — real breaks, realistic limits — protects you as much as any single technique."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "איזה מהם כלי גוף-נפש מוכח למיגרנה?",
+              "en": "Which is a proven mind-body tool for migraine?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לכבוש הכול בפנים",
+                  "en": "Bottling everything up"
+                },
+                {
+                  "he": "לדלג על מנוחה",
+                  "en": "Skipping rest"
+                },
+                {
+                  "he": "עוד קפאין כדי לדחוף",
+                  "en": "More caffeine to power through"
+                },
+                {
+                  "he": "נשימה איטית ותרגול הרפיה",
+                  "en": "Slow breathing and relaxation practice",
+                  "mark": "preferred"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: מיגרנת 'שחרור' נוטה להתרחש…",
+              "en": "Q1. A 'let-down' migraine tends to occur…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "בשיא המתח",
+                  "en": "During peak stress"
+                },
+                {
+                  "he": "כשהמתח יורד פתאום",
+                  "en": "As stress suddenly drops",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רק כשתמיד רגוע",
+                  "en": "Only when calm always"
+                },
+                {
+                  "he": "אף פעם",
+                  "en": "Never"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הירידה שאחרי שיא מתח — כמו תחילת סוף שבוע — היא טריגר קלאסי. מתח יציב יותר עוזר.",
+              "en": "Explanation: The fall after a stress peak — like the start of a weekend — is a classic trigger. Steadier stress helps."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: איזו גישת הרפיה מבוססת ראיות?",
+              "en": "Q2. Which is an evidence-based relaxation approach?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "להתעלם ממתח",
+                  "en": "Ignoring stress"
+                },
+                {
+                  "he": "עוד לילות לבנים",
+                  "en": "Extra all-nighters"
+                },
+                {
+                  "he": "לדלג על ארוחות",
+                  "en": "Skipping meals"
+                },
+                {
+                  "he": "קשב ונשימה איטית",
+                  "en": "Mindfulness and slow breathing",
+                  "mark": "correct"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: קשב, אימון הרפיה ונשימה קצובה מורידים באופן מדיד את עומס המתח ויכולים להפחית התקפים.",
+              "en": "Explanation: Mindfulness, relaxation training and paced breathing measurably lower stress load and can reduce attacks."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: דרך מעשית להפחית התקפים מונעי-מתח היא…",
+              "en": "Q3. A practical way to reduce stress-driven attacks is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "להתרסק חזק אחרי כל תקופה עמוסה",
+                  "en": "Crash hard after every busy stretch"
+                },
+                {
+                  "he": "אף פעם לא לנוח",
+                  "en": "Never rest"
+                },
+                {
+                  "he": "לקצוב את הימים ולשמור על מתח יציב יותר",
+                  "en": "Pace your days and keep stress steadier",
+                  "mark": "correct"
+                },
+                {
+                  "he": "להוסיף עוד לחץ",
+                  "en": "Add more pressure"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: קיצוב והימנעות מתנודות מתח גדולות שומרים על הסף שלך יציב יותר ממחזורים של עלייה והתרסקות.",
+              "en": "Explanation: Pacing and avoiding big stress swings keeps your threshold more stable than boom-and-crash cycles."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.preventive.whenPrevent",
+          "titleHe": "מתי לשקול מניעה",
+          "titleEn": "When to Consider Prevention",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: טיפולים מונעים",
+              "en": "Module: Preventive Treatments"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "עד כה התמקדנו בטיפול בהתקפים. עכשיו: כיצד רופאים מונעים מהם לקרות.",
+              "en": "So far we've focused on treating attacks. Now: how doctors prevent them from happening."
+            },
+            {
+              "kind": "text",
+              "he": "טיפול מונע נשקל בדרך כלל כשההתקפים תכופים, ארוכים, מגבילים מאוד, או כשנדרשת תרופת חילוץ לעיתים תכופות מדי.",
+              "en": "Preventive treatment is usually considered when attacks are frequent, long, very disabling, or when rescue medicine is needed too often."
+            },
+            {
+              "kind": "text",
+              "he": "קו מנחה נפוץ הוא בערך ארבעה ימי מיגרנה או יותר בחודש, או התקפים שמשבשים ברצינות את חייך. ההחלטה תמיד משותפת עם הרופא/ה שלך.",
+              "en": "A common guide is roughly four or more migraine days a month, or attacks that seriously disrupt your life. The decision is always shared with your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "מניעה לא אומרת שנכשלת באורח חיים — היא פועלת לצד הרגלי ה-SEEDS שלך, לא במקומם.",
+              "en": "Prevention doesn't mean you failed at lifestyle — it works alongside your SEEDS habits, not instead of them."
+            },
+            {
+              "kind": "text",
+              "he": "ההיסטוריה המתועדת שלך היא בדיוק מה שעוזר לרופא/ה שלך להחליט. זו עוד סיבה שהתיעוד שלך חשוב.",
+              "en": "Your tracked history is exactly what helps your doctor decide. That's another reason your logging matters."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מתי בדרך כלל שוקלים טיפול מונע?",
+              "en": "When is preventive treatment usually considered?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "אחרי כאב ראש קל בודד",
+                  "en": "After a single mild headache"
+                },
+                {
+                  "he": "רק אם אף פעם לא נוטלים תרופות חילוץ",
+                  "en": "Only if you never take rescue meds"
+                },
+                {
+                  "he": "כשההתקפים תכופים או מגבילים מאוד",
+                  "en": "When attacks are frequent or very disabling",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "אף פעם",
+                  "en": "Never"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: מניעה נשקלת בדרך כלל כאשר…",
+              "en": "Q1. Prevention is typically considered when…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "היה לך כאב ראש אחד אי פעם",
+                  "en": "You've had one headache ever"
+                },
+                {
+                  "he": "את/ה לא אוהב/ת מים",
+                  "en": "You dislike water"
+                },
+                {
+                  "he": "ההתקפים תכופים או מגבילים (למשל ~4+ ימים בחודש)",
+                  "en": "Attacks are frequent or disabling (e.g. ~4+ days/month)",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אף פעם אין לך התקפים",
+                  "en": "You never get attacks"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: תדירות, משך, מגבלה, ושימוש כבד בתרופות חילוץ הם הסיבות העיקריות לשקול מניעה — בהחלטה עם הרופא/ה שלך.",
+              "en": "Explanation: Frequency, duration, disability, and heavy rescue-medicine use are the main reasons to consider prevention — decided with your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: הצורך בתרופת חילוץ לעיתים תכופות מאוד הוא…",
+              "en": "Q2. Needing rescue medicine very often is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "סיבה לדבר על מניעה",
+                  "en": "A reason to discuss prevention",
+                  "mark": "correct"
+                },
+                {
+                  "he": "סיבה ליטול עוד יותר",
+                  "en": "A reason to take even more"
+                },
+                {
+                  "he": "תמיד בסדר",
+                  "en": "Always fine"
+                },
+                {
+                  "he": "לא קשור למניעה",
+                  "en": "Unrelated to prevention"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: שימוש תכוף בחילוץ מסמן שאולי הגיע הזמן למנוע התקפים במקום רק לטפל בהם — ועוזר להימנע מכאב ראש משימוש יתר.",
+              "en": "Explanation: Frequent rescue use signals it may be time to prevent attacks rather than only treat them — and helps avoid overuse headache."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: מי מחליט אם את/ה מתחיל/ה מניעה?",
+              "en": "Q3. Who decides whether you start prevention?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "אפליקציה לבדה",
+                  "en": "An app alone"
+                },
+                {
+                  "he": "את/ה והרופא/ה שלך יחד",
+                  "en": "You and your doctor together",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רוקח/ת זר/ה",
+                  "en": "A pharmacist stranger"
+                },
+                {
+                  "he": "אף אחד",
+                  "en": "No one"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: התחלת מניעה היא החלטה קלינית משותפת המבוססת על הדפוס, הבריאות וההעדפות שלך.",
+              "en": "Explanation: Starting prevention is a shared clinical decision based on your pattern, health, and preferences."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.preventive.classicPreventives",
+          "titleHe": "תרופות מונעות קלאסיות",
+          "titleEn": "Classic Preventives",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: טיפולים מונעים",
+              "en": "Module: Preventive Treatments"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "בוא/י נסתכל על התרופות המונעות המסורתיות — במונחים כלליים בלבד. הרופא/ה שלך מתאים/ה ורושם/ת אותן.",
+              "en": "Let's look at the traditional preventive medicines — in general terms only. Your doctor tailors and prescribes them."
+            },
+            {
+              "kind": "text",
+              "he": "מעניין שרובן שימשו במקור למצבים אחרים. חלק מתרופות לחץ הדם, חלק מתרופות נגד פרכוסים, וחלק מנוגדי הדיכאון — כולן מפחיתות תדירות מיגרנה.",
+              "en": "Interestingly, most were first used for other conditions. Some blood-pressure medicines, certain anti-seizure medicines, and certain antidepressants all reduce migraine frequency."
+            },
+            {
+              "kind": "text",
+              "he": "הן נלקחות מדי יום כדי להעלות את הסף שלך, ולרוב מתחילים במינון נמוך ומעלים לאט. הן מונעות התקפים; הן לא עוצרות התקף שכבר החל.",
+              "en": "They're taken daily to raise your threshold, and often started at a low dose and increased slowly. They prevent attacks; they don't stop one that's already started."
+            },
+            {
+              "kind": "text",
+              "he": "הן גם דורשות סבלנות — רבות לוקחות כמה שבועות עד שהן מראות את מלוא השפעתן. ויתור מוקדם מדי הוא מכשלה נפוצה.",
+              "en": "They also need patience — many take several weeks to show their full effect. Giving up too soon is a common pitfall."
+            },
+            {
+              "kind": "text",
+              "he": "אם אחת לא מתאימה לך, יש אחרות לנסות. מציאת ההתאמה הנכונה היא תהליך רגיל, ושווה את זה.",
+              "en": "If one doesn't suit you, there are others to try. Finding the right fit is normal, and worth it."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "תרופות מונעות קלאסיות נלקחות…",
+              "en": "Classic preventive medicines are taken…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מדי יום כדי למנוע התקפים לאורך זמן",
+                  "en": "Every day to prevent attacks over time",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "רק במהלך התקף",
+                  "en": "Only during an attack"
+                },
+                {
+                  "he": "פעם בשנה",
+                  "en": "Once a year"
+                },
+                {
+                  "he": "אף פעם",
+                  "en": "Never"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: רבות מהתרופות המונעות הקלאסיות פותחו במקור עבור…",
+              "en": "Q1. Many classic preventive medicines were originally developed for…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מיגרנה בלבד",
+                  "en": "Migraine only"
+                },
+                {
+                  "he": "מצבים אחרים כמו לחץ דם או פרכוסים",
+                  "en": "Other conditions like blood pressure or seizures",
+                  "mark": "correct"
+                },
+                {
+                  "he": "הצטננות",
+                  "en": "The common cold"
+                },
+                {
+                  "he": "כלום",
+                  "en": "Nothing"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: כמה מונעות יעילות — ממשפחות לחץ הדם, נוגדי הפרכוסים ונוגדי הדיכאון — נמצאו כמפחיתות גם מיגרנה.",
+              "en": "Explanation: Several effective preventives — from blood-pressure, anti-seizure, and antidepressant families — were found to reduce migraine as well."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: תרופות מונעות נועדו…",
+              "en": "Q2. Preventive medicines are meant to…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לעצור התקף שמתרחש",
+                  "en": "Stop an attack in progress"
+                },
+                {
+                  "he": "להחליף שינה",
+                  "en": "Replace sleep"
+                },
+                {
+                  "he": "להפחית את תדירות ההתקפים",
+                  "en": "Reduce how often attacks happen",
+                  "mark": "correct"
+                },
+                {
+                  "he": "לרפא מיגרנה בן-לילה",
+                  "en": "Cure migraine overnight"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מונעות מפחיתות את תדירות וחומרת ההתקפים לאורך שבועות — הן לא לקטיעת התקף פעיל.",
+              "en": "Explanation: Preventives lower attack frequency and severity over weeks — they're not for aborting an active attack."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: מונעות מתחילים לרוב…",
+              "en": "Q3. Preventives are often started…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "במינון נמוך, ומעלים לאט",
+                  "en": "At a low dose, increased slowly",
+                  "mark": "correct"
+                },
+                {
+                  "he": "במינון המרבי מיד",
+                  "en": "At the maximum dose immediately"
+                },
+                {
+                  "he": "רק במקרי חירום",
+                  "en": "Only in emergencies"
+                },
+                {
+                  "he": "באקראי",
+                  "en": "Randomly"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: התחלה נמוכה והעלאה איטית משפרות את הסבילות — הרופא/ה שלך מתאים/ה כדי למצוא את המינון הנכון.",
+              "en": "Explanation: Starting low and going slow improves tolerability — your doctor adjusts to find the right dose."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.preventive.cgrpEra",
+          "titleHe": "עידן ה-CGRP",
+          "titleEn": "The CGRP Era",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: טיפולים מונעים",
+              "en": "Module: Preventive Treatments"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "הנה חדשות טובות באמת — הטיפולים הראשונים שתוכננו במיוחד למיגרנה.",
+              "en": "Here's some genuinely good news — the first treatments designed specifically for migraine."
+            },
+            {
+              "kind": "text",
+              "he": "מדענים מצאו מולקולה בשם CGRP שמזנקת במהלך התקפים. תרופות חדשות חוסמות אותה או את הקולטן שלה.",
+              "en": "Scientists found a molecule called CGRP that spikes during attacks. New medicines block it or its receptor."
+            },
+            {
+              "kind": "text",
+              "he": "חלקן זריקות חודשיות או רבעוניות למניעה; אחרות, הגפאנטים, מגיעות ככדורים. הן צעד גדול קדימה.",
+              "en": "Some are monthly or quarterly injections for prevention; others, the gepants, come as tablets. They're a big step forward."
+            },
+            {
+              "kind": "text",
+              "he": "הן לא מתאימות או זמינות לכולם, וגישה משתנה לפי מקום ותוכנית ביטוח. הרופא/ה שלך יכול/ה לומר לך אם את/ה מועמד/ת.",
+              "en": "They aren't right or available for everyone, and access varies by place and plan. Your doctor can tell you if you're a candidate."
+            },
+            {
+              "kind": "text",
+              "he": "המסר הגדול יותר מלא תקווה: מדע המיגרנה מתקדם מהר, והאפשרויות ממשיכות לגדול.",
+              "en": "The bigger message is hopeful: migraine science is moving fast, and options keep growing."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מה מיוחד בתרופות ה-CGRP?",
+              "en": "What's special about CGRP medicines?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הן אותם משככי כאב ישנים",
+                  "en": "They're the same old painkillers"
+                },
+                {
+                  "he": "הן תוכננו במיוחד למיגרנה",
+                  "en": "They were designed specifically for migraine",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "הן מטפלות רק בהצטננות",
+                  "en": "They only treat colds"
+                },
+                {
+                  "he": "הן מחליפות שינה",
+                  "en": "They replace sleep"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: CGRP הוא…",
+              "en": "Q1. CGRP is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מולקולה המעורבת בהתקפי מיגרנה",
+                  "en": "A molecule involved in migraine attacks",
+                  "mark": "correct"
+                },
+                {
+                  "he": "ויטמין",
+                  "en": "A vitamin"
+                },
+                {
+                  "he": "סוג של פעילות גופנית",
+                  "en": "A type of exercise"
+                },
+                {
+                  "he": "קבוצת מזון",
+                  "en": "A food group"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: CGRP הוא פפטיד שעולה במהלך התקפים; חסימתו או חסימת הקולטן שלו מטפלת ומונעת מיגרנה.",
+              "en": "Explanation: CGRP is a peptide that rises during attacks; blocking it or its receptor treats and prevents migraine."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: טיפולי CGRP בולטים בכך ש…",
+              "en": "Q2. CGRP treatments are notable because…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הם עתיקים",
+                  "en": "They're ancient"
+                },
+                {
+                  "he": "הם תוכננו במיוחד למיגרנה",
+                  "en": "They were designed specifically for migraine",
+                  "mark": "correct"
+                },
+                {
+                  "he": "הם עובדים רק לכאב ראש מתח",
+                  "en": "They only work for tension headache"
+                },
+                {
+                  "he": "אין להם ראיות",
+                  "en": "They have no evidence"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הם המשפחה הראשונה שפותחה במיוחד למיגרנה — התקדמות משמעותית עבור מטופלים רבים.",
+              "en": "Explanation: They're the first class developed specifically for migraine — a meaningful advance for many patients."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: תרופות CGRP מגיעות בצורת…",
+              "en": "Q3. CGRP medicines come as…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "רק ניתוח",
+                  "en": "Only surgery"
+                },
+                {
+                  "he": "רק מדבקות",
+                  "en": "Only patches"
+                },
+                {
+                  "he": "זריקות וכדורים (גפאנטים)",
+                  "en": "Injections and tablets (gepants)",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רק משאפים",
+                  "en": "Only inhalers"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: האפשרויות כוללות נוגדנים בזריקה חודשית/רבעונית למניעה וגפאנטים דרך הפה — הרופא/ה שלך מייעץ/ת מה מתאים.",
+              "en": "Explanation: Options include monthly/quarterly injectable antibodies for prevention and oral gepants — your doctor advises which fits."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.preventive.supplementsDevices",
+          "titleHe": "תוספים ומכשירים",
+          "titleEn": "Supplements & Devices",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: טיפולים מונעים",
+              "en": "Module: Preventive Treatments"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "מעבר לתרופות מרשם, לחלק מהתוספים והמכשירים יש ראיות אמיתיות — שווה להכיר, ועדיין שווה לדון עם הרופא/ה שלך.",
+              "en": "Beyond prescriptions, some supplements and devices have real evidence — worth knowing, and still worth discussing with your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "למגנזיום, ריבופלבין (ויטמין B2) וקו-אנזים Q10 יש ראיות מתונות למניעה אצל חלק מהאנשים. הם לא מיידיים, והאיכות משתנה.",
+              "en": "Magnesium, riboflavin (vitamin B2), and coenzyme Q10 have modest evidence for prevention in some people. They're not instant, and quality varies."
+            },
+            {
+              "kind": "text",
+              "he": "יש גם מכשירי נוירומודולציה — יחידות קטנות שמגרות בעדינות עצבים כדי להקל או למנוע התקפים, ללא תרופות.",
+              "en": "There are also neuromodulation devices — small units that gently stimulate nerves to ease or prevent attacks, without medication."
+            },
+            {
+              "kind": "text",
+              "he": "'טבעי' לא אומר אוטומטית בטוח או יעיל. מינונים, אינטראקציות והריון — כולם חשובים, אז שתף/י את הרופא/ה שלך.",
+              "en": "'Natural' doesn't automatically mean safe or effective. Doses, interactions, and pregnancy all matter — so loop in your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "בשימוש נבון ובהכוונה, אלה יכולים להיות תוספת מועילה לתוכנית שלך, לא תחליף לה.",
+              "en": "Used wisely and with guidance, these can be a helpful addition to your plan, not a replacement for it."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "לפני התחלת תוסף למיגרנה, כדאי…",
+              "en": "Before starting a supplement for migraine, you should…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לקחת כמה שיותר",
+                  "en": "Take as much as possible"
+                },
+                {
+                  "he": "לשמור זאת בסוד מהרופא/ה שלך",
+                  "en": "Keep it secret from your doctor"
+                },
+                {
+                  "he": "להניח שזה חסר סיכון",
+                  "en": "Assume it's risk-free"
+                },
+                {
+                  "he": "לדון בכך עם הרופא/ה שלך קודם",
+                  "en": "Discuss it with your doctor first",
+                  "mark": "preferred"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: לאילו יש ראיות מתונות למניעת מיגרנה?",
+              "en": "Q1. Which have modest evidence for migraine prevention?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "כל תוסף אקראי",
+                  "en": "Any random supplement"
+                },
+                {
+                  "he": "לאף אחד",
+                  "en": "None at all"
+                },
+                {
+                  "he": "מגנזיום, ריבופלבין (B2) וקו-אנזים Q10",
+                  "en": "Magnesium, riboflavin (B2), and CoQ10",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רק אבקות יקרות",
+                  "en": "Only expensive powders"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: למגנזיום, ריבופלבין וקו-אנזים Q10 יש ראיות תומכות מתונות אצל חלק מהאנשים — דון/דוני עם הרופא/ה שלך.",
+              "en": "Explanation: Magnesium, riboflavin, and CoQ10 have modest supportive evidence for some people — discuss with your doctor."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: מכשירי נוירומודולציה פועלים על ידי…",
+              "en": "Q2. Neuromodulation devices work by…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הוספת עוד תרופות",
+                  "en": "Adding more medication"
+                },
+                {
+                  "he": "גירוי עדין של עצבים ללא תרופות",
+                  "en": "Gently stimulating nerves without drugs",
+                  "mark": "correct"
+                },
+                {
+                  "he": "עשיית כלום",
+                  "en": "Doing nothing"
+                },
+                {
+                  "he": "רק הסוואת כאב בחום",
+                  "en": "Only masking pain with heat"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מכשירים אלה משתמשים בגירוי חשמלי או מגנטי עדין כדי לווסת את מסלולי הכאב — אפשרות ללא תרופות עבור חלק.",
+              "en": "Explanation: These devices use gentle electrical or magnetic stimulation to modulate pain pathways — a non-drug option for some."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: הגישה הבטוחה ביותר לתוספים ומכשירים היא…",
+              "en": "Q3. The safest approach to supplements and devices is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לנסות הכול בבת אחת",
+                  "en": "Try everything at once"
+                },
+                {
+                  "he": "להסתיר אותם מצוות הטיפול שלך",
+                  "en": "Hide them from your care team"
+                },
+                {
+                  "he": "להניח שטבעי אומר בטוח",
+                  "en": "Assume natural means safe"
+                },
+                {
+                  "he": "לדון עם הרופא/ה שלך לפני ההתחלה",
+                  "en": "Discuss with your doctor before starting",
+                  "mark": "correct"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: אפילו אפשרויות ללא מרשם יכולות ליצור אינטראקציה או להיות לא מתאימות — שיחה קצרה שומרת שהן יהיו בטוחות ויעילות.",
+              "en": "Explanation: Even non-prescription options can interact or be unsuitable — a quick conversation keeps them safe and effective."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.resilient.mentalHealth",
+          "titleHe": "מיגרנה ובריאות הנפש",
+          "titleEn": "Migraine & Mental Health",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: לחיות בחוסן",
+              "en": "Module: Living Resilient"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "המודול הזה עוסק בחיים טובים עם מיגרנה. בוא/י נתחיל בכנות, עם הנפש.",
+              "en": "This module is about living well with migraine. Let's start honestly, with the mind."
+            },
+            {
+              "kind": "text",
+              "he": "מיגרנה, חרדה ומצב רוח ירוד לרוב הולכים יחד — כי הם חולקים מסלולים במוח, לא כי את/ה חלש/ה. כאב כרוני כבד לשאת.",
+              "en": "Migraine, anxiety and low mood often travel together — because they share brain pathways, not because you're weak. Chronic pain is heavy to carry."
+            },
+            {
+              "kind": "text",
+              "he": "טיפול בבריאות הנפש שלך הוא חלק מטיפול במיגרנה. תמיכה, טיפול וחמלה עצמית יכולים להפחית את העומס — וזה בסדר לבקש עזרה.",
+              "en": "Caring for your mental health is part of migraine care. Support, therapy, and self-compassion can lower the load — and it's okay to ask for help."
+            },
+            {
+              "kind": "text",
+              "he": "שים/י לב למעגל הקסמים: כאב מזין דאגה, דאגה מזינה כאב. שבירת אחד הקשרים עוזרת לשני.",
+              "en": "Notice the vicious circle: pain feeds worry, worry feeds pain. Breaking either link helps the other."
+            },
+            {
+              "kind": "text",
+              "he": "מגיעה לך תמיכה לכל כולך, לא רק לראש שלך. זה לא מותרות — זה טיפול טוב במיגרנה.",
+              "en": "You deserve support for the whole of you, not just your head. That's not a luxury — it's good migraine care."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "למה מיגרנה ומצב רוח ירוד או חרדה לרוב מופיעים יחד?",
+              "en": "Why do migraine and low mood or anxiety often occur together?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "כי את/ה לא מתאמץ/ת מספיק",
+                  "en": "Because you're not trying hard enough"
+                },
+                {
+                  "he": "הם חולקים ביולוגיה והכאב הוא נטל אמיתי",
+                  "en": "They share biology and pain is a real burden",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "זה צירוף מקרים",
+                  "en": "It's a coincidence"
+                },
+                {
+                  "he": "אחד מהם דמיוני",
+                  "en": "One is imaginary"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: מיגרנה ומצבי מצב רוח כמו חרדה…",
+              "en": "Q1. Migraine and mood conditions like anxiety…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "אינם קשורים",
+                  "en": "Are unrelated"
+                },
+                {
+                  "he": "לרוב מופיעים יחד וחולקים ביולוגיה",
+                  "en": "Often occur together and share biology",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אומרים שאת/ה חלש/ה",
+                  "en": "Mean you are weak"
+                },
+                {
+                  "he": "מבטלים זה את זה",
+                  "en": "Cancel each other out"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: הם קשורים דרך מסלולי מוח משותפים ונטל הכאב הכרוני — לא כשל אישי.",
+              "en": "Explanation: They're linked through shared brain pathways and the burden of chronic pain — not personal failing."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: טיפול בבריאות הנפש שלך במיגרנה הוא…",
+              "en": "Q2. Caring for your mental health in migraine is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "חלק אמיתי מהטיפול שלך",
+                  "en": "A real part of your treatment",
+                  "mark": "correct"
+                },
+                {
+                  "he": "הסחת דעת",
+                  "en": "A distraction"
+                },
+                {
+                  "he": "אף פעם לא מועיל",
+                  "en": "Never helpful"
+                },
+                {
+                  "he": "סימן לחולשה",
+                  "en": "A sign of weakness"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: תמיכה, טיפול וחמלה עצמית מפחיתים עומס ויכולים לשפר תוצאות מיגרנה — זה חלק מהטיפול.",
+              "en": "Explanation: Support, therapy and self-compassion reduce load and can improve migraine outcomes — it's part of care."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: אם מצב הרוח שלך סובל, המהלך הנכון הוא…",
+              "en": "Q3. If your mood is suffering, the right move is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "להסתיר את זה",
+                  "en": "Hide it"
+                },
+                {
+                  "he": "לדחוף לבד לתמיד",
+                  "en": "Push through alone forever"
+                },
+                {
+                  "he": "לפנות לתמיכה ולספר לרופא/ה שלך",
+                  "en": "Reach out for support and tell your doctor",
+                  "mark": "correct"
+                },
+                {
+                  "he": "להתעלם מזה",
+                  "en": "Ignore it"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: בקשת עזרה היא חוזק — צוות הטיפול שלך יכול לתמוך גם במיגרנה שלך וגם במצב הרוח שלך.",
+              "en": "Explanation: Asking for help is strength — your care team can support both your migraine and your mood."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.resilient.trackingPays",
+          "titleHe": "מעקב שמשתלם",
+          "titleEn": "Tracking That Pays Off",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: לחיות בחוסן",
+              "en": "Module: Living Resilient"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "בנית כוח-על לאורך כל הדרך: הנתונים שלך עצמך. בוא/י נגרום להם לעבוד בשבילך.",
+              "en": "You've been building a superpower this whole time: your own data. Let's make it work for you."
+            },
+            {
+              "kind": "text",
+              "he": "כל תיעוד מזין את ציון החוסן שלך וחושף דפוסים — אילו הרגלים עוזרים, אילו טריגרים נושכים. הוא גם נותן לרופא/ה שלך תמונה ברורה וכנה.",
+              "en": "Every log feeds your resilience score and reveals patterns — which habits help, which triggers bite. It also gives your doctor a clear, honest picture."
+            },
+            {
+              "kind": "text",
+              "he": "עקביות מנצחת שלמות. אפילו צ'ק-אין יומי קצר, ברוב הימים, הופך ניחוש לתוכנית שאפשר לפעול לפיה.",
+              "en": "Consistency beats perfection. Even a quick daily check-in, most days, turns guesswork into a plan you can act on."
+            },
+            {
+              "kind": "text",
+              "he": "עקוב/עקבי אחר מגמות, לא ימים בודדים. ציון שיורד לאורך שבוע הוא רמז להגן על השינה שלך או להקל על המתח.",
+              "en": "Watch your trends, not single days. A score dipping over a week is a nudge to protect your sleep or ease your stress."
+            },
+            {
+              "kind": "text",
+              "he": "הבא/י את ההיסטוריה שלך לפגישות. נתונים אמיתיים מובילים להחלטות טובות יותר מכפי שזיכרון אי פעם יכול.",
+              "en": "Bring your history to appointments. Real data leads to better decisions than memory ever can."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מה הופך את המעקב למועיל ביותר?",
+              "en": "What makes tracking most useful?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "תיעוד עקבי, ברוב הימים",
+                  "en": "Logging consistently, most days",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "תיעוד רק פעם בשנה",
+                  "en": "Only logging once a year"
+                },
+                {
+                  "he": "אף פעם לא לתעד",
+                  "en": "Never logging"
+                },
+                {
+                  "he": "לתעד רק ימים מושלמים",
+                  "en": "Only logging perfect days"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: מה הנתונים המתועדים שלך מפעילים באפליקציה הזו?",
+              "en": "Q1. What does your logged data power in this app?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "את ציון החוסן שלך ותובנות על דפוסים",
+                  "en": "Your resilience score and pattern insights",
+                  "mark": "correct"
+                },
+                {
+                  "he": "כלום",
+                  "en": "Nothing"
+                },
+                {
+                  "he": "רק פרסום",
+                  "en": "Only advertising"
+                },
+                {
+                  "he": "ניחוש",
+                  "en": "A guess"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: התיעוד שלך מניע את ציון החוסן שלך וחושף את הדפוסים שמכוונים את התוכנית שלך ואת עצת הרופא/ה שלך.",
+              "en": "Explanation: Your logs drive your resilience score and surface the patterns that guide your plan and your doctor's advice."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: למעקב, הלך הרוח הטוב ביותר הוא…",
+              "en": "Q2. For tracking, the best mindset is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לתעד רק ימים מושלמים",
+                  "en": "Only log flawless days"
+                },
+                {
+                  "he": "לתעד פעם ולעצור",
+                  "en": "Log once then stop"
+                },
+                {
+                  "he": "עקביות על פני שלמות",
+                  "en": "Consistency over perfection",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אף פעם לא לפספס רשומה או לוותר",
+                  "en": "Never miss a single entry or give up"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: תיעוד סדיר ומספיק-טוב מנצח תיעוד מושלם מזדמן — ומנצח ויתור אחרי יום שהוחמץ.",
+              "en": "Explanation: Regular, good-enough logging beats occasional perfect logging — and beats giving up after a missed day."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: שיתוף הנתונים המתועדים שלך עם הרופא/ה שלך…",
+              "en": "Q3. Sharing your tracked data with your doctor…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הוא חסר טעם",
+                  "en": "Is pointless"
+                },
+                {
+                  "he": "נותן לו/לה תמונה ברורה וכנה שמכוונת את הטיפול",
+                  "en": "Gives them a clear, honest picture to guide care",
+                  "mark": "correct"
+                },
+                {
+                  "he": "אינו בטוח",
+                  "en": "Is unsafe"
+                },
+                {
+                  "he": "מחליף את הפגישות שלך",
+                  "en": "Replaces your appointments"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: נתונים אובייקטיביים עוזרים לרופא/ה שלך להתאים טיפול הרבה יותר טוב מזיכרון בלבד.",
+              "en": "Explanation: Objective data helps your doctor tailor treatment far better than memory alone."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.resilient.redFlags",
+          "titleHe": "דגלים אדומים ומתי לפנות לעזרה",
+          "titleEn": "Red Flags & When to Seek Help",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: לחיות בחוסן",
+              "en": "Module: Living Resilient"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "השיעור הזה עשוי יום אחד להיות החשוב מכולם. רוב כאבי הראש אינם מסוכנים — אבל כמה סימני אזהרה דורשים טיפול דחוף.",
+              "en": "This lesson could one day matter most. Most headaches are not dangerous — but a few warning signs need urgent care."
+            },
+            {
+              "kind": "text",
+              "he": "פנה/פני לעזרת חירום עבור כאב ראש 'רעם' פתאומי שמגיע לשיא בשניות, 'כאב הראש הגרוע בחייך', או כאב ראש עם חום וצוואר תפוס.",
+              "en": "Seek emergency help for a sudden 'thunderclap' headache that peaks in seconds, the 'worst headache of your life', or a headache with fever and a stiff neck."
+            },
+            {
+              "kind": "text",
+              "he": "דחוף גם: כאב ראש עם חולשה, נימול, בלבול, קושי בדיבור, או אובדן ראייה שאינו האאורה הרגילה שלך — או כאב ראש חדש ושונה אחרי גיל חמישים.",
+              "en": "Also urgent: headache with weakness, numbness, confusion, trouble speaking, or vision loss that isn't your usual aura — or a new, different headache after age fifty."
+            },
+            {
+              "kind": "text",
+              "he": "אלה נדירים, ואני לא מספר/ת לך את זה כדי להפחיד אותך — אני מספר/ת לך כדי שתדע/י בדיוק מתי לפעול.",
+              "en": "These are rare, and I'm not telling you this to frighten you — I'm telling you so you know exactly when to act."
+            },
+            {
+              "kind": "text",
+              "he": "הכלל פשוט: אם כאב ראש הוא פתאומי, חמור, או שונה מהדפוס הרגיל שלך, היבדק/י. בספק, פנה/פני לעזרה.",
+              "en": "The rule is simple: if a headache is sudden, severe, or different from your normal pattern, get checked. When in doubt, seek help."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "איזה מאלה דורש טיפול רפואי דחוף?",
+              "en": "Which of these needs urgent medical attention?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הדפוס הרגיל של המיגרנה שלך",
+                  "en": "Your usual migraine pattern"
+                },
+                {
+                  "he": "כאב ראש קל שמוקל במנוחה",
+                  "en": "A mild headache that eases with rest"
+                },
+                {
+                  "he": "'כאב הראש הגרוע בחייך' פתאומי",
+                  "en": "A sudden 'worst headache of your life'",
+                  "mark": "preferred"
+                },
+                {
+                  "he": "כאב ראש אחרי לילה של שינה גרועה",
+                  "en": "A headache after a poor night's sleep"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: איזה מהם כאב ראש 'דגל אדום' שדורש טיפול דחוף?",
+              "en": "Q1. Which is a red-flag headache needing urgent care?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הפעימה החד-צדדית הרגילה שלך",
+                  "en": "Your usual one-sided throb"
+                },
+                {
+                  "he": "כאב קל של אחר צהריים",
+                  "en": "A mild afternoon ache"
+                },
+                {
+                  "he": "כאב ראש 'רעם' פתאומי, הגרוע-אי-פעם",
+                  "en": "A sudden 'worst-ever' thunderclap headache",
+                  "mark": "correct"
+                },
+                {
+                  "he": "כאב ראש שמוקל בשינה",
+                  "en": "A headache eased by sleep"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: כאב ראש 'רעם' פתאומי ונפיץ או 'כאב הראש הגרוע בחיי' דורש הערכת חירום מיידית.",
+              "en": "Explanation: A sudden, explosive 'thunderclap' or 'worst headache of my life' needs emergency evaluation immediately."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: איזה תסמין עם כאב ראש הוא סימן אזהרה?",
+              "en": "Q2. Which symptom with a headache is a warning sign?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "האאורה הרגילה שלך",
+                  "en": "Your normal aura"
+                },
+                {
+                  "he": "חולשה, בלבול או קושי בדיבור חדשים",
+                  "en": "New weakness, confusion or trouble speaking",
+                  "mark": "correct"
+                },
+                {
+                  "he": "רגישות קלה לאור",
+                  "en": "Mild light sensitivity"
+                },
+                {
+                  "he": "תחושת עייפות",
+                  "en": "Feeling tired"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: סימנים נוירולוגיים חדשים — חולשה, נימול, בלבול, דיבור או שינויי ראייה חריגים — דורשים הערכה דחופה.",
+              "en": "Explanation: New neurological signs — weakness, numbness, confusion, speech or unusual vision changes — need urgent assessment."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: כאב ראש חדש לגמרי ושונה אחרי גיל 50 צריך להיות…",
+              "en": "Q3. A brand-new, different headache after age 50 should be…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "נבדק על ידי רופא/ה",
+                  "en": "Checked by a doctor",
+                  "mark": "correct"
+                },
+                {
+                  "he": "מוזנח",
+                  "en": "Ignored"
+                },
+                {
+                  "he": "מטופל בעוד קפאין",
+                  "en": "Treated with more caffeine"
+                },
+                {
+                  "he": "נשמר בסוד",
+                  "en": "Kept secret"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: דפוס כאב ראש חדש או שהשתנה בגיל מבוגר יותר מצדיק בדיקה רפואית ליתר ביטחון.",
+              "en": "Explanation: A new or changed headache pattern later in life warrants medical review to be safe."
+            }
+          ]
+        },
+        {
+          "id": "learn.content.resilient.actionPlan",
+          "titleHe": "תוכנית הפעולה האישית שלך",
+          "titleEn": "Your Personal Action Plan",
+          "blocks": [
+            {
+              "kind": "note",
+              "he": "מודול: לחיות בחוסן",
+              "en": "Module: Living Resilient"
+            },
+            {
+              "kind": "heading",
+              "he": "הסבר של הרופא",
+              "en": "Teaching narration"
+            },
+            {
+              "kind": "text",
+              "he": "הגעת לשיעור האחרון. בוא/י נהפוך את הכול לתוכנית הפעולה האישית שלך.",
+              "en": "You've made it to the final lesson. Let's turn everything into your personal action plan."
+            },
+            {
+              "kind": "text",
+              "he": "לתוכנית שלך שלושה חלקים: למנוע, לטפל, ולעקוב. מנע/י עם הרגלי ה-SEEDS שלך. טפל/י מוקדם עם התוכנית שאת/ה והרופא/ה שלך מסכימים עליה. עקוב/עקבי כדי להמשיך ללמוד.",
+              "en": "Your plan has three parts: prevent, treat, and track. Prevent with your SEEDS habits. Treat early with the plan you and your doctor agree on. Track to keep learning."
+            },
+            {
+              "kind": "text",
+              "he": "הכר/י את הדגלים האדומים שלך, שמור/שמרי את הרופא/ה שלך מעודכן/ת, והיה/היי טוב/ה לעצמך בימים הקשים.",
+              "en": "Know your red flags, keep your doctor in the loop, and be kind to yourself on hard days."
+            },
+            {
+              "kind": "text",
+              "he": "למדת מהי מיגרנה, מה מטה אותך, איך להילחם בהתקף, ואיך למנוע את הבא. זו שליטה אמיתית.",
+              "en": "You've learned what migraine is, what tips you over, how to fight an attack, and how to prevent the next. That's real mastery."
+            },
+            {
+              "kind": "text",
+              "he": "את/ה לא המיגרנה שלך — את/ה האדם שלומד לנהל אותה. ואת/ה עושה בדיוק את זה. כל הכבוד.",
+              "en": "You are not your migraine — you're the person learning to manage it. And you're doing exactly that. Well done."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלת ביניים",
+              "en": "Interactive checkpoint"
+            },
+            {
+              "kind": "text",
+              "he": "מהם שלושת החלקים של תוכנית הפעולה שלך?",
+              "en": "What are the three parts of your action plan?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "פאניקה, המתנה, תקווה",
+                  "en": "Panic, wait, hope"
+                },
+                {
+                  "he": "התעלמות, הכחשה, שכחה",
+                  "en": "Ignore, deny, forget"
+                },
+                {
+                  "he": "דילוג, ניחוש, ויתור",
+                  "en": "Skip, guess, quit"
+                },
+                {
+                  "he": "למנוע, לטפל, לעקוב",
+                  "en": "Prevent, treat, track",
+                  "mark": "preferred"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "בוחן ידע",
+              "en": "Knowledge-check quiz"
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 1: שלושת עמודי התווך של תוכנית הפעולה שלך הם…",
+              "en": "Q1. The three pillars of your action plan are…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "דאגה, המתנה, סבל",
+                  "en": "Worry, wait, endure"
+                },
+                {
+                  "he": "למנוע, לטפל, לעקוב",
+                  "en": "Prevent, treat, track",
+                  "mark": "correct"
+                },
+                {
+                  "he": "להימנע מכל אוכל, לישון פחות, פאניקה",
+                  "en": "Avoid all food, sleep less, panic"
+                },
+                {
+                  "he": "שום דבר לא משתנה",
+                  "en": "Nothing changes"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: מנע/י עם הרגלי SEEDS, טפל/י בהתקפים מוקדם עם תוכנית הרופא/ה שלך, ועקוב/עקבי כדי להשתפר.",
+              "en": "Explanation: Prevent with SEEDS habits, treat attacks early with your doctor's plan, and track to keep improving."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: 'לטפל' בתוכנית שלך פירושו בעיקר…",
+              "en": "Q2. 'Treat' in your plan mainly means…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "לחכות עד שזה בלתי נסבל",
+                  "en": "Wait until it's unbearable"
+                },
+                {
+                  "he": "לקחת כדורים אקראיים",
+                  "en": "Take random pills"
+                },
+                {
+                  "he": "לפעול מוקדם עם התוכנית המוסכמת שלך",
+                  "en": "Act early with your agreed plan",
+                  "mark": "correct"
+                },
+                {
+                  "he": "לא לעשות דבר",
+                  "en": "Do nothing"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: פעולה מוקדמת עם תוכנית החילוץ שאת/ה והרופא/ה שלך קבעתם נותנת את הסיכוי הטוב ביותר לעצור התקף.",
+              "en": "Explanation: Early action with the rescue plan you and your doctor set gives the best chance of stopping an attack."
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: הדרך הבריאה ביותר לראות את עצמך היא…",
+              "en": "Q3. The healthiest way to see yourself is…"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "מוגדר/ת על ידי מיגרנה",
+                  "en": "Defined by migraine"
+                },
+                {
+                  "he": "כישלון בימים גרועים",
+                  "en": "A failure on bad days"
+                },
+                {
+                  "he": "חסר/ת אונים",
+                  "en": "Helpless"
+                },
+                {
+                  "he": "אדם שלומד לנהל מיגרנה",
+                  "en": "A person learning to manage migraine",
+                  "mark": "correct"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "הסבר: את/ה לא המיגרנה שלך. עם ידע, הרגלים ותמיכה, את/ה זה/זו שאחראי/ת על הניהול שלה.",
+              "en": "Explanation: You are not your migraine. With knowledge, habits, and support, you're the one in charge of managing it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "screening",
+      "titleHe": "בדיקה חודשית — שאלונים מתוקפים",
+      "titleEn": "Monthly check-in — validated instruments",
+      "units": [
+        {
+          "id": "screening.phq2",
+          "titleHe": "PHQ-2 (דיכאון)",
+          "titleEn": "PHQ-2 (depression)",
+          "blocks": [
+            {
+              "kind": "text",
+              "he": "שאלה 1: במהלך השבועיים האחרונים, באיזו תדירות היה לכם מעט עניין או הנאה בעשיית דברים?",
+              "en": "Q1. Over the last 2 weeks, how often have you had little interest or pleasure in doing things?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) Not at all"
+                },
+                {
+                  "he": "(1) מספר ימים",
+                  "en": "(1) Several days"
+                },
+                {
+                  "he": "(2) יותר ממחצית הימים",
+                  "en": "(2) More than half the days"
+                },
+                {
+                  "he": "(3) כמעט בכל יום",
+                  "en": "(3) Nearly every day"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: במהלך השבועיים האחרונים, באיזו תדירות הרגשתם מדוכדכים, מדוכאים או חסרי תקווה?",
+              "en": "Q2. Over the last 2 weeks, how often have you been feeling down, depressed, or hopeless?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) Not at all"
+                },
+                {
+                  "he": "(1) מספר ימים",
+                  "en": "(1) Several days"
+                },
+                {
+                  "he": "(2) יותר ממחצית הימים",
+                  "en": "(2) More than half the days"
+                },
+                {
+                  "he": "(3) כמעט בכל יום",
+                  "en": "(3) Nearly every day"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "ניקוד 0–6. הפניה בציון ≥ 3.",
+              "en": "Score 0–6. Referral at ≥ 3."
+            },
+            {
+              "kind": "note",
+              "he": "שימו לב: טקסט הפרשנות/החומרה של השאלונים כרגע באנגלית בלבד — נדרש תרגום עברי מאושר.",
+              "en": "Note: interpretation/severity text is currently English-only — needs validated Hebrew."
+            }
+          ]
+        },
+        {
+          "id": "screening.gad2",
+          "titleHe": "GAD-2 (חרדה)",
+          "titleEn": "GAD-2 (anxiety)",
+          "blocks": [
+            {
+              "kind": "text",
+              "he": "שאלה 1: במהלך השבועיים האחרונים, באיזו תדירות הרגשתם עצבניים, חרדים או מתוחים?",
+              "en": "Q1. Over the last 2 weeks, how often have you been feeling nervous, anxious, or on edge?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) Not at all"
+                },
+                {
+                  "he": "(1) מספר ימים",
+                  "en": "(1) Several days"
+                },
+                {
+                  "he": "(2) יותר ממחצית הימים",
+                  "en": "(2) More than half the days"
+                },
+                {
+                  "he": "(3) כמעט בכל יום",
+                  "en": "(3) Nearly every day"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: במהלך השבועיים האחרונים, באיזו תדירות לא הצלחתם להפסיק או לשלוט בדאגה?",
+              "en": "Q2. Over the last 2 weeks, how often have you not been able to stop or control worrying?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) Not at all"
+                },
+                {
+                  "he": "(1) מספר ימים",
+                  "en": "(1) Several days"
+                },
+                {
+                  "he": "(2) יותר ממחצית הימים",
+                  "en": "(2) More than half the days"
+                },
+                {
+                  "he": "(3) כמעט בכל יום",
+                  "en": "(3) Nearly every day"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "ניקוד 0–6. הפניה בציון ≥ 3.",
+              "en": "Score 0–6. Referral at ≥ 3."
+            },
+            {
+              "kind": "note",
+              "he": "שימו לב: טקסט הפרשנות/החומרה של השאלונים כרגע באנגלית בלבד — נדרש תרגום עברי מאושר.",
+              "en": "Note: interpretation/severity text is currently English-only — needs validated Hebrew."
+            }
+          ]
+        },
+        {
+          "id": "screening.isi",
+          "titleHe": "ISI (נדודי שינה)",
+          "titleEn": "ISI (insomnia)",
+          "blocks": [
+            {
+              "kind": "text",
+              "he": "שאלה 1: באיזו חומרה הייתה לכם קושי להירדם במהלך השבועיים האחרונים?",
+              "en": "Q1. How severe has your difficulty falling asleep been over the last 2 weeks?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) None"
+                },
+                {
+                  "he": "(1) קלה",
+                  "en": "(1) Mild"
+                },
+                {
+                  "he": "(2) בינונית",
+                  "en": "(2) Moderate"
+                },
+                {
+                  "he": "(3) חמורה",
+                  "en": "(3) Severe"
+                },
+                {
+                  "he": "(4) חמורה מאוד",
+                  "en": "(4) Very severe"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 2: באיזו חומרה הייתה לכם קושי להישאר ישנים במהלך השבועיים האחרונים?",
+              "en": "Q2. How severe has your difficulty staying asleep been over the last 2 weeks?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) None"
+                },
+                {
+                  "he": "(1) קלה",
+                  "en": "(1) Mild"
+                },
+                {
+                  "he": "(2) בינונית",
+                  "en": "(2) Moderate"
+                },
+                {
+                  "he": "(3) חמורה",
+                  "en": "(3) Severe"
+                },
+                {
+                  "he": "(4) חמורה מאוד",
+                  "en": "(4) Very severe"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 3: באיזו חומרה הייתה לכם בעיה של יקיצה מוקדמת מדי במהלך השבועיים האחרונים?",
+              "en": "Q3. How severe has your problem with waking up too early been over the last 2 weeks?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) None"
+                },
+                {
+                  "he": "(1) קלה",
+                  "en": "(1) Mild"
+                },
+                {
+                  "he": "(2) בינונית",
+                  "en": "(2) Moderate"
+                },
+                {
+                  "he": "(3) חמורה",
+                  "en": "(3) Severe"
+                },
+                {
+                  "he": "(4) חמורה מאוד",
+                  "en": "(4) Very severe"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 4: עד כמה אתם מרוצים מדפוס השינה הנוכחי שלכם?",
+              "en": "Q4. How satisfied are you with your current sleep pattern?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) מרוצה מאוד",
+                  "en": "(0) Very satisfied"
+                },
+                {
+                  "he": "(1) מרוצה",
+                  "en": "(1) Satisfied"
+                },
+                {
+                  "he": "(2) מרוצה במידה בינונית",
+                  "en": "(2) Moderately satisfied"
+                },
+                {
+                  "he": "(3) לא מרוצה",
+                  "en": "(3) Dissatisfied"
+                },
+                {
+                  "he": "(4) לא מרוצה כלל",
+                  "en": "(4) Very dissatisfied"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 5: עד כמה לדעתכם בעיית השינה שלכם מורגשת לאחרים מבחינת פגיעה באיכות חייכם?",
+              "en": "Q5. How noticeable to others do you think your sleep problem is in terms of impairing the quality of your life?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) Not at all"
+                },
+                {
+                  "he": "(1) מעט",
+                  "en": "(1) A little"
+                },
+                {
+                  "he": "(2) במידה מסוימת",
+                  "en": "(2) Somewhat"
+                },
+                {
+                  "he": "(3) במידה רבה",
+                  "en": "(3) Much"
+                },
+                {
+                  "he": "(4) במידה רבה מאוד",
+                  "en": "(4) Very much"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 6: עד כמה אתם מודאגים או מוטרדים מבעיית השינה הנוכחית שלכם?",
+              "en": "Q6. How worried or distressed are you about your current sleep problem?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) Not at all"
+                },
+                {
+                  "he": "(1) מעט",
+                  "en": "(1) A little"
+                },
+                {
+                  "he": "(2) במידה מסוימת",
+                  "en": "(2) Somewhat"
+                },
+                {
+                  "he": "(3) במידה רבה",
+                  "en": "(3) Much"
+                },
+                {
+                  "he": "(4) במידה רבה מאוד",
+                  "en": "(4) Very much"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "שאלה 7: עד כמה בעיית השינה שלכם מפריעה לתפקוד היומיומי שלכם?",
+              "en": "Q7. How much does your sleep problem interfere with your daily functioning?"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "(0) כלל לא",
+                  "en": "(0) Not at all"
+                },
+                {
+                  "he": "(1) מעט",
+                  "en": "(1) A little"
+                },
+                {
+                  "he": "(2) במידה מסוימת",
+                  "en": "(2) Somewhat"
+                },
+                {
+                  "he": "(3) במידה רבה",
+                  "en": "(3) Much"
+                },
+                {
+                  "he": "(4) במידה רבה מאוד",
+                  "en": "(4) Very much"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "ניקוד 0–28: 0–7 אין · 8–14 תת-סף · 15–21 בינוני (הפניה) · 22–28 חמור (הפניה). הפניה בציון ≥ 15.",
+              "en": "Score 0–28: 0–7 none · 8–14 subthreshold · 15–21 moderate (refer) · 22–28 severe (refer). Referral ≥ 15."
+            },
+            {
+              "kind": "note",
+              "he": "שימו לב: טקסט הפרשנות/החומרה של השאלונים כרגע באנגלית בלבד — נדרש תרגום עברי מאושר.",
+              "en": "Note: interpretation/severity text is currently English-only — needs validated Hebrew."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "redflags",
+      "titleHe": "דגלים אדומים והנחיות חירום",
+      "titleEn": "Red flags & emergency guidance",
+      "units": [
+        {
+          "id": "redflags",
+          "titleHe": "דגלים אדומים",
+          "titleEn": "Red-flag surfaces",
+          "blocks": [
+            {
+              "kind": "heading",
+              "he": "משטח 1 — שאלון SNNOOP10 (10 פריטים)",
+              "en": "Surface 1 — SNNOOP10 onboarding (10 items)"
+            },
+            {
+              "kind": "note",
+              "he": "מוצג פעם אחת. על תשובת \"כן\" מוצגת התראת בטיחות (למטה) והמטופל ממשיך — ללא חסימה או הפניה מאולצת.",
+              "en": "Shown once. On any \"Yes\" a safety alert (below) shows and the patient continues — no hard block or forced referral."
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "הופעה פתאומית של כאב ראש חמור (רעם)?",
+                  "en": "Sudden onset of severe headache (thunderclap)?"
+                },
+                {
+                  "he": "כאב ראש חדש ואתה מעל גיל 50?",
+                  "en": "New headache and you are over 50 years old?"
+                },
+                {
+                  "he": "כאב ראש עם חום, נוקשות צוואר או פריחה?",
+                  "en": "Headache with fever, neck stiffness, or rash?"
+                },
+                {
+                  "he": "סימפטומים נוירולוגיים (אובדן ראייה, חולשה, חוסר תחושה)?",
+                  "en": "Neurological symptoms (vision loss, weakness, numbness)?"
+                },
+                {
+                  "he": "כאב ראש המופעל מבעיטה, מאמץ או התאמצות?",
+                  "en": "Headache triggered by coughing, straining, or exertion?"
+                },
+                {
+                  "he": "נפיחות של דיסקת הראייה (בצקת פפילרית)?",
+                  "en": "Swelling of optic disc (papilledema)?"
+                },
+                {
+                  "he": "כאב ראש מתקדם המחמיר לאורך שבועות?",
+                  "en": "Progressive headache worsening over weeks?"
+                },
+                {
+                  "he": "כאב ראש תלוי תנוחה (מחמיר בשכיבה או בעמידה)?",
+                  "en": "Positional headache (worse lying down or standing)?"
+                },
+                {
+                  "he": "כאב ראש במהלך היריון או לאחר לידה?",
+                  "en": "Headache during pregnancy or postpartum?"
+                },
+                {
+                  "he": "היסטוריה של סרטן או HIV עם כאב ראש חדש?",
+                  "en": "History of cancer or HIV with new headache?"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "התראת הבטיחות",
+              "en": "Safety alert"
+            },
+            {
+              "kind": "text",
+              "he": "התשובות שלך מצביעות על דגלים אדומים פוטנציאליים הדורשים טיפול רפואי מיידי. אנא היוועץ באיש מקצוע רפואי או פנה לחדר מיון בהקדם האפשרי.\n\nאפליקציה זו אינה תחליף לטיפול רפואי דחוף.",
+              "en": "Your answers indicate potential red flags that require immediate medical attention. Please consult a healthcare professional or visit an emergency room as soon as possible.\n\nThis app is not a substitute for emergency medical care."
+            },
+            {
+              "kind": "heading",
+              "he": "משטח 2 — בדיקת בטיחות באינטייק (עוצרת סיווג)",
+              "en": "Surface 2 — intake safety check (halts classification)"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "האם כאב הראש הכה כמו \"רעם\" (כאב מקסימלי תוך דקה)?",
+                  "en": "Did the headache strike like \"Thunder\" (max pain in 1 min)?"
+                },
+                {
+                  "he": "האם יש לך חום או צוואר נוקשה?",
+                  "en": "Do you have a fever or stiff neck?"
+                },
+                {
+                  "he": "האם זהו סוג חדש של כאב ראש שהתחיל מעל גיל 50?",
+                  "en": "Is this a new type of headache starting over age 50?"
+                },
+                {
+                  "he": "חסר נוירולוגי חדש שאינו אאורה",
+                  "en": "New neurologic deficit not attributable to aura"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "he": "אזהרה: זוהה {{flag}}. אנא פנה לרופא באופן מיידי.",
+              "en": "WARNING: {{flag}} DETECTED. PLEASE SEE A DOCTOR IMMEDIATELY."
+            },
+            {
+              "kind": "note",
+              "he": "שאלות פתוחות: האם דגל אדום צריך לעצור ולהפנות (ולא רק להתריע)? האם הפריטים והניסוח נכונים? נשמח לאשר את המצב הרפואי מאחורי כל שאלה.",
+              "en": "Open questions: should a red flag hard-stop and refer (not just alert)? Are the items/wording right? Please confirm the intended condition behind each question."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recommendations",
+      "titleHe": "עצות מבוססות ציון החוסן",
+      "titleEn": "Resilience-score patient advice",
+      "units": [
+        {
+          "id": "recommendations",
+          "titleHe": "המלצות וגורמי סיכון",
+          "titleEn": "Recommendations & risk factors",
+          "blocks": [
+            {
+              "kind": "heading",
+              "he": "המלצות (מוצגות כשגורם יורד מתחת לסף)",
+              "en": "Recommendations (surfaced when a factor scores below the cut-off)"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "סף שינה < 50: קבעו שעת שינה קבועה (אותה שעת שינה בטווח של 30 דקות)",
+                  "en": "Sleep < 50: Establish a consistent sleep schedule (same bedtime within 30 min)"
+                },
+                {
+                  "he": "תרופות < 50: שוחחו עם הנוירולוג על אפשרויות לטיפול מונע",
+                  "en": "Medication < 50: Discuss preventive medication options with your neurologist"
+                },
+                {
+                  "he": "פעילות < 40: הוסיפו 20 דקות של פעילות אירובית קלה (הליכה, יוגה, שחייה)",
+                  "en": "Exercise < 40: Add 20 minutes of light aerobic exercise (walk, yoga, swim)"
+                },
+                {
+                  "he": "מצב רוח < 50: שקלו טכניקות להפחתת מתח (נשימות עמוקות, מיינדפולנס)",
+                  "en": "Mood < 50: Consider stress management techniques (deep breathing, mindfulness)"
+                },
+                {
+                  "he": "הידרציה < 50: הגבירו את צריכת המים היומית ל-8 כוסות",
+                  "en": "Hydration < 50: Increase daily water intake to 8 glasses"
+                },
+                {
+                  "he": "ארוחות < 50: שמרו על שעות ארוחה קבועות — הימנעו מדילוג על ארוחות",
+                  "en": "Meals < 50: Maintain regular meal times — avoid skipping meals"
+                },
+                {
+                  "he": "התקפים < 30: עקבו אחר גורמים מעוררים כדי לזהות דפוסים",
+                  "en": "Attacks < 30: Track attack triggers to identify patterns"
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "he": "גורמי סיכון",
+              "en": "Risk factors"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "איכות שינה ירודה",
+                  "en": "Poor sleep quality"
+                },
+                {
+                  "he": "ניהול תרופתי לא אופטימלי",
+                  "en": "Suboptimal medication management"
+                },
+                {
+                  "he": "תדירות התקפים גבוהה",
+                  "en": "High attack frequency"
+                },
+                {
+                  "he": "מתח מוגבר או קשיים במצב הרוח",
+                  "en": "Elevated stress or mood concerns"
+                },
+                {
+                  "he": "פעילות גופנית לא מספקת",
+                  "en": "Insufficient physical activity"
+                }
+              ]
+            },
+            {
+              "kind": "note",
+              "he": "נא לאשר שההמלצות מתאימות קלינית כהנחיה ראשונית ושהספים במקום הנכון.",
+              "en": "Please confirm this advice is clinically appropriate as first-line guidance and the thresholds are right."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diagnosis",
+      "titleHe": "נספח — לוגיקת אבחון (ICHD-3 + SNNOOP10)",
+      "titleEn": "Annex — diagnostic logic (ICHD-3 + SNNOOP10)",
+      "units": [
+        {
+          "id": "diagnosis",
+          "titleHe": "קריטריוני אבחון",
+          "titleEn": "Diagnostic criteria",
+          "blocks": [
+            {
+              "kind": "en",
+              "en": "Phenotypes the engine can currently output: Migraine with Aura · Migraine without Aura · Probable Migraine · Undifferentiated (only on a red flag) · seed \"Unclassified / Probable Migraine\"."
+            },
+            {
+              "kind": "note",
+              "he": "הערה: הקוד מגדיר גם מיגרנה כרונית, כאב ראש מסוג מתח וכאב ראש משימוש יתר — אך המנוע אינו מסווג אליהם כרגע. האם נדרש להבחין ביניהם עבור הניסוי?",
+              "en": "Note: Chronic Migraine, Tension-Type, and Medication-Overuse Headache are declared but never emitted. Does the trial need them distinguished?"
+            },
+            {
+              "kind": "en",
+              "en": "Migraine WITHOUT aura — matches when ≥ 4 of 5: (A) ≥5 lifetime attacks · (B) duration 4–72h · (C) ≥2 of {unilateral, pulsating, moderate-to-severe, worse with activity} · (D) ≥1 of {nausea/vomiting, photophobia AND phonophobia} · (E) not better explained (auto)."
+            },
+            {
+              "kind": "en",
+              "en": "Migraine WITH aura — matches when ≥ 3 of 4: (B) ≥1 reversible aura (visual/sensory/speech/motor/brainstem/retinal) · (C) ≥3 of {spreads ≥5min, successive, each 5–60min, unilateral, positive symptoms, followed by headache} · (A) ≥2 attacks (auto) · (D) no better diagnosis (auto)."
+            },
+            {
+              "kind": "en",
+              "en": "Menstrual migraine (ICHD-3 A1.1.1/1.1.2): perimenstrual window day −2 to +3, default 28-day cycle → pure menstrual / menstrually-related / none."
+            },
+            {
+              "kind": "heading",
+              "he": "הצהרת אחריות המוצגת למטופל",
+              "en": "Patient disclaimer shown with the result"
+            },
+            {
+              "kind": "text",
+              "he": "איננו יכולים להחליף אבחנה מקצועית של נוירולוג. עם זאת, בהתבסס על המידע שסיפקת, הסימפטומים שלך עקביים עם קריטריוני ICHD-3 עבור {{phenotype}}.",
+              "en": "We cannot replace the professional diagnosis of a neurologist. However, based on the information provided, your symptoms are consistent with the ICHD-3 criteria for {{phenotype}}."
+            },
+            {
+              "kind": "note",
+              "he": "הערה: הערכת \"MARS+\" לסיכון שבץ מסומנת בקוד כזמנית/מפושטת — לשמור, לחדד, או להסיר לניסוי?",
+              "en": "Note: the MARS+ stroke-risk estimate is a coded placeholder — keep, refine, or remove for the trial?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scoring",
+      "titleHe": "נספח — מתודולוגיית ציון החוסן",
+      "titleEn": "Annex — resilience-score methodology",
+      "units": [
+        {
+          "id": "scoring",
+          "titleHe": "מודל 7 הגורמים",
+          "titleEn": "The 7-factor model",
+          "blocks": [
+            {
+              "kind": "en",
+              "en": "Daily resilience score (0–100) = weighted sum of 7 factors. Weights: Attacks 25% · Medication 25% · Sleep 20% · Exercise 12% · Mood & Stress 10% · Hydration 5% · Meals 3%."
+            },
+            {
+              "kind": "en",
+              "en": "Attacks sub-factors: frequency 0.30 · severity 0.25 · duration 0.20 · disability 0.15 · treatment response 0.10."
+            },
+            {
+              "kind": "en",
+              "en": "Medication: drug class 0.55 · acute overuse 0.35 · neuromodulation 0.10 (excluded if prevention not indicated). Sleep: duration 0.30 · efficiency 0.20 · awakenings 0.15 · deep/REM 0.15 · consistency 0.10 · restedness 0.10."
+            },
+            {
+              "kind": "en",
+              "en": "Anchors: attack frequency 0/mo=1.0, ≤3=0.8, ≤7=0.5, ≤14=0.25, ≥15=0.0 · acute overuse ≤4d=1.0, 10=0.5, ≥15=0.0 · drug class anti-CGRP/gepant=1.0, Botox=0.7, other=0.4, none=0.0 · sleep best ~7.5h · depression=1−PHQ2/6, anxiety=1−GAD2/6."
+            },
+            {
+              "kind": "en",
+              "en": "Zones: High Risk 0–39 · At Risk 40–59 · Moderate 60–79 · Strong 80–100. Confidence = share of sub-factors backed by real data (data completeness, not diagnostic certainty)."
+            },
+            {
+              "kind": "note",
+              "he": "נא לאשר את משקלי הגורמים, ספי העוגן, והשימוש ב-PHQ-2/GAD-2 (ולא PHQ-9/GAD-7 המלאים) לתת-הציונים של מצב הרוח.",
+              "en": "Please confirm the factor weights, the anchor cut-offs, and using PHQ-2/GAD-2 (not full PHQ-9/GAD-7) for the mood sub-scores."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "framing",
+      "titleHe": "מסגור בטיחות ושאלות פתוחות",
+      "titleEn": "Safety framing & open questions",
+      "units": [
+        {
+          "id": "framing",
+          "titleHe": "גבולות ושאלות",
+          "titleEn": "Boundaries & questions",
+          "blocks": [
+            {
+              "kind": "heading",
+              "he": "גבולות (מתוכננים)",
+              "en": "Boundaries (by design)"
+            },
+            {
+              "kind": "text",
+              "he": "אין מינונים ואין מרשמים — תוכן התרופות חינוכי ומפנה תמיד ל\"רופא שלך\". הנחיות חירום מפנות לטיפול דחוף. האבחון מוצג כתואם ICHD-3 עם הצהרה מפורשת שאינו מחליף נוירולוג.",
+              "en": "No doses or prescriptions — medication content is educational and defers to \"your doctor\". Emergency guidance directs to urgent care. Diagnosis is presented as ICHD-3-consistent with an explicit disclaimer that it does not replace a neurologist."
+            },
+            {
+              "kind": "text",
+              "he": "איננו יכולים להחליף אבחנה מקצועית של נוירולוג. עם זאת, בהתבסס על המידע שסיפקת, הסימפטומים שלך עקביים עם קריטריוני ICHD-3 עבור {{phenotype}}.",
+              "en": "We cannot replace the professional diagnosis of a neurologist. However, based on the information provided, your symptoms are consistent with the ICHD-3 criteria for {{phenotype}}."
+            },
+            {
+              "kind": "heading",
+              "he": "שאלות פתוחות שנשמח להכוונתך",
+              "en": "Open questions we'd value your guidance on"
+            },
+            {
+              "kind": "list",
+              "items": [
+                {
+                  "he": "פרשנויות השאלונים באנגלית בלבד — נדרש ניסוח עברי מתוקף.",
+                  "en": "Screening interpretations are English-only — need validated Hebrew."
+                },
+                {
+                  "he": "כיסוי פנוטיפים — מיגרנה כרונית / מתח / שימוש-יתר אינם מסווגים.",
+                  "en": "Phenotype coverage — Chronic/Tension-Type/Medication-Overuse not emitted."
+                },
+                {
+                  "he": "התנהגות דגל אדום — התראה בלבד, ללא עצירה/הפניה; שני משטחים שונים.",
+                  "en": "Red-flag behaviour — alerts but doesn't hard-stop; two differing surfaces."
+                },
+                {
+                  "he": "הערכת MARS+ היא זמנית — לשמור/לחדד/להסיר?",
+                  "en": "MARS+ stroke-risk is a placeholder — keep/refine/remove?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
