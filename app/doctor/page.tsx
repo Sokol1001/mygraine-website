@@ -17,11 +17,15 @@ import {
   Package,
   Search,
   Stethoscope,
+  Users,
 } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 import {
+  COHORT_CLASS,
+  cohortLabel,
   isNotAuthorizedError,
   zoneMeta,
+  type Cohort,
   type PatientSummary,
 } from "@/lib/doctorTypes";
 import { clinicInsights, triage, triageRank } from "@/lib/clinical";
@@ -191,6 +195,9 @@ function LoginForm() {
 /* -------------------------------- Clinic list ------------------------------ */
 
 type SortKey = "attention" | "name" | "resilience" | "attacks" | "active";
+// The roster RPC only ever returns exporting cohorts (034), so the chips are
+// a view filter, not a safety boundary.
+type CohortFilter = "all" | Extract<Cohort, "clinic_patient" | "friend_family">;
 
 function ClinicList({ onSignOut }: { onSignOut: () => void }) {
   const [rows, setRows] = useState<PatientSummary[] | null>(null);
@@ -200,6 +207,7 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortKey>("attention");
   const [onlyAttention, setOnlyAttention] = useState(false);
+  const [cohortFilter, setCohortFilter] = useState<CohortFilter>("all");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -240,6 +248,7 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
       );
     }
     if (onlyAttention) list = list.filter(({ t }) => t.level !== "none");
+    if (cohortFilter !== "all") list = list.filter(({ p }) => p.cohort === cohortFilter);
     list.sort((a, b) => {
       switch (sort) {
         case "name":
@@ -261,7 +270,7 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
       }
     });
     return list;
-  }, [rows, query, sort, onlyAttention]);
+  }, [rows, query, sort, onlyAttention, cohortFilter]);
 
   const exportCSV = useCallback(() => {
     const csv = toCSV(
@@ -278,6 +287,9 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
         { key: "latest_gad2", label: "GAD-2" },
         { key: "latest_isi", label: "ISI" },
         { key: "last_log_date", label: "Last active" },
+        { key: "cohort", label: "Cohort" },
+        { key: "log_days", label: "Days logged" },
+        { key: "days_enrolled", label: "Days enrolled" },
         { key: "attention", label: "Attention" },
         { key: "reasons", label: "Flags" },
       ],
@@ -296,13 +308,22 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
             </div>
             <span className="font-display text-lg text-ink">Clinic Portal</span>
           </div>
-          <button
-            onClick={onSignOut}
-            className="flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm font-medium text-ink hover:bg-lilac transition-colors"
-          >
-            <LogOut className="w-4 h-4" />
-            Sign out
-          </button>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/doctor/participants"
+              className="flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm font-medium text-ink hover:bg-lilac transition-colors"
+            >
+              <Users className="w-4 h-4" />
+              Participants &amp; invites
+            </Link>
+            <button
+              onClick={onSignOut}
+              className="flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm font-medium text-ink hover:bg-lilac transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              Sign out
+            </button>
+          </div>
         </div>
       </header>
 
@@ -381,6 +402,27 @@ function ClinicList({ onSignOut }: { onSignOut: () => void }) {
                 <AlertTriangle className="w-4 h-4" />
                 Needs attention
               </button>
+              <div className="flex items-center rounded-full border border-line bg-white p-0.5 text-sm">
+                {(
+                  [
+                    ["all", "All"],
+                    ["clinic_patient", "Clinic"],
+                    ["friend_family", "Friends & family"],
+                  ] as [CohortFilter, string][]
+                ).map(([value, label]) => (
+                  <button
+                    key={value}
+                    onClick={() => setCohortFilter(value)}
+                    className={`rounded-full px-3 py-1.5 font-medium transition-colors ${
+                      cohortFilter === value
+                        ? "bg-violet text-white"
+                        : "text-ink/70 hover:bg-lilac"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
               <div className="flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-sm">
                 <ArrowUpDown className="w-3.5 h-3.5 text-ink/40" />
                 <select
@@ -701,6 +743,8 @@ function PatientTable({
             <th className="px-4 py-3 font-medium text-center">GAD-2</th>
             <th className="px-4 py-3 font-medium text-center">ISI</th>
             <th className="px-4 py-3 font-medium">Last active</th>
+            <th className="px-4 py-3 font-medium">Cohort</th>
+            <th className="px-4 py-3 font-medium text-center" title="Days with a diary entry / days since enrollment">Logged</th>
             <th className="px-4 py-3" />
           </tr>
         </thead>
@@ -777,6 +821,20 @@ function PatientTable({
                   <ScoreCell value={p.latest_isi} positive={p.latest_isi !== null && p.latest_isi >= 15} />
                 </td>
                 <td className="px-4 py-3 text-ink/70">{fmtDate(p.last_log_date)}</td>
+                <td className="px-4 py-3">
+                  <span
+                    className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${
+                      p.cohort ? COHORT_CLASS[p.cohort] : "bg-paper text-ink/60"
+                    }`}
+                  >
+                    {cohortLabel(p.cohort)}
+                  </span>
+                </td>
+                <td className="px-4 py-3 text-center text-ink/80">
+                  {p.log_days !== null && p.days_enrolled !== null
+                    ? `${p.log_days}/${p.days_enrolled}`
+                    : "—"}
+                </td>
                 <td className="px-4 py-3 text-right">
                   <Link
                     href={`/doctor/patient?id=${p.user_id}`}

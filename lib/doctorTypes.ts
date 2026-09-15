@@ -3,6 +3,31 @@
 
 export type ResilienceZone = "strong" | "moderate" | "at_risk" | "high_risk";
 
+// Enrollment cohort (migration 034). Only clinic_patient and friend_family
+// reach the clinic roster and the ML exports; internal_tester and unknown are
+// visible on /doctor/participants only, so staff can promote real patients.
+export type Cohort = "clinic_patient" | "friend_family" | "internal_tester" | "unknown";
+
+export const COHORTS: Cohort[] = ["clinic_patient", "friend_family", "internal_tester", "unknown"];
+
+export const COHORT_LABEL: Record<Cohort, string> = {
+  clinic_patient: "Clinic",
+  friend_family: "Friends & family",
+  internal_tester: "Internal",
+  unknown: "Unassigned",
+};
+
+export const COHORT_CLASS: Record<Cohort, string> = {
+  clinic_patient: "bg-violet/10 text-violet",
+  friend_family: "bg-sky-50 text-sky-700",
+  internal_tester: "bg-slate-100 text-slate-600",
+  unknown: "bg-amber-50 text-amber-700",
+};
+
+export function cohortLabel(c: Cohort | null | undefined): string {
+  return c ? COHORT_LABEL[c] ?? c : "—";
+}
+
 export interface PatientSummary {
   user_id: string;
   email: string | null;
@@ -19,6 +44,54 @@ export interface PatientSummary {
   latest_gad2: number | null;
   latest_isi: number | null;
   last_log_date: string | null;
+  // appended by 034
+  cohort: Cohort | null;
+  days_enrolled: number | null;
+  log_days: number | null;
+  has_healthkit: boolean | null;
+  conversation_count: number | null;
+}
+
+export interface ParticipantInfo {
+  cohort: Cohort;
+  clinic_ref: string | null;
+  enrolled_at: string | null;
+  consent_version: string | null;
+  consented_at: string | null;
+}
+
+// staff_list_participants() — every account, unknowns first.
+export interface ParticipantRow {
+  user_id: string;
+  email: string | null;
+  name: string | null;
+  cohort: Cohort;
+  clinic_ref: string | null;
+  enrolled_at: string | null;
+  consent_version: string | null;
+  member_since: string | null;
+  last_log_date: string | null;
+  log_days: number | null;
+  has_healthkit: boolean | null;
+  is_staff: boolean;
+  invite_code: string | null;
+}
+
+// staff_list_invites()
+export type InviteStatus = "active" | "expired" | "exhausted" | "revoked";
+export interface InviteRow {
+  id: string;
+  code: string;
+  cohort: Cohort;
+  clinic_ref: string | null;
+  created_by_email: string | null;
+  created_at: string;
+  expires_at: string | null;
+  max_uses: number;
+  used_count: number;
+  revoked_at: string | null;
+  status: InviteStatus;
+  note: string | null;
 }
 
 export interface ResilienceTrendPoint {
@@ -53,6 +126,7 @@ export interface PredictionRecord {
 
 export interface PatientDetail {
   summary: PatientSummary;
+  participant?: ParticipantInfo | null;
   resilienceTrend: ResilienceTrendPoint[];
   attacks: AttackRecord[];
   screenings: ScreeningRecord[];

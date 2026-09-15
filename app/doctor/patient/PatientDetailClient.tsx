@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 import {
+  COHORT_CLASS,
+  cohortLabel,
   isNotAuthorizedError,
   zoneMeta,
   type AttackRecord,
@@ -330,6 +332,25 @@ function SummaryHeader({
           <div className="flex items-center gap-1.5 text-xs text-ink/50 mt-1">
             <Calendar className="w-3.5 h-3.5" />
             Member since {fmtDate(summary.member_since)}
+          </div>
+          {/* Enrollment cohort (034). An unassigned account is visible here so
+              staff can judge it, but it is in no export until promoted. */}
+          <div className="flex items-center gap-2 mt-2 print:hidden">
+            <span
+              className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${
+                detail.participant?.cohort
+                  ? COHORT_CLASS[detail.participant.cohort]
+                  : "bg-paper text-ink/60"
+              }`}
+            >
+              {cohortLabel(detail.participant?.cohort)}
+              {detail.participant?.clinic_ref ? ` · ${detail.participant.clinic_ref}` : ""}
+            </span>
+            {detail.participant?.cohort === "unknown" && (
+              <Link href="/doctor/participants" className="text-xs text-violet hover:underline">
+                Assign a cohort
+              </Link>
+            )}
           </div>
         </div>
         {(summary.latest_zone || summary.latest_resilience_score !== null) && (
