@@ -81,7 +81,23 @@ export interface MlSource {
   patients: PatientFeatureRow[];
 }
 
-const PAGE = 20000;
+/**
+ * Rows requested per page.
+ *
+ * MUST stay below the project's PostgREST `max_rows` (Dashboard → Settings →
+ * API, 1000 by default). This was 20000, which silently broke the export: the
+ * server capped every response at max_rows, the `rows.length < PAGE` test was
+ * therefore true on the very first page, and the loop exited after 1000 rows.
+ * At 200 patients x ~180 days that delivered ~2.8% of the dataset with no
+ * error and no warning.
+ *
+ * The loops below now terminate on an EMPTY page rather than a short one, so
+ * the export stays correct even if max_rows is lowered again underneath us.
+ */
+const PAGE = 500;
+
+/** Hard stop so a non-advancing cursor can never spin forever. */
+const MAX_PAGES = 2000;
 
 /** Thrown when the 014 RPCs aren't deployed yet — surfaced as a friendly hint. */
 export class ExportUnavailableError extends Error {
@@ -111,6 +127,7 @@ async function fetchDaily(onProgress?: Progress): Promise<DailyRow[]> {
   const out: DailyRow[] = [];
   let afterUser: string | null = null;
   let afterDate: string | null = null;
+  let pages = 0;
   for (;;) {
     const { data, error } = await supabase.rpc("doctor_ml_daily", {
       p_since: null,
@@ -123,14 +140,20 @@ async function fetchDaily(onProgress?: Progress): Promise<DailyRow[]> {
       throw error;
     }
     const rows = (data ?? []) as DailyRow[];
+    // Terminate on an EMPTY page, never on a short one: the server may cap the
+    // response below PAGE, and a short page would then end the export early.
+    if (rows.length === 0) break;
     out.push(...rows);
     onProgress?.("daily rows", out.length);
-    if (rows.length < PAGE) break;
     const last = rows[rows.length - 1];
     // Cursor needs the raw ordering key; the RPC always returns it.
     if (!last.user_id) break;
+    // The keyset is (user_id, date) and the RPC orders by it, so the cursor
+    // must strictly advance. If it does not, stop rather than loop forever.
+    if (last.user_id === afterUser && last.date === afterDate) break;
     afterUser = last.user_id;
     afterDate = last.date;
+    if (++pages >= MAX_PAGES) break;
   }
   return out;
 }
@@ -139,6 +162,7 @@ async function fetchPredictions(onProgress?: Progress): Promise<PredictionRow[]>
   const out: PredictionRow[] = [];
   let afterUser: string | null = null;
   let afterAt: string | null = null;
+  let pages = 0;
   for (;;) {
     const { data, error } = await supabase.rpc("doctor_ml_predictions", {
       p_since: null,
@@ -151,24 +175,42 @@ async function fetchPredictions(onProgress?: Progress): Promise<PredictionRow[]>
       throw error;
     }
     const rows = (data ?? []) as PredictionRow[];
+    if (rows.length === 0) break;
     out.push(...rows);
     onProgress?.("prediction rows", out.length);
-    if (rows.length < PAGE) break;
     const last = rows[rows.length - 1];
     if (!last.user_id) break;
+    if (last.user_id === afterUser && last.predicted_at === afterAt) break;
     afterUser = last.user_id;
     afterAt = last.predicted_at;
+    if (++pages >= MAX_PAGES) break;
   }
   return out;
 }
 
+/**
+ * doctor_ml_patients() takes no limit and returns one row per exporting
+ * patient, so it is fully exposed to the PostgREST max_rows cap. One row per
+ * patient means a 200-patient pilot is comfortably clear of it, but a silent
+ * truncation here would drop whole patients out of the cohort file, so check.
+ */
 async function fetchPatients(): Promise<PatientFeatureRow[]> {
   const { data, error } = await supabase.rpc("doctor_ml_patients");
   if (error) {
     if (isMissingFunction(error.message)) throw new ExportUnavailableError();
     throw error;
   }
-  return (data ?? []) as PatientFeatureRow[];
+  const rows = (data ?? []) as PatientFeatureRow[];
+  // 1000 is the PostgREST default. Landing exactly on it is far more likely to
+  // be a cap than a coincidence.
+  if (rows.length === 1000) {
+    throw new Error(
+      "The patient cohort came back with exactly 1000 rows, which is the default " +
+        "PostgREST row cap — the export is probably truncated. Raise max_rows " +
+        "(Dashboard → Settings → API) or add paging to doctor_ml_patients() before trusting this bundle."
+    );
+  }
+  return rows;
 }
 
 /** Fetch the whole clinic's ML source once (all three feeds). */
