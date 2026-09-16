@@ -1,15 +1,20 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   AlertCircle,
+  AlertTriangle,
   ArrowLeft,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Copy,
+  Download,
   KeyRound,
   Loader2,
+  Search,
   Stethoscope,
   Users,
   XCircle,
@@ -21,18 +26,28 @@ import {
   cohortLabel,
   isNotAuthorizedError,
   type Cohort,
+  type DuplicateRow,
   type InviteRow,
   type ParticipantRow,
 } from "@/lib/doctorTypes";
+import { downloadCSV, toCSV } from "@/lib/csv";
 
 /*
- * Participants & invite codes (migration 034).
+ * Participants & invite codes.
  *
- * The clinic roster (/doctor) only ever shows exporting cohorts. This page is
- * the one place that lists EVERY account — unassigned signups first — so staff
- * can promote a real patient, mark a colleague as internal, and mint the codes
- * that put new patients in the right cohort from the start.
+ * Sized for a 200-patient pilot rather than a handful of testers, which means
+ * the list RPCs are now bounded and searchable SERVER-side (migration 038):
+ * they take search / cohort / limit / offset and report `total_count`. The
+ * previous version fetched every participant and every code ever minted, then
+ * re-fetched BOTH after every single-row edit — and PostgREST silently caps a
+ * response at max_rows, so the old approach would have started losing rows
+ * with no error at all.
+ *
+ * Cohort decides who reaches the clinic roster and the ML export. Everything
+ * here is therefore a data-integrity surface, not an admin convenience.
  */
+
+const PAGE_SIZE = 50;
 
 function fmtDate(value: string | null): string {
   if (!value) return "—";
@@ -50,47 +65,53 @@ const STATUS_CLASS: Record<InviteRow["status"], string> = {
   revoked: "bg-red-50 text-red-700",
 };
 
+/** Debounce a fast-changing value so typing does not fire one RPC per keystroke. */
+function useDebounced<T>(value: T, ms: number): T {
+  const [debounced, setDebounced] = useState(value);
+  useEffect(() => {
+    const id = setTimeout(() => setDebounced(value), ms);
+    return () => clearTimeout(id);
+  }, [value, ms]);
+  return debounced;
+}
+
 export default function ParticipantsClient() {
   const router = useRouter();
   const [checkedSession, setCheckedSession] = useState(false);
   const [notAuthorized, setNotAuthorized] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const [participants, setParticipants] = useState<ParticipantRow[] | null>(null);
-  const [invites, setInvites] = useState<InviteRow[] | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-    setNotAuthorized(false);
-    const { data: sessionData } = await supabase.auth.getSession();
-    if (!sessionData.session) {
-      router.replace("/doctor");
-      return;
-    }
-    setCheckedSession(true);
+  const [invites, setInvites] = useState<InviteRow[] | null>(null);
+  const [duplicates, setDuplicates] = useState<DuplicateRow[]>([]);
 
-    const [p, i] = await Promise.all([
-      supabase.rpc("staff_list_participants"),
-      supabase.rpc("staff_list_invites"),
+  const loadSecondary = useCallback(async () => {
+    const [i, d] = await Promise.all([
+      supabase.rpc("staff_list_invites", { p_limit: 200 }),
+      supabase.rpc("staff_duplicate_candidates"),
     ]);
-    const failure = p.error ?? i.error;
-    if (failure) {
-      if (isNotAuthorizedError(failure.message)) setNotAuthorized(true);
-      else setError(failure.message);
-      setParticipants(null);
-      setInvites(null);
+    if (i.error) {
+      if (isNotAuthorizedError(i.error.message)) setNotAuthorized(true);
+      else setError(i.error.message);
     } else {
-      setParticipants((p.data ?? []) as ParticipantRow[]);
       setInvites((i.data ?? []) as InviteRow[]);
     }
-    setLoading(false);
-  }, [router]);
+    // The detector is advisory; a missing function must not break the page.
+    if (!d.error) setDuplicates((d.data ?? []) as DuplicateRow[]);
+  }, []);
 
   useEffect(() => {
-    load();
-  }, [load]);
+    (async () => {
+      const { data: sessionData } = await supabase.auth.getSession();
+      if (!sessionData.session) {
+        router.replace("/doctor");
+        return;
+      }
+      setCheckedSession(true);
+      await loadSecondary();
+      setLoading(false);
+    })();
+  }, [router, loadSecondary]);
 
   return (
     <main className="min-h-screen bg-paper" dir="ltr">
@@ -119,15 +140,14 @@ export default function ParticipantsClient() {
             Loading…
           </div>
         ) : notAuthorized ? (
-          <Notice title="Not authorized">
-            This account is not on the clinic staff list.
-          </Notice>
+          <Notice title="Not authorized">This account is not on the clinic staff list.</Notice>
         ) : error ? (
           <Notice title="Could not load">{error}</Notice>
         ) : (
           <>
-            <InvitesPanel invites={invites ?? []} onChanged={load} />
-            <ParticipantsPanel rows={participants ?? []} onChanged={load} />
+            {duplicates.length > 0 && <DuplicateBanner rows={duplicates} />}
+            <InvitesPanel invites={invites ?? []} onChanged={loadSecondary} />
+            <ParticipantsPanel onCohortChanged={loadSecondary} />
           </>
         )}
       </div>
@@ -147,7 +167,41 @@ function Notice({ title, children }: { title: string; children: React.ReactNode 
   );
 }
 
-/* ------------------------------ Invite codes ------------------------------- */
+/* ---------------------------- Duplicate warning --------------------------- */
+
+/**
+ * A split record means half a patient's history is invisible to their doctor
+ * and to the avatar. There is no safe automatic merge, so this only ever
+ * reports: the fix is to set the empty duplicate to Internal so it never
+ * exports, and tell the patient which button to use.
+ */
+function DuplicateBanner({ rows }: { rows: DuplicateRow[] }) {
+  return (
+    <div className="rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm text-amber-900">
+      <div className="flex items-center gap-2 font-medium">
+        <AlertTriangle className="w-4 h-4" />
+        {rows.length} possible duplicate {rows.length === 1 ? "record" : "records"}
+      </div>
+      <ul className="mt-2 space-y-1.5">
+        {rows.map((r) => (
+          <li key={`${r.kind}:${r.key}`} className="flex flex-wrap items-baseline gap-x-2">
+            <span className="font-mono text-xs">{r.key}</span>
+            <span className="text-amber-800/80">{r.detail}</span>
+            <span className="text-xs text-amber-800/70">
+              ({r.emails.join(", ")} · {r.cohorts.join(", ")})
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-2 text-xs text-amber-800/80">
+        Do not merge them. Set the empty one to <strong>Internal</strong> so it never reaches the
+        dataset, and tell the patient which sign-in to use from now on.
+      </p>
+    </div>
+  );
+}
+
+/* ------------------------------ Invite codes ------------------------------ */
 
 function InvitesPanel({ invites, onChanged }: { invites: InviteRow[]; onChanged: () => void }) {
   const [cohort, setCohort] = useState<Exclude<Cohort, "unknown">>("clinic_patient");
@@ -178,6 +232,9 @@ function InvitesPanel({ invites, onChanged }: { invites: InviteRow[]; onChanged:
       return;
     }
     setMinted(String(data));
+    // The reference belongs to one patient; keeping it would silently stamp the
+    // next code with the previous patient's file number.
+    setClinicRef("");
     onChanged();
   }, [cohort, clinicRef, maxUses, expiresDays, note, onChanged]);
 
@@ -201,6 +258,23 @@ function InvitesPanel({ invites, onChanged }: { invites: InviteRow[]; onChanged:
     }
   }, []);
 
+  const exportCodes = useCallback(() => {
+    const csv = toCSV<InviteRow>(
+      [
+        { key: "code", label: "Code" },
+        { key: "cohort", label: "Cohort" },
+        { key: "clinic_ref", label: "Clinic reference" },
+        { key: "status", label: "Status" },
+        { key: "used_count", label: "Used" },
+        { key: "max_uses", label: "Max uses" },
+        { key: "expires_at", label: "Expires" },
+        { key: "note", label: "Note" },
+      ],
+      invites
+    );
+    downloadCSV(`invite-codes-${new Date().toISOString().slice(0, 10)}.csv`, csv);
+  }, [invites]);
+
   const visible = useMemo(
     () => (showAll ? invites : invites.filter((i) => i.status === "active")),
     [invites, showAll]
@@ -213,9 +287,11 @@ function InvitesPanel({ invites, onChanged }: { invites: InviteRow[]; onChanged:
         <h2 className="font-display text-xl text-ink">Invite codes</h2>
       </div>
       <p className="text-sm text-ink/60 mb-4 max-w-3xl">
-        A code puts a new account in the right cohort the moment the patient signs up. Give
-        each clinic patient their own code (one use). An account created without a code
-        stays <em>Unassigned</em> and is not part of any export until you assign it below.
+        A code puts a new account in the right cohort the moment the patient signs up. For a
+        send-out, mint ONE code with as many uses as patients and put it in the message; per-patient
+        codes only earn their keep when you need each patient&apos;s file reference recorded. An
+        account created without a code stays <em>Unassigned</em> and reaches no export until you
+        assign it below.
       </p>
 
       <div className="rounded-2xl border border-line bg-white p-5 shadow-sm">
@@ -306,9 +382,15 @@ function InvitesPanel({ invites, onChanged }: { invites: InviteRow[]; onChanged:
         <span className="text-xs uppercase tracking-wide text-ink/50">
           {showAll ? "All codes" : "Active codes"} · {visible.length}
         </span>
-        <button onClick={() => setShowAll((v) => !v)} className="text-xs text-violet hover:underline">
-          {showAll ? "Show active only" : "Show all"}
-        </button>
+        <div className="flex items-center gap-3">
+          <button onClick={exportCodes} className="inline-flex items-center gap-1.5 text-xs text-violet hover:underline">
+            <Download className="w-3.5 h-3.5" />
+            Export CSV
+          </button>
+          <button onClick={() => setShowAll((v) => !v)} className="text-xs text-violet hover:underline">
+            {showAll ? "Show active only" : "Show all"}
+          </button>
+        </div>
       </div>
       <div className="mt-2 overflow-x-auto rounded-2xl border border-line bg-white shadow-sm">
         <table className="w-full text-sm">
@@ -384,12 +466,57 @@ function InvitesPanel({ invites, onChanged }: { invites: InviteRow[]; onChanged:
   );
 }
 
-/* ------------------------------ Participants ------------------------------- */
+/* ------------------------------ Participants ------------------------------ */
 
-function ParticipantsPanel({ rows, onChanged }: { rows: ParticipantRow[]; onChanged: () => void }) {
-  const [filter, setFilter] = useState<"all" | Cohort>("all");
-  const [pending, setPending] = useState<string | null>(null);
+function ParticipantsPanel({ onCohortChanged }: { onCohortChanged: () => void }) {
+  const [rows, setRows] = useState<ParticipantRow[]>([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(0);
+  const [cohortFilter, setCohortFilter] = useState<"all" | Cohort>("all");
+  const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounced(search, 300);
+
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [bulkBusy, setBulkBusy] = useState(false);
+
+  // Guards against an older, slower response overwriting a newer one when the
+  // operator types quickly.
+  const requestSeq = useRef(0);
+
+  const load = useCallback(async () => {
+    const seq = ++requestSeq.current;
+    setLoading(true);
+    const { data, error: rpcError } = await supabase.rpc("staff_list_participants", {
+      p_search: debouncedSearch.trim() || null,
+      p_cohort: cohortFilter === "all" ? null : cohortFilter,
+      p_limit: PAGE_SIZE,
+      p_offset: page * PAGE_SIZE,
+    });
+    if (seq !== requestSeq.current) return;
+    if (rpcError) {
+      setError(rpcError.message);
+      setRows([]);
+      setTotal(0);
+    } else {
+      const list = (data ?? []) as ParticipantRow[];
+      setError(null);
+      setRows(list);
+      setTotal(list.length > 0 ? Number(list[0].total_count) : 0);
+    }
+    setLoading(false);
+  }, [debouncedSearch, cohortFilter, page]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  // A changed filter or search invalidates the page index.
+  useEffect(() => {
+    setPage(0);
+    setSelected(new Set());
+  }, [debouncedSearch, cohortFilter]);
 
   const setCohort = useCallback(
     async (row: ParticipantRow, cohort: Cohort) => {
@@ -398,30 +525,82 @@ function ParticipantsPanel({ rows, onChanged }: { rows: ParticipantRow[]; onChan
         cohort === "clinic_patient" && !row.clinic_ref
           ? window.prompt("Clinic reference for this patient (optional, no names):", "") ?? ""
           : "";
-      setPending(row.user_id);
-      setError(null);
+      // Optimistic: the old version re-fetched BOTH unbounded lists after every
+      // single row, which at 200 patients made a promote session hundreds of
+      // full-table queries.
+      setRows((prev) => prev.map((r) => (r.user_id === row.user_id ? { ...r, cohort } : r)));
       const { error: rpcError } = await supabase.rpc("staff_set_cohort", {
         p_user_id: row.user_id,
         p_cohort: cohort,
         p_clinic_ref: ref.trim() || null,
       });
-      setPending(null);
-      if (rpcError) setError(rpcError.message);
-      onChanged();
+      if (rpcError) {
+        setError(rpcError.message);
+        load(); // roll back to server truth
+        return;
+      }
+      onCohortChanged();
     },
-    [onChanged]
+    [load, onCohortChanged]
   );
 
-  const counts = useMemo(() => {
-    const c: Record<Cohort, number> = { clinic_patient: 0, friend_family: 0, internal_tester: 0, unknown: 0 };
-    for (const r of rows) c[r.cohort] += 1;
-    return c;
+  const bulkPromote = useCallback(
+    async (cohort: Cohort) => {
+      if (selected.size === 0) return;
+      if (!window.confirm(`Set ${selected.size} ${selected.size === 1 ? "account" : "accounts"} to ${cohortLabel(cohort)}?`))
+        return;
+      setBulkBusy(true);
+      const { error: rpcError } = await supabase.rpc("staff_set_cohort_bulk", {
+        p_user_ids: Array.from(selected),
+        p_cohort: cohort,
+        p_clinic_ref: null,
+      });
+      setBulkBusy(false);
+      if (rpcError) {
+        setError(rpcError.message);
+        return;
+      }
+      setSelected(new Set());
+      load();
+      onCohortChanged();
+    },
+    [selected, load, onCohortChanged]
+  );
+
+  const exportCSV = useCallback(() => {
+    const csv = toCSV<ParticipantRow>(
+      [
+        { key: "name", label: "Name" },
+        { key: "email", label: "Email" },
+        { key: "cohort", label: "Cohort" },
+        { key: "clinic_ref", label: "Clinic reference" },
+        { key: "platform", label: "Platform" },
+        { key: "member_since", label: "Joined" },
+        { key: "enrolled_at", label: "Enrolled" },
+        { key: "consent_version", label: "Consent" },
+        { key: "last_log_date", label: "Last log" },
+        { key: "log_days", label: "Days logged" },
+        { key: "has_healthkit", label: "Health data" },
+        { key: "invite_code", label: "Code" },
+      ],
+      rows
+    );
+    downloadCSV(`participants-${new Date().toISOString().slice(0, 10)}.csv`, csv);
   }, [rows]);
 
-  const visible = useMemo(
-    () => (filter === "all" ? rows : rows.filter((r) => r.cohort === filter)),
-    [rows, filter]
-  );
+  const selectableOnPage = useMemo(() => rows.filter((r) => !r.is_staff), [rows]);
+  const allSelected = selectableOnPage.length > 0 && selectableOnPage.every((r) => selected.has(r.user_id));
+
+  const toggleAll = () => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (allSelected) selectableOnPage.forEach((r) => next.delete(r.user_id));
+      else selectableOnPage.forEach((r) => next.add(r.user_id));
+      return next;
+    });
+  };
+
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
   return (
     <section>
@@ -436,88 +615,184 @@ function ParticipantsPanel({ rows, onChanged }: { rows: ParticipantRow[]; onChan
       </p>
 
       <div className="flex flex-wrap items-center gap-2 mb-3">
+        <div className="relative flex-1 min-w-[220px]">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ink/40" />
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search name, email, clinic reference or code…"
+            className="w-full rounded-full border border-line bg-white pl-9 pr-4 py-2 text-sm text-ink outline-none focus:border-violet focus:ring-2 focus:ring-violet/20"
+          />
+        </div>
         {(["all", ...COHORTS] as ("all" | Cohort)[]).map((c) => (
           <button
             key={c}
-            onClick={() => setFilter(c)}
+            onClick={() => setCohortFilter(c)}
             className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors ${
-              filter === c ? "border-violet bg-violet text-white" : "border-line bg-white text-ink/70 hover:bg-lilac"
+              cohortFilter === c ? "border-violet bg-violet text-white" : "border-line bg-white text-ink/70 hover:bg-lilac"
             }`}
           >
-            {c === "all" ? `All · ${rows.length}` : `${cohortLabel(c)} · ${counts[c]}`}
+            {c === "all" ? "All" : cohortLabel(c)}
           </button>
         ))}
-        {error && <span className="text-sm text-red-700 ml-2">{error}</span>}
+        <button onClick={exportCSV} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3.5 py-2 text-sm text-ink/70 hover:bg-lilac">
+          <Download className="w-4 h-4" />
+          CSV
+        </button>
       </div>
+
+      {selected.size > 0 && (
+        <div className="mb-3 flex flex-wrap items-center gap-2 rounded-2xl border border-violet/30 bg-violet/5 px-4 py-3 text-sm">
+          <span className="font-medium text-ink">{selected.size} selected</span>
+          <span className="text-ink/50">Set to:</span>
+          {COHORTS.map((c) => (
+            <button
+              key={c}
+              disabled={bulkBusy}
+              onClick={() => bulkPromote(c)}
+              className={`rounded-full px-3 py-1 text-xs font-medium disabled:opacity-60 ${COHORT_CLASS[c]}`}
+            >
+              {cohortLabel(c)}
+            </button>
+          ))}
+          <button onClick={() => setSelected(new Set())} className="ml-auto text-xs text-ink/50 hover:underline">
+            Clear
+          </button>
+        </div>
+      )}
+
+      {error && <div className="mb-3 text-sm text-red-700">{error}</div>}
 
       <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-sm">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-line text-left text-xs uppercase tracking-wide text-ink/50">
+              <th className="px-4 py-3 w-8">
+                <input type="checkbox" checked={allSelected} onChange={toggleAll} aria-label="Select all on this page" />
+              </th>
               <th className="px-4 py-3 font-medium">Account</th>
               <th className="px-4 py-3 font-medium">Cohort</th>
               <th className="px-4 py-3 font-medium">Ref</th>
+              <th className="px-4 py-3 font-medium">OS</th>
               <th className="px-4 py-3 font-medium">Joined</th>
               <th className="px-4 py-3 font-medium">Last log</th>
-              <th className="px-4 py-3 font-medium text-center">Days logged</th>
+              <th className="px-4 py-3 font-medium text-center">Days</th>
               <th className="px-4 py-3 font-medium text-center">Health</th>
               <th className="px-4 py-3 font-medium">Consent</th>
-              <th className="px-4 py-3 font-medium">Code</th>
               <th className="px-4 py-3" />
             </tr>
           </thead>
           <tbody>
-            {visible.length === 0 && (
+            {loading && (
               <tr>
-                <td colSpan={10} className="px-4 py-6 text-center text-ink/50">
-                  Nobody here.
+                <td colSpan={11} className="px-4 py-6 text-center text-ink/50">
+                  <Loader2 className="inline w-4 h-4 animate-spin mr-2" />
+                  Loading…
                 </td>
               </tr>
             )}
-            {visible.map((r) => (
-              <tr key={r.user_id} className="border-b border-line/60 last:border-0 hover:bg-paper/60">
-                <td className="px-4 py-3">
-                  <div className="font-medium text-ink">{r.name || r.email || "Unknown"}</div>
-                  {r.name && r.email && <div className="text-xs text-ink/50">{r.email}</div>}
-                  {r.is_staff && (
-                    <span className="mt-1 inline-flex rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
-                      staff
-                    </span>
-                  )}
-                </td>
-                <td className="px-4 py-3">
-                  <select
-                    value={r.cohort}
-                    disabled={r.is_staff || pending === r.user_id}
-                    onChange={(e) => setCohort(r, e.target.value as Cohort)}
-                    className={`rounded-full border-0 px-2.5 py-1 text-xs font-medium ${COHORT_CLASS[r.cohort]} disabled:opacity-60`}
-                    title={r.is_staff ? "Staff accounts are always internal" : "Change cohort"}
-                  >
-                    {COHORTS.map((c) => (
-                      <option key={c} value={c}>
-                        {cohortLabel(c)}
-                      </option>
-                    ))}
-                  </select>
-                </td>
-                <td className="px-4 py-3 text-ink/70">{r.clinic_ref || "—"}</td>
-                <td className="px-4 py-3 text-ink/70">{fmtDate(r.member_since)}</td>
-                <td className="px-4 py-3 text-ink/70">{fmtDate(r.last_log_date)}</td>
-                <td className="px-4 py-3 text-center text-ink/80">{r.log_days ?? "—"}</td>
-                <td className="px-4 py-3 text-center">
-                  {r.has_healthkit ? <Check className="inline w-4 h-4 text-emerald-600" /> : <span className="text-ink/40">—</span>}
-                </td>
-                <td className="px-4 py-3 text-ink/70">{r.consent_version || <span className="text-amber-700">none</span>}</td>
-                <td className="px-4 py-3 font-mono text-xs text-ink/60">{r.invite_code || "—"}</td>
-                <td className="px-4 py-3 text-right">
-                  <Link href={`/doctor/patient?id=${r.user_id}`} className="text-xs text-violet hover:underline">
-                    Open
-                  </Link>
+            {!loading && rows.length === 0 && (
+              <tr>
+                <td colSpan={11} className="px-4 py-6 text-center text-ink/50">
+                  Nobody matches.
                 </td>
               </tr>
-            ))}
+            )}
+            {!loading &&
+              rows.map((r) => (
+                <tr key={r.user_id} className="border-b border-line/60 last:border-0 hover:bg-paper/60">
+                  <td className="px-4 py-3">
+                    {!r.is_staff && (
+                      <input
+                        type="checkbox"
+                        checked={selected.has(r.user_id)}
+                        onChange={() =>
+                          setSelected((prev) => {
+                            const next = new Set(prev);
+                            if (next.has(r.user_id)) next.delete(r.user_id);
+                            else next.add(r.user_id);
+                            return next;
+                          })
+                        }
+                        aria-label={`Select ${r.email ?? r.user_id}`}
+                      />
+                    )}
+                  </td>
+                  <td className="px-4 py-3">
+                    <div className="font-medium text-ink">{r.name || r.email || "Unknown"}</div>
+                    {r.name && r.email && <div className="text-xs text-ink/50">{r.email}</div>}
+                    {r.is_staff && (
+                      <span className="mt-1 inline-flex rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+                        staff
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3">
+                    <select
+                      value={r.cohort}
+                      disabled={r.is_staff}
+                      onChange={(e) => setCohort(r, e.target.value as Cohort)}
+                      className={`rounded-full border-0 px-2.5 py-1 text-xs font-medium ${COHORT_CLASS[r.cohort]} disabled:opacity-60`}
+                      title={r.is_staff ? "Staff accounts are always internal" : "Change cohort"}
+                    >
+                      {COHORTS.map((c) => (
+                        <option key={c} value={c}>
+                          {cohortLabel(c)}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td className="px-4 py-3 text-ink/70">{r.clinic_ref || "—"}</td>
+                  <td className="px-4 py-3 text-ink/70">{r.platform ?? "—"}</td>
+                  <td className="px-4 py-3 text-ink/70">{fmtDate(r.member_since)}</td>
+                  <td className="px-4 py-3 text-ink/70">{fmtDate(r.last_log_date)}</td>
+                  <td className="px-4 py-3 text-center text-ink/80">{r.log_days ?? "—"}</td>
+                  <td className="px-4 py-3 text-center">
+                    {r.has_healthkit ? (
+                      <Check className="inline w-4 h-4 text-emerald-600" />
+                    ) : (
+                      <span className="text-ink/40">—</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-ink/70">
+                    {r.consent_version || <span className="text-amber-700">none</span>}
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <Link href={`/doctor/patient?id=${r.user_id}`} className="text-xs text-violet hover:underline">
+                      Open
+                    </Link>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="mt-3 flex items-center justify-between text-sm text-ink/60">
+        <span>
+          {total} {total === 1 ? "account" : "accounts"}
+          {pages > 1 && ` · page ${page + 1} of ${pages}`}
+        </span>
+        {pages > 1 && (
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setPage((p) => Math.max(0, p - 1))}
+              disabled={page === 0}
+              className="inline-flex items-center gap-1 rounded-full border border-line bg-white px-3 py-1.5 disabled:opacity-40"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Previous
+            </button>
+            <button
+              onClick={() => setPage((p) => Math.min(pages - 1, p + 1))}
+              disabled={page >= pages - 1}
+              className="inline-flex items-center gap-1 rounded-full border border-line bg-white px-3 py-1.5 disabled:opacity-40"
+            >
+              Next
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

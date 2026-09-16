@@ -66,6 +66,17 @@ export interface ParticipantInfo {
 }
 
 // staff_list_participants() — every account, unknowns first.
+/** Rows that staff_duplicate_candidates() flags for human review (042). */
+export type DuplicateKind = "same_email" | "same_clinic_ref" | "apple_relay";
+export interface DuplicateRow {
+  kind: DuplicateKind;
+  key: string;
+  user_ids: string[];
+  emails: string[];
+  cohorts: string[];
+  detail: string;
+}
+
 export interface ParticipantRow {
   user_id: string;
   email: string | null;
@@ -80,6 +91,10 @@ export interface ParticipantRow {
   has_healthkit: boolean | null;
   is_staff: boolean;
   invite_code: string | null;
+  /** Appended by 038: rows matching the filter, ignoring limit/offset. */
+  total_count: number;
+  /** Appended by 040 via participant_quality. */
+  platform: string | null;
 }
 
 // staff_list_invites()
@@ -97,6 +112,8 @@ export interface InviteRow {
   revoked_at: string | null;
   status: InviteStatus;
   note: string | null;
+  /** Appended by 038. */
+  total_count: number;
 }
 
 export interface ResilienceTrendPoint {
