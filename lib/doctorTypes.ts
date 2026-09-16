@@ -44,12 +44,17 @@ export interface PatientSummary {
   latest_gad2: number | null;
   latest_isi: number | null;
   last_log_date: string | null;
-  // appended by 034
+  // appended by 034, rebuilt by 039
+  //
+  // has_healthkit and conversation_count were REMOVED from patient_summary in
+  // migration 039: neither was ever rendered from the roster, and computing
+  // them there dragged participant_quality's five correlated sub-queries into
+  // every roster load — for every participant, not just the exported ones.
+  // has_healthkit still exists on ParticipantRow, which reads
+  // staff_list_participants instead.
   cohort: Cohort | null;
   days_enrolled: number | null;
   log_days: number | null;
-  has_healthkit: boolean | null;
-  conversation_count: number | null;
 }
 
 export interface ParticipantInfo {
